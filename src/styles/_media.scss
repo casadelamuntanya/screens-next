@@ -1,0 +1,24 @@
+figure {
+	position: relative;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	figcaption {
+		font-size: 0.5rem;
+		display: inline-block;
+		color: #fff;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		padding: 0.5em 1em;
+		font-weight: lighter;
+	}
+}

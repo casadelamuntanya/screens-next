@@ -1,0 +1,21 @@
+.nav-locales {
+	display: flex;
+	position: absolute;
+	right: 0;
+
+	button {
+		appearance: none;
+		border: 0;
+		font: inherit;
+		background: transparent;
+		text-transform: uppercase;
+		height: var(--size-touch);
+		padding: 0 0.75rem;
+		opacity: 0.25;
+
+		&.is-active {
+			opacity: 1;
+			font-weight: bold;
+		}
+	}
+}

@@ -1,3 +1,9 @@
-:root {
-	font-size: 16px;
+@import
+	'variables',
+	'layout',
+	'typography',
+	'buttons',
+	'media';
+
+* { box-sizing: border-box; }
 }

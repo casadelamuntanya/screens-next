@@ -1,0 +1,46 @@
+@mixin section-content($content) {
+	content:
+		$content
+		'\00a0\00a0\00a0\00a0-----------\00a0\00a0\00a0\00a0'
+		counter(counter__section, decimal-leading-zero);
+}
+
+section[data-tag] {
+	position: relative;
+	counter-increment: counter__section;
+	padding: 0 calc(2.5 * var(--spacing));
+
+	&::before,
+	&::after {
+		@include section-content(attr(data-tag));
+
+		display: flex;
+		text-transform: uppercase;
+		font-weight: bold;
+		writing-mode: vertical-rl;
+		font-size: var(--s);
+		white-space: nowrap;
+		font-family: var(--text-family--title);
+		position: absolute;
+	}
+
+	&::before {
+		top: 0;
+		left: 0;
+		transform: rotate(180deg);
+	}
+
+	&::after {
+		bottom: 0;
+		right: 0;
+	}
+}
+
+section[data-tag-pre] {
+	@extend [data-tag];
+
+	padding-right: 0;
+
+	&::before { @include section-content(attr(data-tag-pre)); }
+	&::after { display: none; }
+}
