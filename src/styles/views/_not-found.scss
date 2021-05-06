@@ -1,0 +1,16 @@
+#not-found {
+	figure {
+		h1 {
+			line-height: 0;
+			font-size: 17em;
+			color: rgba(#000, 0.05);
+			text-align: center;
+			padding: 0 1rem 30rem;
+		}
+
+		img {
+			filter: saturate(0.4);
+			mask-image: linear-gradient(to bottom, transparent 0%, #000 75%);
+		}
+	}
+}
