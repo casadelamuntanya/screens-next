@@ -2,7 +2,7 @@
 	<div class="app">
 		<header class="app__header">
 			<router-link to="/" class="app__logo">
-				<img src="/images/vectors/logo.svg">
+				<img v-svg-inline src="/images/vectors/logo.svg">
 			</router-link>
 			<nav-locale />
 		</header>

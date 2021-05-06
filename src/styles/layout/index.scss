@@ -19,11 +19,14 @@
 		justify-content: center;
 		padding: var(--spacing) 0;
 		margin: var(--spacing) calc(2 * var(--spacing)) 0;
+	}
 
-		img {
-			display: block;
-			height: 52px;
-		}
+	&__logo {
+		color: inherit;
+		height: 52px;
+
+		img,
+		svg { height: 100%; }
 	}
 
 	&__main {
