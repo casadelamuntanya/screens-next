@@ -7,6 +7,7 @@
 			<nav-locale />
 		</header>
 		<main class="app__main center">
+			<router-view />
 		</main>
 	</div>
 </template>
