@@ -19,3 +19,69 @@
 		}
 	}
 }
+
+.nav-grid {
+	height: 100%;
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(24, 1fr);
+	grid-template-rows: repeat(36, 1fr);
+	padding-bottom: var(--spacing);
+
+	a {
+		position: relative;
+
+		figure {
+			height: 100%;
+			width: 100%;
+			filter: saturate(0.4) opacity(0.85);
+		}
+
+		h1 {
+			position: absolute;
+			color: var(--text-color);
+			text-shadow: 0 0 70px #fff;
+
+			&.center {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			&.top { top: -0.8em; }
+			&.right { right: -0.5em; }
+			&.left { left: -0.5em; }
+			&.bottom { bottom: -0.75em; }
+			&.vertical { writing-mode: vertical-lr; }
+			&.left.vertical { transform: rotate(180deg); }
+
+			// Fix overlying figcaption position
+			&.right + figure figcaption {
+				left: 0;
+				right: auto;
+			}
+
+			&.bottom:not(.vertical) + figure figcaption {
+				top: 0;
+				bottom: auto;
+				left: 0;
+				right: auto;
+			}
+		}
+	}
+
+	.nav-about {
+		grid-area: 1 / 3 / span 4 / span 4;
+
+		h1 {
+			top: 50%;
+			left: 100%;
+			transform: translate(30px, -50%);
+		}
+	}
+
+	.nav-discover { grid-area: 8 / 2 / span 7 / span 9; }
+	.nav-safety { grid-area: 3 / 15 / span 10 / span 9; }
+	.nav-commitment { grid-area: 16 / 16 / span 7 / span 9; }
+	.nav-snow_science { grid-area: 18 / 1 / span 8 / span 11; }
+	.nav-explore { grid-area: 29 / 1 / span 7 / span 9; }
+	.nav-kids { grid-area: 32 / 14 / span 5 / span 10; }
+}
