@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import NavLocale from '/@/views/NavLocale.vue';
+import NavLocale from '/@/layouts/NavLocale.vue';
 
 export default {
 	name: 'App',
