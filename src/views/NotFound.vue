@@ -1,8 +1,8 @@
 <template>
-	<div id="not-found">
-		<figure>
+	<div id="not-found" class="center">
+		<figure class="attribution cover">
 			<h1>404</h1>
-			<img src="https://source.unsplash.com/KkCig7EbfoA/800x500">
+			<img src="https://source.unsplash.com/KkCig7EbfoA/1100x800">¡
 			<figcaption>photo by Andrew Neel on Unsplash</figcaption>
 		</figure>
 		<section>

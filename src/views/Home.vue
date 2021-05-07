@@ -7,7 +7,7 @@
 				:class="`nav-${route.name}`"
 				:to="route.path">
 				<h1 :class="route.title">{{ t(`navigation.${route.name}`) }}</h1>
-				<figure>
+				<figure class="attribution cover">
 					<img :src="route.image.url">
 					<figcaption v-if="route.image.attribution">
 						{{ route.image.attribution }}
