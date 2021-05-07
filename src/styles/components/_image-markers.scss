@@ -1,0 +1,17 @@
+.image-markers {
+	text-align: center;
+
+	&__marker {
+		background: var(--color-dark);
+		color: var(--color-light);
+		border-radius: 50%;
+		font-size: 1.5em;
+		width: var(--size-touch);
+		height: var(--size-touch);
+		display: block;
+		text-align: center;
+		line-height: var(--size-touch);
+		position: relative;
+		box-shadow: 0 0 0 0.5em #0003;
+	}
+}
