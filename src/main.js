@@ -5,6 +5,7 @@ import router from './router';
 import App from './App.vue';
 
 import 'reset-css';
+import 'remixicon/fonts/remixicon.css';
 import './styles/main.scss';
 
 const app = createApp(App);
