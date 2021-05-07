@@ -24,20 +24,20 @@
 	</section>
 	<section :data-tag="t('safety.rescue.distress_signals')">
 		<div class="columns">
-			<article>
+			<article class="column">
 				<p>{{ t('safety.rescue.distress.helicopter_message') }}</p>
 				<div class="columns">
-					<figure class="silhouette">
+					<figure class="column silhouette">
 						<img v-svg-inline src="/images/vectors/silhouettes/hands_up.svg">
 						<figcaption>{{ t('safety.rescue.distress.helicopter_yes') }}</figcaption>
 					</figure>
-					<figure class="silhouette">
+					<figure class="column silhouette">
 						<img v-svg-inline src="/images/vectors/silhouettes/hand_up.svg">
 						<figcaption>{{ t('safety.rescue.distress.helicopter_no') }}</figcaption>
 					</figure>
 				</div>
 			</article>
-			<article class="stack">
+			<article class="column stack">
 				<p>{{ t('safety.rescue.distress.morse_sos') }}</p>
 				<p class="center sos">
 					<span data-morse-beep="S">S</span>
