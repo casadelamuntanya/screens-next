@@ -7,7 +7,7 @@
 	</section>
 	<!-- Floorplan -->
 	<section class="stack" :data-tag="t('about.floorplan')">
-		<image-markers :markers="markers" class="floorplan">
+		<image-markers :markers="markers" class="center">
 			<img src="/images/vectors/floorplan.svg" width="650">
 			<template #marker="{ marker }">
 				<span :data-tooltip="t(`about.zones.${marker.id}`)">
