@@ -1,6 +1,6 @@
 <template>
 	<section class="stack block-image">
-		<figure class="attribution cover shadow-br">
+		<figure class="attribution cover faded shadow-br">
 			<img src="https://source.unsplash.com/HaHd7dG2YnA/900x1000">
 			<figcaption>photo by Hannah Tims on Unsplash</figcaption>
 		</figure>

@@ -1,6 +1,6 @@
 <template>
 	<section class="stack block-image">
-		<figure class="attribution cover shadow-br">
+		<figure class="attribution cover faded shadow-br">
 			<img src="https://images.pexels.com/photos/263356/pexels-photo-263356.jpeg">
 			<figcaption>photo by pixabay on Pexels</figcaption>
 		</figure>
