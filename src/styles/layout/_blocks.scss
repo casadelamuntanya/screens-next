@@ -1,23 +1,23 @@
-.block-image {
-	@extend .row;
+.block-video {
+	padding-left: 6rem !important;
 
-	padding: 4rem;
+	h1 { margin: 0 0 -0.5em -0.5em; }
+}
+
+.block-image {
+	display: flex;
+	padding: 2rem;
+	flex-direction: row !important;
 
 	figure {
-		@extend .col;
-		@extend .col--3;
+		flex: 0 0 60%;
+		margin-right: 0;
 	}
 
-	.box {
-		margin: var(--spacing) 0 -4rem -7rem;
-	}
-
-	&__desc {
-		@extend .col;
-		@extend .col--2;
-
-		z-index: 1;
+	section {
 		margin-top: auto;
-		margin-left: var(--spacing);
+		z-index: 1;
 	}
+
+	.box { margin: var(--spacing) 0 -5rem -10rem; }
 }

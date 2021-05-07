@@ -53,7 +53,6 @@ export default {
 <style lang="scss" scoped>
 .video-player {
 	position: relative;
-	overflow: hidden;
 	pointer-events: none;
 
 	iframe {

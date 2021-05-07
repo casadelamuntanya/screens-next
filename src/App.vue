@@ -6,7 +6,7 @@
 			</router-link>
 			<nav-locale />
 		</header>
-		<main class="app__main center">
+		<main class="stack">
 			<router-view />
 		</main>
 	</div>

@@ -1,5 +1,5 @@
 <template>
-	<section class="fill" :data-tag="t('navigation.menu')">
+	<section class="stack" :data-tag="t('navigation.menu')">
 		<div class="nav-grid">
 			<router-link
 				v-for="route in routes"
@@ -7,7 +7,7 @@
 				:class="`nav-${route.name}`"
 				:to="route.path">
 				<h1 :class="route.title">{{ t(`navigation.${route.name}`) }}</h1>
-				<figure>
+				<figure class="attribution cover">
 					<img :src="route.image.url">
 					<figcaption v-if="route.image.attribution">
 						{{ route.image.attribution }}

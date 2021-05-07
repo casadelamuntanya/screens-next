@@ -19,9 +19,10 @@
 		background: var(--color-dark);
 		transform: translate(-50%, -20px);
 		content: attr(data-tooltip);
+		font-size: 1rem;
+		line-height: 1.2;
 		white-space: pre-wrap;
-		min-width: 160px;
-		max-width: 300px;
+		width: 225px;
 	}
 
 	&::after {
