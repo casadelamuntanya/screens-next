@@ -1,8 +1,8 @@
 <template>
 	<!-- Intro video -->
-	<section :data-tag="t('about.vision')">
+	<section class="block-video" :data-tag="t('about.vision')">
 		<h1>CASA DE LA MUNTANYA</h1>
-		<video-embed :src="video" :subs="locale" />
+		<video-embed :src="video" :subs="locale" class="shadow-bl" />
 		<p>{{ t('about.our_vision') }}</p>
 	</section>
 	<!-- Floorplan -->

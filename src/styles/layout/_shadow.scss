@@ -1,17 +1,38 @@
 .shadow {
-	&::before {
-		content: '';
-		display: block;
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		background: var(--color-dark);
-		opacity: 0.05;
-		z-index: -1;
+	&-tl,
+	&-tr,
+	&-br,
+	&-bl {
+		position: relative;
+
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			background: var(--color-dark);
+			opacity: 0.04;
+		}
 	}
 
-	&--right::before { margin-left: 3em; }
-	&--top::before { margin-top: -3em; }
-	&--bottom::before { margin-top: 3em; }
-	&--left::before { margin-left: -3em; }
+	&-tl::before {
+		margin-left: -3em;
+		margin-top: -3em;
+	}
+
+	&-tr::before {
+		margin-left: 3em;
+		margin-top: -3em;
+	}
+
+	&-br::before {
+		margin-left: 3em;
+		margin-top: 3em;
+	}
+
+	&-bl::before {
+		margin-left: -3em;
+		margin-top: 3em;
+	}
 }
