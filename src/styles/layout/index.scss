@@ -60,3 +60,12 @@ section {
 		width: calc(100% - calc(2 * var(--spacing)));
 	}
 }
+
+.box {
+	background: var(--color-dark);
+	color: var(--color-light);
+	padding: 2rem 3rem;
+	z-index: 2;
+
+	&--alert { background: var(--color-alert); }
+}

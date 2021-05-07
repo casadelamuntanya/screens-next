@@ -8,10 +8,15 @@
 		@extend .col--3;
 	}
 
+	.box {
+		margin: var(--spacing) 0 -4rem -7rem;
+	}
+
 	&__desc {
 		@extend .col;
 		@extend .col--2;
 
+		z-index: 1;
 		margin-top: auto;
 		margin-left: var(--spacing);
 	}
