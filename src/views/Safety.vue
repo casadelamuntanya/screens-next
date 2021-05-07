@@ -1,22 +1,12 @@
 <template>
-	<div id="safety" class="grid fill">
-		<div class="row row--tight">
-			<div class="col">
-				<ul class="nav-sec">
-					<li v-for="page in pages" :key="page.name">
-						<router-link :to="`/safety/${page.path}`">
-							{{ t(`safety.pages.${page.name}`) }}
-						</router-link>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<router-view />
-			</div>
-		</div>
-	</div>
+	<ul class="nav-sec">
+		<li v-for="page in pages" :key="page.name">
+			<router-link :to="`/safety/${page.path}`">
+				{{ t(`safety.pages.${page.name}`) }}
+			</router-link>
+		</li>
+	</ul>
+	<router-view />
 </template>
 
 <script>

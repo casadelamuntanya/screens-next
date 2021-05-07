@@ -1,28 +1,35 @@
 @import
-	'grid',
 	'list',
-	'tag',
 	'tooltip',
 	'shadow',
 	'blocks',
+	'section',
 	'navigation';
 
-.app {
+.stack {
 	display: flex;
 	flex-direction: column;
+	flex: 1;
+}
+
+.center { margin: auto; }
+
+.app {
+	@extend .stack;
+
 	height: 100vh;
 	font: 1rem / 1.2 'Roboto', 'Arial', sans-serif;
 	color: var(--text-color);
+	padding: var(--spacing);
 	user-select: none;
 	counter-reset: counter__section;
 
 	&__header {
 		display: flex;
-		position: relative;
 		align-items: center;
+		position: relative;
 		justify-content: center;
-		padding: var(--spacing) 0;
-		margin: var(--spacing) calc(2 * var(--spacing)) 0;
+		margin: var(--spacing);
 	}
 
 	&__logo {
@@ -31,33 +38,6 @@
 
 		img,
 		svg { height: 100%; }
-	}
-
-	&__main {
-		flex: 1;
-		padding: var(--spacing);
-	}
-}
-
-.fill {
-	flex: 1;
-	height: 100%;
-	width: 100%;
-}
-
-.center {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-section {
-	margin: var(--spacing);
-
-	&.fill {
-		height: calc(100% - calc(2 * var(--spacing)));
-		width: calc(100% - calc(2 * var(--spacing)));
 	}
 }
 
