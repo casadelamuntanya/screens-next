@@ -1,0 +1,18 @@
+.block-image {
+	@extend .row;
+
+	padding: 4rem;
+
+	figure {
+		@extend .col;
+		@extend .col--3;
+	}
+
+	&__desc {
+		@extend .col;
+		@extend .col--2;
+
+		margin-top: auto;
+		margin-left: var(--spacing);
+	}
+}
