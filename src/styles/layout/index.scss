@@ -1,9 +1,11 @@
 @import
-	'list',
 	'section',
+	'box',
+	'columns',
+	'blocks',
+	'list',
 	'tooltip',
 	'shadow',
-	'blocks',
 	'navigation';
 
 .stack {
@@ -39,13 +41,4 @@
 		img,
 		svg { height: 100%; }
 	}
-}
-
-.box {
-	background: var(--color-dark);
-	color: var(--color-light);
-	padding: 2rem 3rem;
-	z-index: 2;
-
-	&--alert { background: var(--color-alert); }
 }

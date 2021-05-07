@@ -5,6 +5,8 @@ figure {
 	margin: var(--spacing);
 
 	img { display: block; }
+
+	figcaption { opacity: 0.5; }
 }
 
 figure.attribution figcaption {

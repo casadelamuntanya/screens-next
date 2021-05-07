@@ -1,5 +1,5 @@
 <template>
-	<ul class="nav-sec">
+	<ul class="nav-bar">
 		<li v-for="page in pages" :key="page.name">
 			<router-link :to="`/safety/${page.path}`">
 				{{ t(`safety.pages.${page.name}`) }}
