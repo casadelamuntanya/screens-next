@@ -35,3 +35,23 @@
 		}
 	}
 }
+
+.icon-list {
+	li {
+		display: inline-flex;
+		width: 100%;
+		align-items: center;
+		margin: calc(0.5 * var(--spacing)) 0;
+	}
+
+	.icon {
+		height: 2em;
+		width: 2em;
+		margin-right: 1em;
+	}
+}
+
+.list-cols-2 {
+	column-count: 2;
+	column-gap: var(--spacing);
+}

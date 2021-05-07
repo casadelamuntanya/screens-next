@@ -16,6 +16,8 @@
 
 .center { margin: auto; }
 
+.ungutter { margin: 0 calc(-1 * var(--spacing)); }
+
 .app {
 	@extend .stack;
 
