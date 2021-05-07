@@ -89,3 +89,35 @@
 	.nav-explore { grid-area: 29 / 1 / span 7 / span 9; }
 	.nav-kids { grid-area: 32 / 14 / span 5 / span 10; }
 }
+
+.nav-sec {
+	display: flex;
+	justify-content: center;
+	margin-bottom: var(--spacing);
+
+	a {
+		line-height: var(--size-touch);
+		padding: 0 1rem;
+		text-transform: uppercase;
+		opacity: 0.4;
+		text-align: center;
+		color: inherit;
+		transition: all 0.5s ease;
+
+		&::after {
+			content: '';
+			display: block;
+			height: 2px;
+			width: 0;
+			background: currentColor;
+			transition: inherit;
+			margin: 0 auto;
+		}
+
+		&.router-link-exact-active {
+			opacity: 1;
+
+			&::after { width: 100%; }
+		}
+	}
+}
