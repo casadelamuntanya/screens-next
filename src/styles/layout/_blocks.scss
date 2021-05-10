@@ -9,15 +9,14 @@
 	padding: 2rem;
 	flex-direction: row !important;
 
-	figure {
-		flex: 0 0 60%;
-		margin-right: 0;
-	}
+	figure { flex: 0 0 50%; }
+	&.image-thin figure { flex-basis: 40%; }
+	&.image-thick figure { flex-basis: 60%; }
 
 	section {
 		margin-top: auto;
 		z-index: 1;
 	}
 
-	.box { margin: var(--spacing) 0 -5rem -10rem; }
+	.box { margin: var(--spacing) 0 -5rem -7rem; }
 }
