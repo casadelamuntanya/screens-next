@@ -1,7 +1,11 @@
 .columns {
 	display: flex;
+	flex-direction: row !important;
 
-	&:not(section) { margin: 0 calc(-1 * var(--spacing)); }
+	&:not(section) {
+		margin-left: calc(-1 * var(--spacing));
+		margin-right: calc(-1 * var(--spacing));
+	}
 
 	.column {
 		flex: 1;

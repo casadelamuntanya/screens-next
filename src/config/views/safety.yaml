@@ -37,3 +37,28 @@ species:
     image:
       url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Vipera_aspis_aspis.jpg/640px-Vipera_aspis_aspis.jpg
       attribution: CC BY-SA 3.0 photo by Felix Reimann from Wikimedia Commons
+
+thunderstorm:
+  # https://www.youtube.com/embed/zUNEFefftt8
+  # https://player.vimeo.com/video/134810545
+  video: https://player.vimeo.com/video/134810545
+  dos:
+    - metal_contact
+    - spread_group
+    - find_shelter
+  donts:
+    - no_run
+    - not_safe_places
+  markers:
+    - id: crouch_down
+      left: 80
+      top: 55
+    - id: protect_ears
+      left: 17
+      top: 23
+    - id: touch_heels
+      left: 62
+      top: 78
+    - id: feet_balls
+      left: 33
+      top: 87

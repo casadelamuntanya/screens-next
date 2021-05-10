@@ -18,7 +18,6 @@
 			box-sizing: border-box;
 			position: relative;
 			padding: 4rem var(--spacing) 0;
-			// margin-top: calc(2 * var(--spacing));
 
 			&::before {
 				counter-increment: list-counter;
@@ -45,9 +44,13 @@
 	}
 
 	.icon {
-		height: 2em;
-		width: 2em;
-		margin-right: 1em;
+		height: 1em;
+		width: 1em;
+		font-size: 2em;
+		margin-right: 0.75em;
+
+		&--success { color: var(--color-success); }
+		&--alert { color: var(--color-alert); }
 	}
 }
 
