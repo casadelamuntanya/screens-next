@@ -30,4 +30,6 @@ figure.cover img {
 	object-fit: cover;
 }
 
+img.cover { object-fit: cover; }
+
 .faded { filter: saturate(0.5) opacity(0.9); }

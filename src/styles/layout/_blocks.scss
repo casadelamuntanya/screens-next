@@ -19,4 +19,9 @@
 	}
 
 	.box { margin: var(--spacing) 0 -5rem -7rem; }
+
+	&.reverse {
+		flex-direction: row-reverse !important;
+		text-align: right;
+	}
 }
