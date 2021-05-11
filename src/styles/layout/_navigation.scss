@@ -73,9 +73,10 @@
 	justify-content: center;
 	margin: var(--spacing);
 
+	li + li { margin-left: 2em; }
+
 	a {
 		line-height: var(--size-touch);
-		padding: 0 1rem;
 		text-transform: uppercase;
 		opacity: 0.4;
 		text-align: center;
