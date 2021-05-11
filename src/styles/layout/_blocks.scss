@@ -9,8 +9,16 @@
 	padding: 2rem;
 	flex-direction: row !important;
 
+	img,
+	svg,
 	figure { flex: 0 0 50%; }
+
+	&.image-thin img,
+	&.image-thin svg,
 	&.image-thin figure { flex-basis: 40%; }
+
+	&.image-thick img,
+	&.image-thick svg,
 	&.image-thick figure { flex-basis: 60%; }
 
 	section {

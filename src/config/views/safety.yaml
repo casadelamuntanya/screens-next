@@ -62,3 +62,41 @@ thunderstorm:
     - id: feet_balls
       left: 33
       top: 87
+
+hypothermia:
+  animation:
+    min: 28
+    max: 37
+    colors: ['#c23b22', '#BA4635', '#B15148', '#A95C5A', '#A1676D', '#987280', '#907D93', '#8888A5', '#7F93B8', '#779ECB']
+    timeouts:
+      decrease: 500
+      increase: 10
+      wait: 5000
+  symptoms:
+    normal: [36.5, 37]
+    chill: [32.1, 36.5]
+    sensory_loss: [28.5, 36.5]
+    speech_impairment: [28.5, 35]
+    memory_loss: [28.5, 34]
+    motor_uncoordination: [28.5, 34]
+    arrhythmia: [28.1, 29]
+    cardiorespiratory_arrest: [28.1, 29]
+    death: [28, 28]
+  prevention:
+    dos:
+      - drink
+      - rest
+      - warm
+      - clothes
+    donts:
+      - avoid_cotton
+  treatment:
+    dos:
+      - call_er
+      - isolate
+      - dry
+      - cover
+      - warm_drink
+    donts:
+      - no_alcohol
+      - no_heat
