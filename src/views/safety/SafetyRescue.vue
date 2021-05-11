@@ -28,11 +28,11 @@
 				<p>{{ t('safety.rescue.distress.helicopter_message') }}</p>
 				<div class="columns">
 					<figure class="column silhouette">
-						<img v-svg-inline src="/images/vectors/silhouettes/hands_up.svg">
+						<inline-svg src="/images/vectors/silhouettes/hands_up.svg" />
 						<figcaption>{{ t('safety.rescue.distress.helicopter_yes') }}</figcaption>
 					</figure>
 					<figure class="column silhouette">
-						<img v-svg-inline src="/images/vectors/silhouettes/hand_up.svg">
+						<inline-svg src="/images/vectors/silhouettes/hand_up.svg" />
 						<figcaption>{{ t('safety.rescue.distress.helicopter_no') }}</figcaption>
 					</figure>
 				</div>
@@ -51,9 +51,11 @@
 
 <script>
 import { useI18n } from 'vue-i18n';
+import InlineSvg from 'vue-inline-svg';
 
 export default {
 	name: 'SafetyRescue',
+	components: { InlineSvg },
 	setup() {
 		const { t } = useI18n();
 
