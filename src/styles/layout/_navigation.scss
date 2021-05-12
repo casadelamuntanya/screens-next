@@ -1,32 +1,9 @@
-.nav-locales {
-	display: flex;
-	position: absolute;
-	right: 0;
-
-	button {
-		appearance: none;
-		border: 0;
-		font: inherit;
-		background: transparent;
-		text-transform: uppercase;
-		height: var(--size-touch);
-		padding: 0 0.75rem;
-		opacity: 0.25;
-
-		&.is-active {
-			opacity: 1;
-			font-weight: bold;
-		}
-	}
-}
-
 .nav-grid {
 	height: 100%;
 	display: grid;
 	position: relative;
 	grid-template-columns: repeat(24, 1fr);
 	grid-template-rows: repeat(36, 1fr);
-	padding-bottom: var(--spacing);
 
 	a {
 		position: relative;
@@ -34,6 +11,7 @@
 		figure {
 			height: 100%;
 			width: 100%;
+			margin: 0;
 			filter: saturate(0.4) opacity(0.85);
 		}
 
@@ -88,4 +66,59 @@
 	.nav-snow_science { grid-area: 18 / 1 / span 8 / span 11; }
 	.nav-explore { grid-area: 29 / 1 / span 7 / span 9; }
 	.nav-kids { grid-area: 32 / 14 / span 5 / span 10; }
+}
+
+.nav-bar {
+	display: flex;
+	justify-content: center;
+	margin: var(--spacing);
+
+	li + li { margin-left: 2em; }
+
+	a {
+		line-height: var(--size-touch);
+		text-transform: uppercase;
+		opacity: 0.4;
+		text-align: center;
+		color: inherit;
+		transition: all 0.5s ease;
+
+		&::after {
+			content: '';
+			display: block;
+			height: 2px;
+			width: 0;
+			background: currentColor;
+			transition: inherit;
+			margin: 0 auto;
+		}
+
+		&.router-link-exact-active {
+			opacity: 1;
+
+			&::after { width: 100%; }
+		}
+	}
+}
+
+.nav-locales {
+	display: flex;
+	position: absolute;
+	right: 0;
+
+	button {
+		appearance: none;
+		border: 0;
+		font: inherit;
+		background: transparent;
+		text-transform: uppercase;
+		height: var(--size-touch);
+		padding: 0 0.75rem;
+		opacity: 0.25;
+
+		&.is-active {
+			opacity: 1;
+			font-weight: bold;
+		}
+	}
 }

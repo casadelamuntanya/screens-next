@@ -1,10 +1,8 @@
-@mixin section-content($content) {
-	content:
-		$content
-		'\00a0\00a0\00a0\00a0-----------\00a0\00a0\00a0\00a0'
-		counter(counter__section, decimal-leading-zero);
+section {
+	margin: var(--spacing);
 }
 
+section[data-tag-pre],
 section[data-tag] {
 	position: relative;
 	counter-increment: counter__section;
@@ -12,8 +10,10 @@ section[data-tag] {
 
 	&::before,
 	&::after {
-		@include section-content(attr(data-tag));
-
+		content:
+			attr(data-tag)
+			'\00a0\00a0\00a0\00a0-----------\00a0\00a0\00a0\00a0'
+			counter(counter__section, decimal-leading-zero);
 		display: flex;
 		text-transform: uppercase;
 		font-weight: bold;
@@ -37,10 +37,24 @@ section[data-tag] {
 }
 
 section[data-tag-pre] {
-	@extend [data-tag];
-
 	padding-right: 0;
 
-	&::before { @include section-content(attr(data-tag-pre)); }
+	&::before {
+		content:
+			attr(data-tag-pre)
+			'\00a0\00a0\00a0\00a0-----------\00a0\00a0\00a0\00a0'
+			counter(counter__section, decimal-leading-zero);
+	}
 	&::after { display: none; }
+}
+
+section[data-tag-pre].reverse {
+	padding-right: calc(2.5 * var(--spacing));
+	padding-left: 0;
+
+	&::before {
+		left: auto;
+		right: 0;
+		transform: none;
+	}
 }
