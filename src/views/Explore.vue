@@ -2,18 +2,25 @@
 	<section class="stack">
 		<div id="explore" class="map" />
 	</section>
-	<section data-tag="trails">
-		<button
-			v-for="trail in trails"
-			:key="trail"
-			@click="loadTrail(trail)">
-			{{ trail.name__ca }}
-		</button>
+	<section data-tag-pre="trails">
+		<ul class="scroller" v-dragscroll>
+			<li
+				v-for="trail in trails"
+				:key="trail"
+				@click="loadTrail(trail)"
+				class="card">
+				<figure class="cover faded">
+					<img :src="trail.img[0].thumbnails.large.url">
+				</figure>
+				<h4>{{ trail[`name__${locale}`] }}</h4>
+			</li>
+		</ul>
 	</section>
 </template>
 
 <script>
 import { ref, reactive, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useMap, useGeoJSON, useAnimations } from '/@/components/map';
 import airtable from '/@/apis/airtable';
 import config from '/@/config/views/explore.yaml';
@@ -23,10 +30,14 @@ const api = airtable(config.api.base);
 export default {
 	name: 'Explore',
 	setup() {
+		const { locale } = useI18n();
+
 		const geojson = reactive({});
 		const trails = ref([]);
+		const activeTrail = ref(undefined);
 
 		const loadTrail = trail => {
+			activeTrail.value = trail;
 			const { track: [{ url }]} = trail;
 			geojson.layers.removeLayer('trail');
 			geojson.layers.addLayer(url, {
@@ -52,7 +63,7 @@ export default {
 			trails.value = await api.get(config.api.tables.trails);
 		});
 
-		return { trails, loadTrail };
+		return { locale, trails, activeTrail, loadTrail };
 	},
 };
 </script>

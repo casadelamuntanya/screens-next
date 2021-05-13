@@ -1,0 +1,30 @@
+.card {
+	flex: 0;
+	appearance: none;
+	position: relative;
+	display: block;
+	padding: 6rem 80px;
+	background: transparent;
+	vertical-align: top;
+	font-size: var(--l);
+	margin: 1rem 0 0;
+
+	& + & { margin-left: 2rem; }
+
+	figure {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		mask-image: linear-gradient(to bottom, #0008 0%, #000 30%);
+	}
+
+	h4 {
+		margin: -0.5em;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}

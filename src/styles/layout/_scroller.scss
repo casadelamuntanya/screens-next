@@ -1,0 +1,19 @@
+.scroller {
+	overflow: auto;
+	display: flex;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+	&::-webkit-scrollbar { display: none; }
+
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10.828 12l4.95 4.95-1.414 1.414L8 12l6.364-6.364 1.414 1.414z"/></svg>') no-repeat center center;
+		flex: 0 0 calc(2 * var(--spacing));
+	}
+	&::after { transform: rotate(180deg); }
+
+	[data-tag-pre] & { margin-left: calc(-1 * var(--spacing)); }
+	[data-tag] & { margin: 0 calc(-1 * var(--spacing)); }
+}
