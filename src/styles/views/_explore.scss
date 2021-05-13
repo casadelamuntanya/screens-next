@@ -1,0 +1,19 @@
+// Trails scroller
+.trails {
+
+	li { transition: all 0.5s ease; }
+
+	&.selected li:not(.selected) {
+		opacity: 0.2;
+		filter: saturate(0.25);
+	}
+
+	li.selected {
+		background: #fff;
+		position: sticky;
+		left: 1em;
+		right: 1em;
+		z-index: 10;
+		box-shadow: 0 0 1.5em 2em #fff;
+	}
+}

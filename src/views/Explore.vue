@@ -3,12 +3,12 @@
 		<div id="explore" class="map" />
 	</section>
 	<section data-tag-pre="trails">
-		<ul class="scroller" v-dragscroll>
+		<ul v-dragscroll :class="['trails', 'scroller', { selected: activeTrail }]">
 			<li
 				v-for="trail in trails"
 				:key="trail"
-				@click="loadTrail(trail)"
-				class="card">
+				@click="toggleTrail(trail)"
+				:class="['card', { selected: activeTrail && trail.id === activeTrail.id }]">
 				<figure class="cover faded">
 					<img :src="trail.img[0].thumbnails.large.url">
 				</figure>
@@ -36,15 +36,16 @@ export default {
 		const trails = ref([]);
 		const activeTrail = ref(undefined);
 
-		const loadTrail = trail => {
-			activeTrail.value = trail;
-			const { track: [{ url }]} = trail;
+		const toggleTrail = trail => {
 			geojson.layers.removeLayer('trail');
-			geojson.layers.addLayer(url, {
+			if (activeTrail.value && trail.id === activeTrail.value.id)
+				return activeTrail.value = undefined;
+			geojson.layers.addLayer(trail.track[0].url, {
 				name: 'trail',
 				className: 'explore-route',
 				onLoad: geojson.animations.tracePath,
 			});
+			activeTrail.value = trail;
 		};
 
 		onMounted(async () => {
@@ -63,7 +64,7 @@ export default {
 			trails.value = await api.get(config.api.tables.trails);
 		});
 
-		return { locale, trails, activeTrail, loadTrail };
+		return { locale, trails, activeTrail, toggleTrail };
 	},
 };
 </script>

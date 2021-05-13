@@ -1,3 +1,5 @@
+let count = 0;
+
 export default {
 	mounted(el, binding) {
 		el.scroll = ({ movementX }) => {
@@ -27,6 +29,7 @@ export default {
 	},
 
 	updated(el) {
-		el.scrollLeft = 0;
+		if (el.children.length !== count) el.scrollLeft = 0;
+		count = el.children.length;
 	},
 };
