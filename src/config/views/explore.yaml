@@ -1,0 +1,21 @@
+map:
+  style: mapbox://styles/mapbox/light-v9
+  center: [42.556564, 1.533476] # Casa de la Muntanya
+  zoom: 17
+  maxZoom: 18
+  minZoom: 11
+  maxBounds: [[42.254118, 1.261305], [42.754004, 1.902439]]
+
+  controls:
+    zoom:
+      position: topright
+    scale:
+      position: bottomleft
+      imperial: false
+
+  tiles:
+    - name: Topographic
+      url: https://api.mapbox.com/styles/v1/markusand/ck4tte5dt1x7n1cod1yrxr0r1/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}
+      options:
+        attribution: &copy; mapbox
+        token: VITE_MAPBOX_TOKEN
