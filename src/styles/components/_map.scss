@@ -1,3 +1,10 @@
 .map {
 	height: 100%;
 }
+
+.explore-route {
+	stroke: #f00;
+	stroke-width: 3;
+}
+
+@keyframes trace-path { to { stroke-dashoffset: 0; } }

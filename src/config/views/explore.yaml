@@ -19,3 +19,8 @@ map:
       options:
         attribution: &copy; mapbox
         token: VITE_MAPBOX_TOKEN
+
+api:
+  base: appMWr6cRQN40oIM2
+  tables:
+    trails: trails
