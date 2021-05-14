@@ -13,8 +13,8 @@
 }
 
 .explore-route {
-	stroke: #f00;
-	stroke-width: 3;
+	stroke: var(--color-primary);
+	stroke-width: 5;
 }
 
 @keyframes trace-path { to { stroke-dashoffset: 0; } }
