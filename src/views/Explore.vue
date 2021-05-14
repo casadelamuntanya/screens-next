@@ -12,7 +12,7 @@
 				<figure class="cover faded">
 					<img :src="trail.img[0].thumbnails.large.url">
 				</figure>
-				<h4>{{ trail[`name__${locale}`] }}</h4>
+				<h5>{{ trail[`name__${locale}`] }}</h5>
 			</li>
 		</ul>
 	</section>
