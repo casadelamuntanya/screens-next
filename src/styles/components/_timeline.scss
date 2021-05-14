@@ -1,0 +1,31 @@
+.timeline {
+	display: flex;
+	font-size: var(--xs);
+	margin: 1rem 0;
+
+	li {
+		position: relative;
+		color: #0008;
+		padding: var(--xs);
+		background: #0001;
+
+		&.active {
+			background: var(--color-primary);
+			color: #fff;
+			font-weight: bold;
+		}
+
+		&.highlight::before {
+			content: '';
+			background: var(--color-primary);
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			transform: scale(1, 2);
+			opacity: 0.5;
+			z-index: -1;
+		}
+	}
+}
