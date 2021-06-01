@@ -14,7 +14,10 @@
 		</div>
 	</section>
 	<section data-tag-pre="trails">
-		<ul v-dragscroll :class="['trails', 'scroller', { selected: activeTrail }]">
+		<ul
+			v-dragscroll
+			:data-empty="t('explore.trails.empty')"
+			:class="['trails', 'scroller', { selected: activeTrail }]">
 			<li
 				v-for="trail in trails"
 				:key="trail"

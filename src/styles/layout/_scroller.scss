@@ -16,4 +16,16 @@
 
 	[data-tag-pre] & { margin-left: calc(-1 * var(--spacing)); }
 	[data-tag] & { margin: 0 calc(-1 * var(--spacing)); }
+
+	&:empty {
+		&::before {
+			flex: 1;
+			display: grid;
+			place-items: center;
+			content: attr(data-empty);
+			background: #f8f8f8;
+			color: #aaa;
+		}
+		&::after { display: none; }
+	}
 }
