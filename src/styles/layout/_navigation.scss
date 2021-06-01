@@ -75,7 +75,10 @@
 
 	li + li { margin-left: 2em; }
 
-	a {
+	input { display: none; }
+
+	a,
+	span {
 		line-height: var(--size-touch);
 		text-transform: uppercase;
 		opacity: 0.4;
@@ -92,12 +95,13 @@
 			transition: inherit;
 			margin: 0 auto;
 		}
+	}
 
-		&.router-link-exact-active {
-			opacity: 1;
+	input:checked + span,
+	a.router-link-exact-active {
+		opacity: 1;
 
-			&::after { width: 100%; }
-		}
+		&::after { width: 100%; }
 	}
 }
 

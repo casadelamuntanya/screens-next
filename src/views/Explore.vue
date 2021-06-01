@@ -13,13 +13,14 @@
 			<timeline :season="activeTrail.seasonality" :highlight="activeTrail.do_it_now" />
 		</div>
 	</section>
+	<trails-filters v-model="filter" />
 	<section data-tag-pre="trails">
 		<ul
 			v-dragscroll
 			:data-empty="t('explore.trails.empty')"
 			:class="['trails', 'scroller', { selected: activeTrail }]">
 			<li
-				v-for="trail in trails"
+				v-for="trail in filteredTrails"
 				:key="trail"
 				@click="toggleTrail(trail)"
 				:class="['card', { selected: activeTrail && trail.id === activeTrail.id }]">
@@ -33,10 +34,11 @@
 </template>
 
 <script>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useMap, useGeoJSON, useAnimations } from '/@/components/map';
 import airtable from '/@/apis/airtable';
+import TrailsFilters from './explore/TrailsFilters.vue';
 import Timeline from '/@/components/Timeline.vue';
 import config from '/@/config/views/explore.yaml';
 
@@ -44,13 +46,16 @@ const api = airtable(config.api.base);
 
 export default {
 	name: 'Explore',
-	components: { Timeline },
+	components: { Timeline, TrailsFilters },
 	setup() {
 		const { t, locale } = useI18n();
 
 		const geojson = reactive({});
 		const trails = ref([]);
+		const filter = ref(undefined);
 		const activeTrail = ref(undefined);
+
+		const filteredTrails = computed(() => trails.value.filter(filter.value || Boolean));
 
 		const toggleTrail = trail => {
 			geojson.layers.removeLayer('trail');
@@ -80,7 +85,7 @@ export default {
 			trails.value = await api.get(config.api.tables.trails);
 		});
 
-		return { t, locale, trails, activeTrail, toggleTrail };
+		return { t, locale, filteredTrails, activeTrail, toggleTrail, filter };
 	},
 };
 </script>

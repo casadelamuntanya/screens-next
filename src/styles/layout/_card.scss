@@ -3,13 +3,12 @@
 	appearance: none;
 	position: relative;
 	display: block;
-	padding: 5rem 3.6rem;
 	background: transparent;
 	vertical-align: top;
 	font-size: var(--l);
-	margin: 1rem 0 0;
+	margin: 0.75rem 0 0;
 
-	& + & { margin-left: 2rem; }
+	& + & { margin-left: 1.5rem; }
 
 	figure {
 		position: absolute;
