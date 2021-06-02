@@ -20,6 +20,18 @@ map:
         attribution: &copy; mapbox
         token: VITE_MAPBOX_TOKEN
 
+filters:
+  profiles:
+    - CASUAL
+    - TREKKER
+    - FAMILY
+    - IGER
+    - RUNNER
+    - SKIER
+    - CLIMBER
+    - BIKER
+    - FISHER
+
 api:
   base: appMWr6cRQN40oIM2
   tables:

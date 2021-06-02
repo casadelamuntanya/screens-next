@@ -2,7 +2,10 @@
 .trails {
 	min-height: 11rem;
 
-	li { transition: all 0.5s ease; }
+	li {
+		transition: all 0.5s ease;
+		padding: 5rem 3.75rem;
+	}
 
 	&.selected li:not(.selected) {
 		opacity: 0.2;
@@ -22,16 +25,24 @@
 // Profiles list & icons
 .profiles {
 	display: flex;
+	justify-content: center;
 	font-size: var(--s);
 
 	li {
 		text-align: center;
-		margin: 0 var(--s);
+		margin: var(--s);
 	}
 
+	svg,
 	img {
 		display: block;
 		margin: 0 auto var(--xs);
 		height: var(--xxxl);
+	}
+
+	input {
+		display: none;
+
+		&:checked ~ * { color: var(--color-primary); }
 	}
 }
