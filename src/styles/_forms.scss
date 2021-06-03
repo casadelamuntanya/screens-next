@@ -1,0 +1,32 @@
+.picker {
+	margin: var(--s) 0;
+	padding: var(--xs) 0;
+	column-count: 3;
+
+	legend { @extend h5; }
+
+	label {
+		display: flex;
+		align-items: center;
+	}
+
+	input {
+		margin-right: 1em;
+		appearance: none;
+		width: 1.5em;
+		height: 1.5em;
+		border: 1px solid #8888;
+		background: #8881;
+		box-sizing: border-box;
+		transition: all 0.25s ease;
+		border-radius: 2px;
+
+		&:checked {
+			background: var(--color-primary);
+			outline: 2px solid var(--color-primary);
+			border: 2px solid #fff;
+		}
+	}
+
+	input[type=radio] { border-radius: 50%; }
+}

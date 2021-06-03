@@ -31,6 +31,25 @@ filters:
     - CLIMBER
     - BIKER
     - FISHER
+  origins:
+    - CANILLO
+    - ENCAMP
+    - ORDINO
+    - LA_MASSANA
+    - ANDORRA_LA_VELLA
+    - SANT_JULIA_DE_LORIA
+    - ESCALDES_ENGORDANY
+  wildlife:
+    - RUPICABRA
+    - MARMOTA
+    - SALMO_TRUTTA
+    - TRITURUS
+    - TETRAO
+    - LAGOPUS
+  culture:
+    - ROMANESQUE
+    - DRY_STONE
+    - ART
 
 api:
   base: appMWr6cRQN40oIM2

@@ -16,13 +16,31 @@
 			</label>
 		</li>
 	</ul>
+	<section v-if="filter === 'advanced'" class="columns">
+		<div class="column">
+		</div>
+		<div class="column">
+			<fieldset v-for="(options, name) in { culture, wildlife }" :key="name" class="picker">
+				<legend>{{ t(`explore.filters.${name}`) }}</legend>
+				<label v-for="item in options" :key="item">
+					<input v-model="picks[name]" :value="item" type="checkbox">
+					<p>{{ t(`explore.${name}.${item}`, item) }}</p>
+				</label>
+			</fieldset>
+		</div>
+	</section>
 </template>
 
 <script>
-import { ref, watch } from 'vue';
+import { ref, reactive, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import InlineSvg from 'vue-inline-svg';
 import config from '/@/config/views/explore.yaml';
+
+// Helpers
+const has = (array, item) => (Array.isArray(item)
+	? !item.length || item.some(child => array?.includes(child))
+	: !item || array?.includes(item));
 
 export default {
 	name: 'TrailsFilters',
@@ -34,13 +52,18 @@ export default {
 
 		const filter = ref('all');
 		const currentMonth = new Date().toLocaleString('en', { month: 'short' }).toUpperCase();
-		const { profiles } = config.filters;
+		const { profiles, wildlife, culture } = config.filters;
 		const profile = ref(undefined);
+		const picks = reactive({ wildlife: [], culture: [] });
 
 		const filters = {
 			all: () => true,
 			trending: trail => trail.do_it_now?.includes(currentMonth),
 			featured: trail => !profile.value || trail.profile?.includes(profile.value),
+			advanced: trail => {
+				const hasPicks = Object.entries(picks).every(([attr, el]) => has(trail[attr], el));
+				return hasPicks;
+			},
 		};
 
 		watch(filter, name => {
@@ -48,7 +71,7 @@ export default {
 			emit('update:modelValue', filters[name]);
 		}, { immediate: true });
 
-		return { t, filters, filter, profiles, profile };
+		return { t, filters, filter, profiles, wildlife, culture, profile, picks };
 	},
 };
 </script>
