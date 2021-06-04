@@ -7,9 +7,11 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@vueform/slider": "^1.0.5",
     "leaflet": "^1.7.1",
     "remixicon": "^2.5.0",
     "reset-css": "^5.0.1",
+    "units-converter": "^1.0.3",
     "vue": "^3.0.5",
     "vue-i18n": "^9.1.6",
     "vue-inline-svg": "^3.0.0-beta.3",

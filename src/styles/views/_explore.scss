@@ -46,3 +46,11 @@
 		&:checked ~ * { color: var(--color-primary); }
 	}
 }
+
+.advanced-filters {
+	.column {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+}

@@ -16,8 +16,16 @@
 			</label>
 		</li>
 	</ul>
-	<section v-if="filter === 'advanced'" class="columns">
+	<section v-if="filter === 'advanced'" class="columns advanced-filters">
 		<div class="column">
+			<fieldset
+				v-for="(options, name) in { distance, duration, drop_positive }"
+				:key="name"
+				class="range">
+				<legend>{{ t(`explore.filters.${name}`) }}</legend>
+				<em>{{ rangeLabel(name) }}</em>
+				<slider v-model="ranges[name]" v-bind="options" :tooltips="false" />
+			</fieldset>
 		</div>
 		<div class="column">
 			<fieldset v-for="(options, name) in { culture, wildlife }" :key="name" class="picker">
@@ -35,6 +43,8 @@
 import { ref, reactive, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import InlineSvg from 'vue-inline-svg';
+import Slider from '@vueform/slider';
+import * as converter from 'units-converter';
 import config from '/@/config/views/explore.yaml';
 
 // Helpers
@@ -44,7 +54,7 @@ const has = (array, item) => (Array.isArray(item)
 
 export default {
 	name: 'TrailsFilters',
-	components: { InlineSvg },
+	components: { InlineSvg, Slider },
 	props: { modelValue: { type: Function, default: () => true } },
 	emits: ['update:modelValue'],
 	setup(props, { emit }) {
@@ -52,18 +62,36 @@ export default {
 
 		const filter = ref('all');
 		const currentMonth = new Date().toLocaleString('en', { month: 'short' }).toUpperCase();
-		const { profiles, wildlife, culture } = config.filters;
+		const { profiles, wildlife, culture, distance, duration, drop_positive } = config.filters;
 		const profile = ref(undefined);
 		const picks = reactive({ wildlife: [], culture: [] });
+		const ranges = reactive({
+			distance: [distance.min, distance.max],
+			duration: [duration.min, duration.max],
+			drop_positive: [drop_positive.min, drop_positive.max],
+		});
 
 		const filters = {
 			all: () => true,
 			trending: trail => trail.do_it_now?.includes(currentMonth),
 			featured: trail => !profile.value || trail.profile?.includes(profile.value),
 			advanced: trail => {
+				const inRanges = Object.entries(ranges).every(([attr, range]) => {
+					const max = range[1] === config.filters[attr].max ? Infinity : range[1];
+					return range[0] <= trail[attr] && trail[attr] <= max;
+				});
 				const hasPicks = Object.entries(picks).every(([attr, el]) => has(trail[attr], el));
-				return hasPicks;
+				return inRanges && hasPicks;
 			},
+		};
+
+		const rangeLabel = name => {
+			const { type, from, to } = config.filters[name].unit;
+			const min = converter[type](ranges[name][0]).from(from).to(to).value;
+			const max = converter[type](ranges[name][1]).from(from).to(to).value;
+			return ranges[name][1] === config.filters[name].max
+				? t('explore.filters.range.more_than', { min, unit: to })
+				: t('explore.filters.range.from_to', { min, max, unit: to });
 		};
 
 		watch(filter, name => {
@@ -71,7 +99,21 @@ export default {
 			emit('update:modelValue', filters[name]);
 		}, { immediate: true });
 
-		return { t, filters, filter, profiles, wildlife, culture, profile, picks };
+		return {
+			t,
+			filters,
+			filter,
+			profiles,
+			distance,
+			duration,
+			drop_positive,
+			wildlife,
+			culture,
+			profile,
+			picks,
+			ranges,
+			rangeLabel,
+		};
 	},
 };
 </script>
