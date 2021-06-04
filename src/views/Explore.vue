@@ -14,10 +14,10 @@
 		</div>
 	</section>
 	<trails-filters v-model="filter" />
-	<section data-tag-pre="trails">
+	<section :data-tag-pre="t('explore.trails')">
 		<ul
 			v-dragscroll
-			:data-empty="t('explore.trails.empty')"
+			:data-empty="t('explore.no_trails')"
 			:class="['trails', 'scroller', { selected: activeTrail }]">
 			<li
 				v-for="trail in filteredTrails"
@@ -55,12 +55,14 @@ export default {
 		const filter = ref(undefined);
 		const activeTrail = ref(undefined);
 
-		const filteredTrails = computed(() => trails.value.filter(filter.value || Boolean));
+		const filteredTrails = computed(() => trails.value.filter(filter.value || Boolean));
 
 		const toggleTrail = trail => {
 			geojson.layers.removeLayer('trail');
-			if (activeTrail.value && trail.id === activeTrail.value.id)
-				return activeTrail.value = undefined;
+			if (activeTrail.value && trail.id === activeTrail.value.id) {
+				activeTrail.value = undefined;
+				return;
+			}
 			geojson.layers.addLayer(trail.track[0].url, {
 				name: 'trail',
 				className: 'explore-route',
