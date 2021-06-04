@@ -28,11 +28,14 @@
 			</fieldset>
 		</div>
 		<div class="column">
-			<fieldset v-for="(options, name) in { culture, wildlife }" :key="name" class="picker">
+			<fieldset
+				v-for="(options, name) in { origin, culture, wildlife }"
+				:key="name"
+				class="picker">
 				<legend>{{ t(`explore.filters.${name}`) }}</legend>
 				<label v-for="item in options" :key="item">
 					<input v-model="picks[name]" :value="item" type="checkbox">
-					<p>{{ t(`explore.${name}.${item}`, item) }}</p>
+					{{ t(`explore.${name}.${item}`, item) }}
 				</label>
 			</fieldset>
 		</div>
@@ -62,9 +65,10 @@ export default {
 
 		const filter = ref('all');
 		const currentMonth = new Date().toLocaleString('en', { month: 'short' }).toUpperCase();
-		const { profiles, wildlife, culture, distance, duration, drop_positive } = config.filters;
+		const { profiles, origin, wildlife, culture } = config.filters;
 		const profile = ref(undefined);
-		const picks = reactive({ wildlife: [], culture: [] });
+		const picks = reactive({ wildlife: [], culture: [], origin: [] });
+		const { distance, duration, drop_positive } = config.filters;
 		const ranges = reactive({
 			distance: [distance.min, distance.max],
 			duration: [duration.min, duration.max],
@@ -107,6 +111,7 @@ export default {
 			distance,
 			duration,
 			drop_positive,
+			origin,
 			wildlife,
 			culture,
 			profile,

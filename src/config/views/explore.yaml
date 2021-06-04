@@ -55,14 +55,14 @@ filters:
       type: length
       from: m
       to: m
-  origins:
-    - CANILLO
-    - ENCAMP
-    - ORDINO
-    - LA_MASSANA
-    - ANDORRA_LA_VELLA
-    - SANT_JULIA_DE_LORIA
-    - ESCALDES_ENGORDANY
+  origin:
+    - Canillo
+    - Encamp
+    - Ordino
+    - La Massana
+    - Andorra la Vella
+    - Sant Julià de Lòria
+    - Escaldes Engordany
   wildlife:
     - RUPICABRA
     - MARMOTA
