@@ -1,8 +1,4 @@
 <template>
-	<section class="stack">
-		<div id="explore" class="map" />
-		<trail-sheet v-if="activeTrail" :trail="activeTrail" />
-	</section>
 	<trails-filters v-model="filter" />
 	<section :data-tag-pre="t('explore.trails')">
 		<div v-dragscroll class="trails scroller" :data-empty="t('explore.no_trails')">
@@ -13,6 +9,10 @@
 				:active="activeTrail"
 				@click="toggleTrail(trail)" />
 		</div>
+	</section>
+	<section class="stack">
+		<div id="explore" class="map" />
+		<trail-sheet v-if="activeTrail" :trail="activeTrail" />
 	</section>
 </template>
 
