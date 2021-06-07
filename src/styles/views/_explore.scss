@@ -1,3 +1,16 @@
+.stats {
+	box-sizing: border-box;
+	padding: var(--s);
+	font-size: var(--l);
+	display: flex;
+	justify-content: space-around;
+
+	em {
+		display: block;
+		font-size: var(--s);
+	}
+}
+
 // Trails scroller
 .trails {
 	min-height: 13rem;
@@ -27,20 +40,20 @@
 			position: absolute;
 			bottom: 0;
 			width: 100%;
-			box-sizing: border-box;
 			color: #fff;
-			padding: var(--s);
-			font-size: var(--l);
-			display: flex;
-			justify-content: space-around;
 			background: linear-gradient(to bottom, #0000 0%, #0008 100%);
-
-			em {
-				display: block;
-				font-size: var(--s);
-			}
 		}
 	}
+}
+
+// Trail information sheet
+.trail-sheet {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 45%;
+	margin: var(--xxl);
+	z-index: 500;
 }
 
 // Profiles list & icons

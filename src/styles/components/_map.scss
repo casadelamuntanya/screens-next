@@ -3,15 +3,6 @@
 	position: relative;
 }
 
-.map-pane {
-	position: absolute;
-	top: 0;
-	left: 0;
-	max-width: 40%;
-	margin: var(--spacing);
-	z-index: 999;
-}
-
 .explore-route {
 	stroke: var(--color-primary);
 	stroke-width: 5;

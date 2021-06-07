@@ -1,17 +1,7 @@
 <template>
 	<section class="stack">
 		<div id="explore" class="map" />
-		<div v-if="activeTrail" class="map-pane">
-			<h5>{{ activeTrail[`name__${locale}`] }}</h5>
-			<p>{{ activeTrail[`description__${locale}`] }}</p>
-			<ul class="profiles">
-				<li v-for="profile in activeTrail.profile" :key="profile">
-					<img :src="`/images/vectors/profiles/${profile}.svg`" alt="">
-					{{ t(`explore.profiles.${profile}`) }}
-				</li>
-			</ul>
-			<timeline :season="activeTrail.seasonality" :highlight="activeTrail.do_it_now" />
-		</div>
+		<trail-sheet v-if="activeTrail" :trail="activeTrail" />
 	</section>
 	<trails-filters v-model="filter" />
 	<section :data-tag-pre="t('explore.trails')">
@@ -32,15 +22,15 @@ import { useI18n } from 'vue-i18n';
 import { useMap, useGeoJSON, useAnimations } from '/@/components/map';
 import airtable from '/@/apis/airtable';
 import TrailCard from './explore/TrailCard.vue';
+import TrailSheet from './explore/TrailSheet.vue';
 import TrailsFilters from './explore/TrailsFilters.vue';
-import Timeline from '/@/components/Timeline.vue';
 import config from '/@/config/views/explore.yaml';
 
 const api = airtable(config.api.base);
 
 export default {
 	name: 'Explore',
-	components: { Timeline, TrailCard, TrailsFilters },
+	components: { TrailCard, TrailSheet, TrailsFilters },
 	setup() {
 		const { t, locale } = useI18n();
 
