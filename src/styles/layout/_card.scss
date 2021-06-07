@@ -5,10 +5,8 @@
 	display: block;
 	background: transparent;
 	vertical-align: top;
-	font-size: var(--l);
 	margin: 0.75rem 0 0;
-
-	& + & { margin-left: 1.5rem; }
+	z-index: 0;
 
 	figure {
 		position: absolute;
@@ -17,10 +15,11 @@
 		height: 100%;
 		width: 100%;
 		margin: 0;
+		z-index: -1;
 		mask-image: linear-gradient(to bottom, #0008 0%, #000 30%);
 	}
 
-	h5 {
+	h4 {
 		margin: -0.5em 0 0 -0.5em;
 		position: absolute;
 		top: 0;

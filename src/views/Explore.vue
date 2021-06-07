@@ -15,21 +15,14 @@
 	</section>
 	<trails-filters v-model="filter" />
 	<section :data-tag-pre="t('explore.trails')">
-		<ul
-			v-dragscroll
-			:data-empty="t('explore.no_trails')"
-			:class="['trails', 'scroller', { selected: activeTrail }]">
-			<li
+		<div v-dragscroll class="trails scroller" :data-empty="t('explore.no_trails')">
+			<trail-card
 				v-for="trail in filteredTrails"
-				:key="trail"
-				@click="toggleTrail(trail)"
-				:class="['card', { selected: activeTrail && trail.id === activeTrail.id }]">
-				<figure class="cover faded">
-					<img :src="trail.img[0].thumbnails.large.url">
-				</figure>
-				<h5>{{ trail[`name__${locale}`] }}</h5>
-			</li>
-		</ul>
+				:key="trail.id"
+				:trail="trail"
+				:active="activeTrail"
+				@click="toggleTrail(trail)" />
+		</div>
 	</section>
 </template>
 
@@ -38,6 +31,7 @@ import { ref, reactive, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useMap, useGeoJSON, useAnimations } from '/@/components/map';
 import airtable from '/@/apis/airtable';
+import TrailCard from './explore/TrailCard.vue';
 import TrailsFilters from './explore/TrailsFilters.vue';
 import Timeline from '/@/components/Timeline.vue';
 import config from '/@/config/views/explore.yaml';
@@ -46,7 +40,7 @@ const api = airtable(config.api.base);
 
 export default {
 	name: 'Explore',
-	components: { Timeline, TrailsFilters },
+	components: { Timeline, TrailCard, TrailsFilters },
 	setup() {
 		const { t, locale } = useI18n();
 
