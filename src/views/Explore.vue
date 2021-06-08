@@ -41,18 +41,19 @@ export default {
 
 		const filteredTrails = computed(() => trails.value.filter(filter.value || Boolean));
 
-		const toggleTrail = trail => {
+		const toggleTrail = async trail => {
 			geojson.layers.removeLayer('trail');
 			if (activeTrail.value && trail.id === activeTrail.value.id) {
 				activeTrail.value = undefined;
 				return;
 			}
-			geojson.layers.addLayer(trail.track[0].url, {
+			const track = await (await fetch(trail.track[0].url)).json();
+			geojson.layers.addLayer(track, {
 				name: 'trail',
 				className: 'explore-route',
 				onLoad: geojson.animations.tracePath,
 			});
-			activeTrail.value = trail;
+			activeTrail.value = { ...trail, track };
 		};
 
 		onMounted(async () => {

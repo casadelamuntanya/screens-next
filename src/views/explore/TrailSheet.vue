@@ -8,6 +8,7 @@
 				<em>{{ t(`explore.filters.${name}`) }}</em>
 			</li>
 		</ul>
+		<trail-elevation :trail="trail" />
 		<timeline :season="trail.seasonality" :highlight="trail.do_it_now" />
 	</div>
 </template>
@@ -16,10 +17,11 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Timeline from '/@/components/Timeline.vue';
+import TrailElevation from './TrailElevation.vue';
 
 export default {
 	name: 'TrailSheet',
-	components: { Timeline },
+	components: { Timeline, TrailElevation },
 	props: { trail: { type: Object, required: true } },
 	setup(props) {
 		const { t, locale } = useI18n();
