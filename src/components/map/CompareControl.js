@@ -82,12 +82,11 @@ export default Control.extend({
 	},
 
 	_setThumbPosition(thumbPosition) {
-		const { width, height } = this._compare.getBoundingClientRect();
-		const mapSize = this._map.getSize();
-		const maxSize = this._horizontal ? mapSize.x : mapSize.y;
+		const { x: width, y: height } = this._map.getSize();
+		const max = this._horizontal ? width : height;
 
 		const pos = typeof thumbPosition === 'string' && thumbPosition.includes('%')
-			? (parseFloat(thumbPosition) * maxSize) / 100
+			? (parseFloat(thumbPosition) * max) / 100
 			: thumbPosition;
 
 		this._thumbPosition = constrain(pos, 0, this._horizontal ? width : height);
