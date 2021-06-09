@@ -16,7 +16,7 @@ import { select } from 'd3-selection';
 export default {
 	name: 'TrailElevation',
 	props: {
-		id: { type: String, default: Math.random().toString(36).substring(7) },
+		id: { type: String, default: `e${Math.random().toString(36).substring(7)}` },
 		trail: { type: Object, required: true },
 	},
 	setup(props) {
