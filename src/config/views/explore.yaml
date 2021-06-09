@@ -12,6 +12,13 @@ map:
     scale:
       position: bottomleft
       imperial: false
+    compare:
+      thumbPosition: 50%
+      orientation: vertical
+      url: https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}
+      options:
+        attribution: &copy; Mapbox
+        token: VITE_MAPBOX_TOKEN
 
   tiles:
     - name: Topographic

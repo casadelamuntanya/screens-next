@@ -19,7 +19,10 @@ export default function useControls(map) {
 	const addScale = options => addControl('scale', L.control.scale(options));
 	const removeScale = () => removeControl('scale');
 
-	const addLayers = (baseLayers, overlays, options) => addControl('layers', L.control.layers(baseLayers, overlays, options));
+	const addLayers = (baseLayers, overlays, options) => {
+		const control = L.control.layers(baseLayers, overlays, options);
+		addControl('layers', control);
+	};
 	const removeLayers = () => removeControl('layers');
 
 	return {

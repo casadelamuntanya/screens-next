@@ -57,14 +57,7 @@ export default {
 		};
 
 		onMounted(async () => {
-			const map = useMap('explore', {
-				...config.map,
-				// Parse tiles and inject Mapbox token
-				tiles: config.map.tiles.map(({ options, ...rest }) => {
-					const accessToken = import.meta.env[options.token];
-					return { ...rest, options: { ...options, accessToken } };
-				}),
-			});
+			const map = useMap('explore', config.map);
 
 			geojson.layers = useGeoJSON(map);
 			geojson.animations = useAnimations(map);
