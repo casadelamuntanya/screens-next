@@ -52,9 +52,11 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	max-width: 45%;
-	margin: var(--xxl);
+	max-width: 53%;
+	margin: var(--m);
 	z-index: 500;
+	background: #fffa;
+	padding: var(--l) var(--xxl);
 }
 
 // Profiles list & icons
