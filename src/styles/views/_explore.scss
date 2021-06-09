@@ -1,0 +1,93 @@
+.stats {
+	box-sizing: border-box;
+	padding: var(--s);
+	font-size: var(--l);
+	display: flex;
+	justify-content: space-around;
+
+	em {
+		display: block;
+		font-size: var(--s);
+	}
+}
+
+// Trails scroller
+.trails {
+	min-height: 13rem;
+
+	.card {
+		transition: all 0.5s ease;
+		height: 12rem;
+		flex: 0 0 9rem;
+
+		& + .card { margin-left: 2rem; }
+
+		&.active {
+			background: #fff;
+			position: sticky;
+			left: 1em;
+			right: 1em;
+			z-index: 10;
+			box-shadow: 0 0 1.5em 2em #fff;
+		}
+
+		&.inactive {
+			opacity: 0.2;
+			filter: saturate(0.25);
+			transform: scale(0.9);
+		}
+
+		.stats {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			color: #fff;
+			background: linear-gradient(to bottom, #0000 0%, #0008 100%);
+		}
+	}
+}
+
+// Trail information sheet
+.trail-sheet {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 53%;
+	margin: var(--m);
+	z-index: 500;
+	background: #fffa;
+	padding: var(--l) var(--xxl);
+}
+
+// Profiles list & icons
+.profiles {
+	display: flex;
+	justify-content: center;
+	font-size: var(--s);
+
+	li {
+		text-align: center;
+		margin: var(--s);
+	}
+
+	svg,
+	img {
+		display: block;
+		margin: 0 auto var(--xs);
+		height: var(--xxxl);
+	}
+
+	input {
+		display: none;
+
+		&:checked ~ * { color: var(--color-primary); }
+	}
+}
+
+.advanced-filters {
+	.column {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+}
