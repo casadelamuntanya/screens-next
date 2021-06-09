@@ -94,8 +94,8 @@ export default Control.extend({
 		const isEnd = this._horizontal
 			? this._thumbPosition === width
 			: this._thumbPosition === height;
-		if (isStart || isEnd) this._divider.classList.add('leaflet-compare-div-end');
-		else this._divider.classList.remove('leaflet-compare-div-end');
+		if (isStart || isEnd) this._divider.classList.add('map-compare-end');
+		else this._divider.classList.remove('map-compare-end');
 
 		this._update();
 	},
