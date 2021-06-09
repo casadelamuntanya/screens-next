@@ -3,11 +3,16 @@ img {
 	pointer-events: none;
 }
 
+iframe { border-radius: var(--border-radius); }
+
 figure {
 	position: relative;
 	margin: var(--spacing);
 
-	img { display: block; }
+	img {
+		display: block;
+		border-radius: var(--border-radius);
+	}
 
 	figcaption { opacity: 0.5; }
 }

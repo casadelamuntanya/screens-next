@@ -10,6 +10,7 @@ input[type=button],
 	color: var(--button-text-color);
 	font-weight: normal;
 	vertical-align: middle;
+	border-radius: var(--border-radius);
 
 	&:active { transform: scale(0.9); }
 }

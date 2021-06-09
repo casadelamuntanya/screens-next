@@ -3,6 +3,7 @@
 	color: var(--color-light);
 	padding: 2rem 3rem;
 	z-index: 2;
+	border-radius: var(--border-radius);
 
 	&--alert { background: var(--color-alert); }
 }
