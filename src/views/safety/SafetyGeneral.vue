@@ -2,7 +2,7 @@
 	<section class="stack block-image image-thick">
 		<figure class="attribution cover faded shadow-br">
 			<img src="https://source.unsplash.com/HaHd7dG2YnA/900x1000">
-			<figcaption>photo by Hannah Tims on Unsplash</figcaption>
+			<figcaption>© photo by Hannah Tims on Unsplash</figcaption>
 		</figure>
 		<section>
 			<p>{{ t('safety.general.intro') }}</p>
