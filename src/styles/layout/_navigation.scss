@@ -12,7 +12,7 @@
 			height: 100%;
 			width: 100%;
 			margin: 0;
-			filter: saturate(0.4) opacity(0.85);
+			filter: saturate(0.6) opacity(0.85);
 		}
 
 		h1 {
@@ -65,7 +65,7 @@
 	.nav-commitment { grid-area: 16 / 16 / span 7 / span 9; }
 	.nav-snow_science { grid-area: 18 / 1 / span 8 / span 11; }
 	.nav-explore { grid-area: 29 / 1 / span 7 / span 9; }
-	.nav-kids { grid-area: 32 / 14 / span 5 / span 10; }
+	.nav-play { grid-area: 32 / 14 / span 5 / span 10; }
 }
 
 .nav-bar {
