@@ -1,5 +1,4 @@
 locales:
-  location: https://raw.githubusercontent.com/markusand/screens-i18n/master/dist
   default: ca
   supported:
     - ca
