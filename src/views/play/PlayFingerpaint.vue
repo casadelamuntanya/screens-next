@@ -8,6 +8,11 @@
 			</template>
 		</div>
 	</section>
+	<section class="toolbox">
+		<color-picker v-model="brush.color">
+			<inline-svg src="/images/icons/paint-brush.svg" />
+		</color-picker>
+	</section>
 	<section data-tag="dibuixos">
 		<div v-dragscroll class="drawing-picker scroller" data-empty="No hi ha dibuixos">
 			<label v-for="drawing in drawings" :key="drawing.name">
@@ -20,6 +25,8 @@
 
 <script>
 import { ref, reactive, watch, onMounted } from 'vue';
+import ColorPicker from '/@/components/ColorPicker.vue';
+import InlineSvg from 'vue-inline-svg';
 import airtable from '/@/apis/airtable';
 import config from '/@/config/views/playground.yaml';
 
@@ -27,11 +34,12 @@ const api = airtable(config.api.base);
 
 export default {
 	name: 'PlaygroundFingerpaint',
+	components: { InlineSvg, ColorPicker },
 	setup() {
 		const canvas = ref(null);
 		const drawings = ref([]);
 		const selectedDrawing = ref(undefined);
-		const brush = reactive({ color: '#000', width: 50 });
+		const brush = reactive({ color: undefined, width: 50 });
 		const drawer = reactive({
 			isDrawing: false,
 			ctx: null,
@@ -72,7 +80,7 @@ export default {
 			drawer.ctx = canvas.value.getContext('2d');
 		});
 
-		return { canvas, drawer, drawings, selectedDrawing };
+		return { canvas, drawer, brush, drawings, selectedDrawing };
 	},
 };
 </script>
