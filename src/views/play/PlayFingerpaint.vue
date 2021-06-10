@@ -105,7 +105,7 @@ export default {
 	}
 
 	input { display: none; }
-	img { height: 100%; }
+	img { height: 95%; }
 }
 
 .toolbox {
