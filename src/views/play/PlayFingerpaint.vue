@@ -9,9 +9,18 @@
 		</div>
 	</section>
 	<section class="toolbox">
-		<color-picker v-model="brush.color">
+		<color-picker v-model="brush.color" circular>
 			<inline-svg src="/images/icons/paint-brush.svg" />
 		</color-picker>
+		<div class="brush-pointer">
+			<input
+				v-model="brush.width"
+				min="5"
+				max="100"
+				:style="`--color:${brush.color}; --size:${brush.width}px`"
+				type="range">
+			<span :style="`--color:${brush.color}; --size:${brush.width}px`" />
+		</div>
 	</section>
 	<section data-tag="dibuixos">
 		<div v-dragscroll class="drawing-picker scroller" data-empty="No hi ha dibuixos">
@@ -39,7 +48,7 @@ export default {
 		const canvas = ref(null);
 		const drawings = ref([]);
 		const selectedDrawing = ref(undefined);
-		const brush = reactive({ color: undefined, width: 50 });
+		const brush = reactive({ color: undefined, width: 20 });
 		const drawer = reactive({
 			isDrawing: false,
 			ctx: null,
@@ -99,6 +108,12 @@ export default {
 	img { height: 100%; }
 }
 
+.toolbox {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .drawer {
 	position: relative;
 
@@ -117,6 +132,55 @@ export default {
 		bottom: 0;
 		right: 0;
 		font-size: var(--xs);
+	}
+}
+
+.brush-pointer {
+	display: flex;
+	align-items: center;
+	margin: 0 3rem;
+
+	input[type=range] {
+		--color: #000;
+
+		appearance: none;
+		background: #0002;
+		width: 20rem;
+		height: 0;
+		border: 1px solid #0001;
+		margin: 0 1rem;
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			border: 2px solid #0003;
+			height: var(--size-touch);
+			width: var(--size-touch);
+			background:
+				#fff
+				url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path fill="gray" d="M15.243 4.515l-6.738 6.737-.707 2.121-1.04 1.041 2.828 2.829 1.04-1.041 2.122-.707 6.737-6.738-4.242-4.242zm6.364 3.535a1 1 0 0 1 0 1.414l-7.779 7.779-2.12.707-1.415 1.414a1 1 0 0 1-1.414 0l-4.243-4.243a1 1 0 0 1 0-1.414l1.414-1.414.707-2.121 7.779-7.779a1 1 0 0 1 1.414 0l5.657 5.657zm-6.364-.707l1.414 1.414-4.95 4.95-1.414-1.414 4.95-4.95zM4.283 16.89l2.828 2.829-1.414 1.414-4.243-1.414 2.828-2.829z"/></svg>')
+				no-repeat
+				center center;
+			border-radius: 50%;
+		}
+	}
+
+	span {
+		position: relative;
+		margin-left: 0rem;
+		// margin-left: calc(var(--size) / 2);
+
+		&:before {
+			content: '';
+			position: absolute;
+			vertical-align: middle;
+			display: block;
+			height: var(--size);
+			width: var(--size);
+			border-radius: 50%;
+			background: var(--color);
+			outline: 1px solid #0002;
+			transform: translate(0, -50%);
+		}
 	}
 }
 </style>
