@@ -22,8 +22,11 @@
 			<span :style="`--color:${brush.color}; --size:${brush.width}px`" />
 		</div>
 	</section>
-	<section data-tag="dibuixos">
-		<div v-dragscroll class="drawing-picker scroller" data-empty="No hi ha dibuixos">
+	<section :data-tag="t('play.fingerpaint.drawings')">
+		<div
+			v-dragscroll
+			class="drawing-picker scroller"
+			:data-empty="t('play.fingerpaint.no_drawings')">
 			<label v-for="drawing in drawings" :key="drawing.name">
 				<input v-model="selectedDrawing" :value="drawing" type="radio">
 				<img :src="drawing.image[0].url">
@@ -34,6 +37,7 @@
 
 <script>
 import { ref, reactive, watch, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import ColorPicker from '/@/components/ColorPicker.vue';
 import InlineSvg from 'vue-inline-svg';
 import airtable from '/@/apis/airtable';
@@ -45,6 +49,8 @@ export default {
 	name: 'PlayFingerpaint',
 	components: { InlineSvg, ColorPicker },
 	setup() {
+		const { t } = useI18n();
+
 		const canvas = ref(null);
 		const drawings = ref([]);
 		const selectedDrawing = ref(undefined);
@@ -89,7 +95,7 @@ export default {
 			drawer.ctx = canvas.value.getContext('2d');
 		});
 
-		return { canvas, drawer, brush, drawings, selectedDrawing };
+		return { t, canvas, drawer, brush, drawings, selectedDrawing };
 	},
 };
 </script>
