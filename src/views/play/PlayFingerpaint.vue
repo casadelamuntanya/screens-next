@@ -37,12 +37,12 @@ import { ref, reactive, watch, onMounted } from 'vue';
 import ColorPicker from '/@/components/ColorPicker.vue';
 import InlineSvg from 'vue-inline-svg';
 import airtable from '/@/apis/airtable';
-import config from '/@/config/views/playground.yaml';
+import config from '/@/config/views/play.yaml';
 
 const api = airtable(config.api.base);
 
 export default {
-	name: 'PlaygroundFingerpaint',
+	name: 'PlayFingerpaint',
 	components: { InlineSvg, ColorPicker },
 	setup() {
 		const canvas = ref(null);
