@@ -1,6 +1,8 @@
+.btn,
 input[type=submit],
-input[type=button],
-.btn {
+input[type=button] {
+	display: inline-flex;
+	align-items: center;
 	appearance: none;
 	border: 0;
 	line-height: var(--size-touch);
@@ -13,6 +15,11 @@ input[type=button],
 	border-radius: var(--border-radius);
 
 	&:active { transform: scale(0.9); }
+
+	svg {
+		fill: currentColor;
+		margin-right: calc(0.5 * var(--button-padding));
+	}
 }
 
 .btn--alert { background: var(--color-alert); }

@@ -16,7 +16,10 @@
 		</ul>
 	</section>
 	<section v-else>
-		<router-link to="/play">Back</router-link>
+		<router-link to="/play" class="btn btn--plain">
+			<svg-inline src="/images/icons/arrow-left-s.svg" />
+			{{ t('play.nav') }}
+		</router-link>
 	</section>
 	<router-view />
 </template>
@@ -25,9 +28,11 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
+import SvgInline from 'vue-inline-svg';
 
 export default {
 	name: 'PlaygroundMenu',
+	components: { SvgInline },
 	setup() {
 		const { t } = useI18n();
 		const { getRoutes, currentRoute } = useRouter();
