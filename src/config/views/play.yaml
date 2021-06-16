@@ -1,0 +1,5 @@
+api:
+  base: app71mFwZY0ygohqZ
+  tables:
+    drawings: fingerpaint?filterByFormula=AND(valid)
+    cards: memorama?filterByFormula=AND(valid)

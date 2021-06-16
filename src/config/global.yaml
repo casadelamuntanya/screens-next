@@ -41,9 +41,9 @@ routes:
     image:
       url: https://source.unsplash.com/Ow-joAY8NyY/800x600
       attribution: © photo by Alfred Aloushy on Unsplash
-  - name: kids
-    path: /kids
+  - name: play
+    path: /play
     title: top left
     image:
-      url: https://source.unsplash.com/euajDE7Y7JI/300x300
-      attribution: © photo by Daniel Hooper on Unsplash
+      url: https://source.unsplash.com/W4zYlDBAy4w/400x300
+      attribution: © photo by Chase B. on Unsplash
