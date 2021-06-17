@@ -56,3 +56,27 @@
 		box-shadow: 0 0 0 3px var(--color-primary);
 	}
 }
+
+.natural-language-form {
+	font-size: var(--xl);
+	padding: var(--l) var(--xxxl);
+	font-weight: lighter;
+	color: #0005;
+
+	.selector {
+		border-bottom: 2px dotted var(--color-dark);
+		color: var(--color-dark);
+		white-space: nowrap;
+
+		&__options {
+			margin: 2px -0.5em;
+			padding: 0.25em 0.5em;
+			background: #fffc;
+			border-radius: var(--border-radius);
+		}
+
+		&__label {
+			padding: 0.125em 0;
+		}
+	}
+}
