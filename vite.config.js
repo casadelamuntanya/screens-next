@@ -9,7 +9,11 @@ export default defineConfig({
 	plugins: [
 		vue(),
 		yaml(),
-		vueI18n({ include: '' }),
+		vueI18n({
+			runtimeOnly: false,
+			compositionOnly: true,
+			include: '',
+		}),
 	],
 	resolve: {
 		alias: [
