@@ -41,6 +41,12 @@ routes:
     image:
       url: https://source.unsplash.com/Ow-joAY8NyY/800x600
       attribution: © photo by Alfred Aloushy on Unsplash
+  - name: guides
+    path: /guides
+    title: vertical bottom right
+    image:
+      url: https://source.unsplash.com/2mg-3crJFgk/400x500
+      attribution: © photo by Alyi Kazal on Unsplash
   - name: play
     path: /play
     title: top left

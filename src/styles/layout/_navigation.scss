@@ -61,18 +61,21 @@
 	}
 
 	.nav-discover { grid-area: 8 / 2 / span 7 / span 9; }
-	.nav-safety { grid-area: 3 / 15 / span 10 / span 9; }
-	.nav-commitment { grid-area: 16 / 16 / span 7 / span 9; }
+	.nav-safety { grid-area: 2 / 15 / span 10 / span 9; }
+	.nav-commitment { grid-area: 15 / 16 / span 7 / span 9; }
 	.nav-snow_science { grid-area: 18 / 1 / span 8 / span 11; }
 	.nav-explore { grid-area: 29 / 1 / span 7 / span 9; }
+	.nav-guides { grid-area: 24 / 15 / span 5 / span 8; }
 	.nav-play { grid-area: 32 / 14 / span 5 / span 10; }
 }
 
 .nav-bar {
 	display: flex;
 	justify-content: center;
+	white-space: nowrap;
 	margin: var(--spacing);
 
+	label + label,
 	li + li { margin-left: 2em; }
 
 	input { display: none; }
@@ -85,6 +88,7 @@
 		text-align: center;
 		color: inherit;
 		transition: all 0.5s ease;
+		font-weight: bold;
 
 		&::after {
 			content: '';

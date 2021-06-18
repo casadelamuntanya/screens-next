@@ -1,0 +1,4 @@
+api:
+  base: appVcIFg2pVGQ7IKU
+  tables:
+    guides: guides?filterByFormula=AND(valid)&sort[0][field]=surname&sort[0][direction]=asc
