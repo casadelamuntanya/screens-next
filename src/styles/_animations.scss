@@ -1,0 +1,57 @@
+/* stylelint-disable declaration-block-single-line-max-declarations */
+
+.animate-in,
+.animate-out {
+	animation: var(--animate-animation) 0.5s var(--animate-delay) ease-out both;
+}
+
+// FADE transition ----------------------------
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes fade-down-in {
+	from { opacity: 0; transform: translateY(-1rem); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-down-out {
+	to { opacity: 0; transform: translateY(1rem); }
+	from { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up-in {
+	from { opacity: 0; transform: translateY(1rem); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up-out {
+	to { opacity: 0; transform: translateY(-1rem); }
+	from { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-right-in {
+	from { opacity: 0; transform: translateX(-1rem); }
+	to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-right-out {
+	to { opacity: 0; transform: translateX(1rem); }
+	from { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-left-in {
+	from { opacity: 0; transform: translateX(1rem); }
+	to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-left-out {
+	to { opacity: 0; transform: translateX(-1rem); }
+	from { opacity: 1; transform: translateX(0); }
+}
