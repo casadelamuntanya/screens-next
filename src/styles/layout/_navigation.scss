@@ -53,10 +53,9 @@
 		figure img { object-fit: scale-down; }
 
 		h1 {
-			top: 50%;
 			left: 100%;
 			padding-left: 0.5em;
-			transform: translateY(-50%);
+			margin-top: 0.25em;
 		}
 	}
 

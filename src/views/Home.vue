@@ -6,8 +6,14 @@
 				:key="route.name"
 				:class="`nav-${route.name}`"
 				:to="route.path">
-				<h1 :class="route.title">{{ t(`navigation.${route.name}`) }}</h1>
-				<figure class="attribution cover">
+				<h1
+					:class="route.title"
+					:data-animate="route.transitions.title">
+					{{ t(`navigation.${route.name}`) }}
+				</h1>
+				<figure
+					class="attribution cover"
+					:data-animate="route.transitions.image">
 					<img :src="route.image.url">
 					<figcaption v-if="route.image.attribution">
 						{{ route.image.attribution }}
