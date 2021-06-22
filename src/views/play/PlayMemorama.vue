@@ -20,7 +20,6 @@
 				<div
 					v-if="!card.empty"
 					:class="cardStatus(card)"
-					:style="`--rotation:${card.rotation}deg`"
 					@click="flipCard(card)">
 					<div class="card__front">
 						<img :src="card.drawing[0].url" class="card__image">
@@ -112,10 +111,10 @@ export default {
 				.sort(() => 0.5 - Math.random())
 				// Take pairs
 				.slice(0, pairs)
-				// 2 cards per suit, generate random rotation
+				// 2 cards per suit
 				.flatMap(suit => [
-					{ ...suit, id: `${suit.suit}-1`, rotation: 10 - Math.random() * 20 },
-					{ ...suit, id: `${suit.suit}-2`, rotation: 10 - Math.random() * 20 },
+					{ ...suit, id: `${suit.suit}-1` },
+					{ ...suit, id: `${suit.suit}-2` },
 				])
 				// Fill empty slots
 				.concat([...Array(slots - 2 * pairs).keys()].map(id => ({ id, empty: true })))
@@ -170,13 +169,13 @@ export default {
 	.card {
 		height: 13rem;
 		width: 9rem;
-		transform: rotateZ(var(--rotation, 0)) rotateY(180deg);
+		transform: rotateY(180deg);
 		transform-style: preserve-3d;
 		transform-origin: center center;
 		transition: transform 1s ease;
 		text-align: center;
 
-		&.flipped { transform: rotateZ(var(--rotation, 0)) rotateY(0);}
+		&.flipped { transform: rotateY(0);}
 
 		&__front,
 		&__back {
@@ -185,12 +184,12 @@ export default {
 			position: absolute;
 			height: 100%;
 			width: 100%;
-			border-radius: 1em;
-			overflow: hidden;
+			border-radius: 1em !important;
+			overflow: hidden !important;
 		}
 
 		&__front {
-			outline: 1px solid #0002;
+			border: 1px solid #0002;
 			background: #fff;
 			padding: 1rem;
 		}
