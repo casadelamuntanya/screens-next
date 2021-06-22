@@ -1,5 +1,5 @@
 <template>
-	<ul class="nav-bar">
+	<ul class="nav-bar" data-animate="fade-down">
 		<li v-for="(_, name) in LEVELS" :key="name">
 			<label>
 				<input v-model="level" type="radio" :value="name">
@@ -14,6 +14,7 @@
 			name="deal-cards"
 			class="stack board"
 			mode="out-in"
+			data-animate="fade-up"
 			appear>
 			<li v-for="card in gameplay.deck" :key="card.id">
 				<div

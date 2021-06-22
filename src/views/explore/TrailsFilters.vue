@@ -1,5 +1,5 @@
 <template>
-	<ul class="nav-bar">
+	<ul v-bind="$attrs" class="nav-bar">
 		<li v-for="(_, name) in filters" :key="name">
 			<label>
 				<input v-model="filter" type="radio" :value="name">

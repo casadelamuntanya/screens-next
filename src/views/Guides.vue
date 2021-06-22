@@ -1,5 +1,5 @@
 <template>
-	<section class="guides-filters">
+	<section class="guides-filters" data-animate="fade-down">
 		<i18n-t tag="p" keypath="guides.looking_for" class="natural-language-form">
 			<template #language>
 				<selector v-model="filters.language" :options="filters.languages" />
@@ -13,8 +13,19 @@
 		</i18n-t>
 	</section>
 	<section class="stack" :data-tag="t('guides.mountain_guides')">
-		<ul v-if="guides.length" class="guides">
-			<li v-for="guide in guides" :key="guide.name" :class="guideStatus(guide)">
+		<transition-group
+			v-if="guides.length"
+			tag="ul"
+			name="list"
+			class="guides"
+			appear>
+			<li
+				v-for="(guide, i) in guides"
+				:key="guide.name"
+				:class="guideStatus(guide)"
+				data-animate="fade-up"
+				:data-animate-delay-out="`${i * 0.1}s`"
+				:style="`--stagger-delay:${i * 0.1}s`">
 				<div class="guide__preview" tabindex="1">
 					<figure class="cover">
 						<img :src="guide.photo[0].url" class="faded">
@@ -37,8 +48,10 @@
 					</ul>
 				</div>
 			</li>
-		</ul>
-		<p v-else class="loading">{{ t('guides.loading') }}</p>
+		</transition-group>
+		<p v-else class="loading">
+			{{ t('guides.loading') }}
+		</p>
 	</section>
 </template>
 
@@ -160,5 +173,15 @@ export default {
 		font-size: var(--s);
 		text-transform: uppercase;
 	}
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 1s ease var(--stagger-delay);
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(1rem);
 }
 </style>

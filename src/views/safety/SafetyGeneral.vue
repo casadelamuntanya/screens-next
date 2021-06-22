@@ -1,19 +1,27 @@
 <template>
 	<section class="stack block-image image-thick">
-		<figure class="attribution cover faded shadow-br">
+		<figure class="attribution cover faded shadow-br" data-animate="fade-down">
 			<img src="https://source.unsplash.com/HaHd7dG2YnA/900x1000">
 			<figcaption>© photo by Hannah Tims on Unsplash</figcaption>
 		</figure>
-		<section>
+		<section data-animate="fade-up">
 			<p>{{ t('safety.general.intro') }}</p>
 			<p>{{ t('safety.general.guide') }}</p>
 		</section>
 	</section>
 	<section :data-tag="t('safety.general.basic_principles')">
 		<ul class="grid-list grid-list--2 grid-list--bignum">
-			<li v-for="principle in principles" :key="principle">
+			<li
+				v-for="(principle, i) in principles"
+				:key="principle"
+				data-animate="fade-up"
+				:data-animate-delay-in="`${0.25 + i * 0.25}s`">
 				<h3>{{ t(`safety.general.principles.${principle}`) }}</h3>
-				<p>{{ t(`safety.general.principles.${principle}_desc`) }}</p>
+				<p
+					data-animate="fade-down"
+					:data-animate-delay-in="`${0.25 + i * 0.25}s`">
+					{{ t(`safety.general.principles.${principle}_desc`) }}
+				</p>
 			</li>
 		</ul>
 	</section>
