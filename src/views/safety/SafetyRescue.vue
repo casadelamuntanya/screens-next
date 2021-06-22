@@ -26,7 +26,7 @@
 			</li>
 		</ul>
 	</section>
-	<section :data-tag="t('safety.rescue.distress_signals')">
+	<section :data-tag="t('safety.rescue.distress_signals')" data-animate="fade">
 		<div class="columns">
 			<article class="column">
 				<p data-animate="fade-up">

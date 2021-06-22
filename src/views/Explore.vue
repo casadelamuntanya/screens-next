@@ -1,6 +1,6 @@
 <template>
 	<trails-filters v-model="filter" data-animate="fade" />
-	<section :data-tag-pre="t('explore.trails')">
+	<section :data-tag-pre="t('explore.trails')" data-animate="fade">
 		<div
 			v-dragscroll
 			class="trails scroller"

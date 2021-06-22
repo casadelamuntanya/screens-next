@@ -1,5 +1,5 @@
 <template>
-	<section class="stack" :data-tag="t('navigation.menu')">
+	<section class="stack" :data-tag="t('navigation.menu')" data-animate="fade">
 		<div class="nav-grid">
 			<router-link
 				v-for="route in routes"

@@ -3,7 +3,8 @@
 		v-for="(specie, i) in species"
 		:key="specie.name"
 		:data-tag-pre="t(`safety.wildlife.${specie.name}.name`)"
-		:class="specieClasses(i)">
+		:class="specieClasses(i)"
+		data-animate="fade">
 		<figure class="attribution cover" data-animate="fade-right">
 			<img :src="specie.image.url" class="cover">
 			<figcaption>{{ specie.image.attribution }}</figcaption>

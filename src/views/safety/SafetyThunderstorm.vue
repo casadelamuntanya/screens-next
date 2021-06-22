@@ -23,7 +23,10 @@
 		</p>
 	</section>
 	<section class="columns">
-		<section class="column" :data-tag-pre="t('safety.thunderstorm.in_case_of')">
+		<section
+			class="column"
+			:data-tag-pre="t('safety.thunderstorm.in_case_of')"
+			data-animate="fade">
 			<ul class="icon-list">
 				<li
 					v-for="(tip, i) in dos"
@@ -43,7 +46,10 @@
 				</li>
 			</ul>
 		</section>
-		<section class="column" :data-tag-pre="t('safety.thunderstorm.safety_position')">
+		<section
+			class="column"
+			:data-tag-pre="t('safety.thunderstorm.safety_position')"
+			data-animate="fade">
 			<image-markers :markers="markers" class="center" data-animate="fade-up">
 				<img src="/images/vectors/silhouettes/crouching.svg" width="350">
 				<template #marker="{ marker }">

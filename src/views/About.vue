@@ -1,6 +1,6 @@
 <template>
 	<!-- Intro video -->
-	<section class="block-video" :data-tag="t('about.vision')">
+	<section class="block-video" :data-tag="t('about.vision')" data-animate="fade">
 		<h1 data-animate="fade-up">CASA DE LA MUNTANYA</h1>
 		<video-embed
 			:src="video"
@@ -10,7 +10,7 @@
 		<p data-animate="fade-up">{{ t('about.our_vision') }}</p>
 	</section>
 	<!-- Floorplan -->
-	<section class="stack" :data-tag="t('about.floorplan')">
+	<section class="stack" :data-tag="t('about.floorplan')" data-animate="fade">
 		<image-markers :markers="markers" data-animate="fade-up" class="center">
 			<img src="/images/vectors/floorplan.svg" width="650">
 			<template #marker="{ marker }">

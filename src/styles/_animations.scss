@@ -3,6 +3,16 @@
 .animate-in,
 .animate-out {
 	animation: var(--animate-animation) 0.5s var(--animate-delay) ease-out both;
+
+	&[data-tag],
+	&[data-tag-pre] {
+		animation: none;
+
+		&::before,
+		&::after {
+			animation: var(--animate-animation) 0.5s var(--animate-delay) ease-out both;
+		}
+	}
 }
 
 // FADE transition ----------------------------

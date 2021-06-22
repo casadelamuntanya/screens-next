@@ -22,7 +22,7 @@
 			<span :style="`--color:${brush.color}; --size:${brush.width}px`" />
 		</div>
 	</section>
-	<section :data-tag="t('play.fingerpaint.drawings')">
+	<section :data-tag="t('play.fingerpaint.drawings')" data-animate="fade">
 		<div
 			v-dragscroll
 			class="drawing-picker scroller"

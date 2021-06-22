@@ -12,7 +12,7 @@
 			</template>
 		</i18n-t>
 	</section>
-	<section class="stack" :data-tag="t('guides.mountain_guides')">
+	<section class="stack" :data-tag="t('guides.mountain_guides')" data-animate="fade">
 		<transition-group
 			v-if="guides.length"
 			tag="ul"

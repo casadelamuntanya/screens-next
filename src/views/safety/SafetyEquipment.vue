@@ -9,7 +9,10 @@
 		</p>
 	</section>
 	<section class="columns">
-		<section class="column column--2" :data-tag-pre="t('safety.equipment.essentials')">
+		<section
+			class="column column--2"
+			:data-tag-pre="t('safety.equipment.essentials')"
+			data-animate="fade">
 			<ul class="icon-list list-cols-2">
 				<li
 					v-for="(item, i) in equipment.essential"
@@ -21,7 +24,10 @@
 				</li>
 			</ul>
 		</section>
-		<section class="column" :data-tag-pre="t('safety.equipment.recommended')">
+		<section
+			class="column"
+			:data-tag-pre="t('safety.equipment.recommended')"
+			data-animate="fade">
 			<ul class="icon-list">
 				<li
 					v-for="(item, i) in equipment.recommended"

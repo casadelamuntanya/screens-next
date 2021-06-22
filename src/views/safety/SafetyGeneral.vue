@@ -9,7 +9,7 @@
 			<p>{{ t('safety.general.guide') }}</p>
 		</section>
 	</section>
-	<section :data-tag="t('safety.general.basic_principles')">
+	<section :data-tag="t('safety.general.basic_principles')" data-animate="fade">
 		<ul class="grid-list grid-list--2 grid-list--bignum">
 			<li
 				v-for="(principle, i) in principles"

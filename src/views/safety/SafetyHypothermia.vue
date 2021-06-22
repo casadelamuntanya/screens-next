@@ -17,7 +17,10 @@
 		</section>
 	</section>
 	<section class="columns">
-		<section class="column" :data-tag-pre="t('safety.hypothermia.prevention_tips')">
+		<section
+			class="column"
+			:data-tag-pre="t('safety.hypothermia.prevention_tips')"
+			data-animate="fade">
 			<ul class="icon-list">
 				<li
 					v-for="(tip, i) in prevention.dos"
@@ -37,7 +40,10 @@
 				</li>
 			</ul>
 		</section>
-		<section class="column" :data-tag-pre="t('safety.hypothermia.in_case_of')">
+		<section
+			class="column"
+			:data-tag-pre="t('safety.hypothermia.in_case_of')"
+			data-animate="fade">
 			<ul class="icon-list">
 				<li
 					v-for="(tip, i) in treatment.dos"
