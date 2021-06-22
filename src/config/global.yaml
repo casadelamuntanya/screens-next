@@ -9,24 +9,36 @@ routes:
     path: /about
     image:
       url: /images/vectors/logo.svg
+    transitions:
+      title: fade-down
+      image: fade-up
   - name: safety
     path: /safety
     title: vertical right top
     image:
       url: https://source.unsplash.com/NQjvaCYp0h4/500x700
       attribution: © photo by Tim Jones on Unsplash
+    transitions:
+      title: fade-left
+      image: fade-right
   - name: discover
     path: /discover
     title: top left
     image:
       url: https://source.unsplash.com/Nk6FHK1eyHY/500x500
       attribution: © photo by KOBU Agency on Unsplash
+    transitions:
+      title: fade-down
+      image: fade-up
   - name: commitment
     path: /commitment
-    title: top center
+    title: top right
     image:
       url: https://source.unsplash.com/zbhk0949iBo/500x700
       attribution: © photo by Ian Keefes on Unsplash
+    transitions:
+      title: fade-down
+      image: fade-up
   - name: snow_science
     path: snow_science
     title: bottom left
@@ -35,21 +47,33 @@ routes:
       attribution: © photo by freestocks on Unsplash
       # url: https://source.unsplash.com/KPCXuBucEps/600x600
       # attribution: photo by Will Turner on Unsplash
+    transitions:
+      title: fade-up
+      image: fade-down
   - name: explore
     path: /explore
     title: vertical left bottom
     image:
       url: https://source.unsplash.com/Ow-joAY8NyY/800x600
       attribution: © photo by Alfred Aloushy on Unsplash
+    transitions:
+      title: fade-right
+      image: fade-left
   - name: guides
     path: /guides
     title: vertical bottom right
     image:
       url: https://source.unsplash.com/2mg-3crJFgk/400x500
       attribution: © photo by Alyi Kazal on Unsplash
+    transitions:
+      title: fade-left
+      image: fade-right
   - name: play
     path: /play
     title: top left
     image:
       url: https://source.unsplash.com/W4zYlDBAy4w/400x300
       attribution: © photo by Chase B. on Unsplash
+    transitions:
+      title: fade-down
+      image: fade-up
