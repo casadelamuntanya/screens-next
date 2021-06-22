@@ -17,3 +17,9 @@
 	'views/not-found';
 
 * { box-sizing: border-box; }
+
+::-moz-focus-inner,
+::-moz-focus-outer { border: 0; }
+
+:focus,
+:active { outline: 0; }

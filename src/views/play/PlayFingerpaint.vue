@@ -185,7 +185,7 @@ export default {
 			width: var(--size);
 			border-radius: 50%;
 			background: var(--color);
-			outline: 1px solid #0002;
+			border: 1px solid #0002;
 			transform: translate(0, -50%);
 		}
 	}
