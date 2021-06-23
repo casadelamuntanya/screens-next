@@ -40,6 +40,16 @@
 					</figure>
 					<h2>{{ guide.name }}<small>{{ guide.surname }}</small></h2>
 					<p>{{ guide[`bio_${locale}`] }}</p>
+					<ul class="contact">
+						<li v-if="guide.phone">
+							<svg-inline src="/images/icons/phone.svg" />
+							{{ guide.phone }}
+						</li>
+						<li v-if="guide.email">
+							<svg-inline src="/images/icons/email.svg" />
+							{{ guide.email }}
+						</li>
+					</ul>
 					<p><strong>{{ t('guides.share_knowledge') }}</strong></p>
 					<ul class="guide__knowledge">
 						<li v-for="topic in guide.knowledge" :key="topic">
@@ -58,6 +68,7 @@
 <script>
 import { ref, reactive, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import SvgInline from 'vue-inline-svg';
 import Selector from '/@/components/Selector.vue';
 import airtable from '/@/apis/airtable';
 import config from '/@/config/views/guides.yaml';
@@ -66,7 +77,7 @@ const api = airtable(config.api.base);
 
 export default {
 	name: 'Guides',
-	components: { Selector },
+	components: { SvgInline, Selector },
 	setup() {
 		const { t, locale } = useI18n();
 		const guides = ref([]);
@@ -141,25 +152,46 @@ export default {
 		left: 50%;
 		margin: 0;
 		opacity: 0;
-		width: 50%;
+		width: 60%;
+		max-height: 0;
+		padding: var(--l);
+		overflow: hidden;
 		visibility: hidden;
 		z-index: 2;
 		transform: translate(-50%, -50%);
-		transition: all 0.5s ease;
+		transition: opacity 0.5s ease;
 
 		.qr-code {
 			position: absolute;
 			top: 0;
 			right: 0;
-			margin: var(--s);
-			height: 5rem;
-			width: 4rem;
+			margin: var(--xl);
+			height: 8rem;
+			width: 7rem;
+		}
+
+		.contact {
+			display: flex;
+			align-items: center;
+			margin: var(--l);
+
+			li {
+				flex: 1;
+				white-space: nowrap;
+			}
+
+			svg {
+				vertical-align: middle;
+				display: inline-block;
+				margin-right: var(--xs);
+			}
 		}
 	}
 
 	.guide__preview:focus + .guide__extended {
 		visibility: visible;
 		opacity: 1;
+		max-height: 100%;
 	}
 
 	.guide__knowledge li {
@@ -167,7 +199,7 @@ export default {
 		border: 1px solid var(--color-primary);
 		color: var(--color-primary);
 		padding: var(--xs) var(--s);
-		margin: 1px;
+		margin: 2px;
 		border-radius: var(--border-radius);
 		opacity: 0.75;
 		font-size: var(--s);
