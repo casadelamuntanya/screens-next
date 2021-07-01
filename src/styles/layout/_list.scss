@@ -1,3 +1,4 @@
+// LIST OF ELEMENTS IN GRID LAYOUT ----------------------------
 .grid-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -35,6 +36,7 @@
 	}
 }
 
+// LIST OF ELEMENTS WITH ICON ----------------------------
 .icon-list {
 	li {
 		display: inline-flex;
@@ -54,6 +56,7 @@
 	}
 }
 
+// LIST IN COLUMNS ------------------------------------
 .list-cols-2 {
 	column-count: 2;
 	column-gap: var(--spacing);

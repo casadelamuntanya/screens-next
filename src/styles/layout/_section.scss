@@ -48,14 +48,3 @@ section[data-tag-pre] {
 	}
 	&::after { display: none; }
 }
-
-section[data-tag-pre].reverse {
-	padding-right: calc(2.5 * var(--spacing));
-	padding-left: 0;
-
-	&::before {
-		left: auto;
-		right: 0;
-		transform: none;
-	}
-}
