@@ -54,7 +54,7 @@ export default {
 			const track = await (await fetch(trail.track[0].url)).json();
 			geojson.layers.addLayer(track, {
 				name: 'trail',
-				className: 'explore-route',
+				className: 'route',
 				onLoad: geojson.animations.tracePath,
 			});
 			activeTrail.value = { ...trail, track };
