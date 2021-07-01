@@ -4,9 +4,7 @@
 			<li
 				v-for="(route, i) in routes"
 				:key="route.name"
-				data-animate="fade-up"
-				:data-animate-delay-in="`${i * 0.15}s`"
-				:data-animate-delay-out="`${i * 0.15}s`">
+				v-animate:fade-up="`${i * 0.15}s`">
 				<figure class="cover">
 					<img :src="`images/games/${route.name}/cover.jpg`">
 				</figure>
@@ -20,7 +18,7 @@
 			</li>
 		</ul>
 	</section>
-	<section v-else data-animate="fade-down">
+	<section v-else v-animate:fade-down>
 		<router-link to="/play" class="btn btn--plain">
 			<svg-inline src="/images/icons/arrow-left-s.svg" />
 			{{ t('play.nav') }}

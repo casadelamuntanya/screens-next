@@ -1,5 +1,5 @@
 <template>
-	<section class="guides-filters" data-animate="fade-down">
+	<section v-animate:fade-down class="guides-filters">
 		<i18n-t tag="p" keypath="guides.looking_for" class="natural-language-form">
 			<template #language>
 				<selector v-model="filters.language" :options="filters.languages" />
@@ -12,7 +12,7 @@
 			</template>
 		</i18n-t>
 	</section>
-	<section class="stack" :data-tag="t('guides.mountain_guides')" data-animate="fade">
+	<section v-animate:fade class="stack" :data-tag="t('guides.mountain_guides')">
 		<transition-group
 			v-if="guides.length"
 			tag="ul"
@@ -22,9 +22,8 @@
 			<li
 				v-for="(guide, i) in guides"
 				:key="guide.name"
+				v-animate:fade-up="`${i * 0.1}s`"
 				:class="guideStatus(guide)"
-				data-animate="fade-up"
-				:data-animate-delay-out="`${i * 0.1}s`"
 				:style="`--stagger-delay:${i * 0.1}s`">
 				<div class="guide__preview" tabindex="1">
 					<figure class="cover">
@@ -62,7 +61,7 @@
 		<p v-else class="loading">
 			{{ t('guides.loading') }}
 		</p>
-		<p class="note" data-animate="fade">{{ t('guides.association') }}</p>
+		<p v-animate:fade class="note">{{ t('guides.association') }}</p>
 	</section>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
 	<section class="stack">
-		<div class="drawer stack" data-animate="fade">
+		<div v-animate:fade class="drawer stack">
 			<canvas ref="canvas" v-on="drawer.handlers" />
 			<template v-if="selectedDrawing">
 				<img :src="selectedDrawing.image[0].url">
@@ -8,7 +8,7 @@
 			</template>
 		</div>
 	</section>
-	<section class="toolbox" data-animate="fade-up">
+	<section v-animate:fade-up class="toolbox">
 		<color-picker v-model="brush.color" circular>
 			<inline-svg src="/images/icons/paint-brush.svg" />
 		</color-picker>
@@ -22,12 +22,12 @@
 			<span :style="`--color:${brush.color}; --size:${brush.width}px`" />
 		</div>
 	</section>
-	<section :data-tag="t('play.fingerpaint.drawings')" data-animate="fade">
+	<section v-animate:fade :data-tag="t('play.fingerpaint.drawings')">
 		<div
 			v-dragscroll
+			v-animate:fade-down
 			class="drawing-picker scroller"
-			:data-empty="t('play.fingerpaint.no_drawings')"
-			data-animate="fade-down">
+			:data-empty="t('play.fingerpaint.no_drawings')">
 			<label v-for="drawing in drawings" :key="drawing.name">
 				<input v-model="selectedDrawing" :value="drawing" type="radio">
 				<img :src="drawing.image[0].url">
