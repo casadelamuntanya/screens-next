@@ -62,6 +62,7 @@
 		<p v-else class="loading">
 			{{ t('guides.loading') }}
 		</p>
+		<p class="note" data-animate="fade">{{ t('guides.association') }}</p>
 	</section>
 </template>
 
