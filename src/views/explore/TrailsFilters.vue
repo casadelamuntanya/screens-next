@@ -122,3 +122,37 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss" scoped>
+.profiles {
+	display: flex;
+	justify-content: center;
+	font-size: var(--s);
+
+	li {
+		text-align: center;
+		margin: var(--s);
+	}
+
+	svg,
+	img {
+		display: block;
+		margin: 0 auto var(--xs);
+		height: var(--xxxl);
+	}
+
+	input {
+		display: none;
+
+		&:checked ~ * { color: var(--color-primary); }
+	}
+}
+
+.advanced-filters {
+	.column {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+}
+</style>

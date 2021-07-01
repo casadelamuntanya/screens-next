@@ -122,3 +122,23 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss" scoped>
+.hypothermia-animation {
+
+	section { margin-top: 0; }
+
+	.symptoms {
+		margin-bottom: auto;
+		font-size: 1.5em;
+
+		li { margin: 1.2em 2em; }
+	}
+
+	.temperature {
+		font-size: 6rem;
+		text-align: center;
+		margin: 0.75em 0;
+	}
+}
+</style>

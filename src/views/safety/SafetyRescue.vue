@@ -77,3 +77,72 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss" scoped>
+.emergency-phone {
+	text-align: center;
+	font-size: 7rem;
+}
+
+.silhouette {
+	text-align: center;
+	color: inherit;
+
+	svg {
+		height: 15rem;
+		margin: auto;
+	}
+}
+
+.sos {
+	font-size: 8em;
+	text-align: center;
+	font-weight: bold;
+	font-family: 'Futura', 'Arial', sans-serif;
+}
+
+[data-morse-beep] {
+	position: relative;
+	display: inline-block;
+
+	&::before {
+		position: absolute;
+		content: attr(data-morse-beep);
+		display: block;
+		opacity: 0.5;
+	}
+
+	&:nth-child(1)::before { animation: morse-beep-s1 15s linear 2s infinite; }
+	&:nth-child(2)::before { animation: morse-beep-o 15s linear 2s infinite; }
+	&:nth-child(3)::before { animation: morse-beep-s2 15s linear 2s infinite; }
+}
+
+@mixin morse-beep-s($start) {
+	0% { transform: scale(1); }
+	#{$start}% { transform: scale(1); }
+	#{$start + 1.25}% { transform: scale(1.5); }
+	#{$start + 2.5}% { transform: scale(1); }
+	#{$start + 3.75}% { transform: scale(1.5); }
+	#{$start + 5}% { transform: scale(1); }
+	#{$start + 6.25}% { transform: scale(1.5); }
+	#{$start + 7.5}% { transform: scale(1); }
+}
+
+@keyframes morse-beep-s1 { @include morse-beep-s(1.25); }
+
+@keyframes morse-beep-s2 { @include morse-beep-s(31.25); }
+
+@keyframes morse-beep-o {
+	0% { transform: scale(1); }
+	12.5% { transform: scale(1); }
+	13.75% { transform: scale(1.5); }
+	16.25% { transform: scale(1.5); }
+	17.5% { transform: scale(1); }
+	18.75% { transform: scale(1.5); }
+	21.25% { transform: scale(1.5); }
+	22.5% { transform: scale(1); }
+	23.75% { transform: scale(1.5); }
+	26.25% { transform: scale(1.5); }
+	27.5% { transform: scale(1); }
+}
+</style>

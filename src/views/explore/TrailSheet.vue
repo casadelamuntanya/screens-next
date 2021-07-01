@@ -50,3 +50,30 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss" scoped>
+.trail-sheet {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 53%;
+	margin: var(--m);
+	z-index: 500;
+	background: #fffa;
+	padding: var(--l) var(--xxl);
+	border-radius: var(--border-radius);
+
+	.stats {
+		box-sizing: border-box;
+		padding: var(--s);
+		font-size: var(--l);
+		display: flex;
+		justify-content: space-around;
+
+		em {
+			display: block;
+			font-size: var(--s);
+		}
+	}
+}
+</style>

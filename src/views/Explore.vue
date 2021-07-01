@@ -73,3 +73,20 @@ export default {
 	},
 };
 </script>
+
+<style scoped>
+.trails { min-height: 13rem; }
+
+.stats {
+	box-sizing: border-box;
+	padding: var(--s);
+	font-size: var(--l);
+	display: flex;
+	justify-content: space-around;
+
+	em {
+		display: block;
+		font-size: var(--s);
+	}
+}
+</style>
