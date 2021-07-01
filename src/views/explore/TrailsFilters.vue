@@ -1,45 +1,47 @@
 <template>
-	<ul v-bind="$attrs" class="nav-bar">
-		<li v-for="(_, name) in filters" :key="name">
-			<label>
-				<input v-model="filter" type="radio" :value="name">
-				<span>{{ t(`explore.filters.${name}`) }}</span>
-			</label>
-		</li>
-	</ul>
-	<ul v-if="filter === 'featured'" class="profiles">
-		<li v-for="name in profiles" :key="name">
-			<label>
-				<input v-model="profile" :value="name" type="radio">
-				<inline-svg :src="`/images/vectors/profiles/${name}.svg`" />
-				<span>{{ t(`explore.profiles.${name}`, name) }}</span>
-			</label>
-		</li>
-	</ul>
-	<section v-if="filter === 'advanced'" class="columns advanced-filters">
-		<div class="column">
-			<fieldset
-				v-for="(options, name) in { distance, duration, drop_positive }"
-				:key="name"
-				class="range">
-				<legend>{{ t(`explore.filters.${name}`) }}</legend>
-				<em>{{ rangeLabel(name) }}</em>
-				<slider v-model="ranges[name]" v-bind="options" :tooltips="false" />
-			</fieldset>
-		</div>
-		<div class="column">
-			<fieldset
-				v-for="(options, name) in { origin, culture, wildlife }"
-				:key="name"
-				class="picker">
-				<legend>{{ t(`explore.filters.${name}`) }}</legend>
-				<label v-for="item in options" :key="item">
-					<input v-model="picks[name]" :value="item" type="checkbox">
-					{{ t(`explore.${name}.${item}`, item) }}
+	<div class="trails-filters">
+		<ul v-bind="$attrs" class="nav-bar">
+			<li v-for="(_, name) in filters" :key="name">
+				<label>
+					<input v-model="filter" type="radio" :value="name">
+					<span>{{ t(`explore.filters.${name}`) }}</span>
 				</label>
-			</fieldset>
-		</div>
-	</section>
+			</li>
+		</ul>
+		<ul v-if="filter === 'featured'" class="profiles">
+			<li v-for="name in profiles" :key="name">
+				<label>
+					<input v-model="profile" :value="name" type="radio">
+					<inline-svg :src="`/images/vectors/profiles/${name}.svg`" />
+					<span>{{ t(`explore.profiles.${name}`, name) }}</span>
+				</label>
+			</li>
+		</ul>
+		<section v-if="filter === 'advanced'" class="columns advanced-filters">
+			<div class="column">
+				<fieldset
+					v-for="(options, name) in { distance, duration, drop_positive }"
+					:key="name"
+					class="range">
+					<legend>{{ t(`explore.filters.${name}`) }}</legend>
+					<em>{{ rangeLabel(name) }}</em>
+					<slider v-model="ranges[name]" v-bind="options" :tooltips="false" />
+				</fieldset>
+			</div>
+			<div class="column">
+				<fieldset
+					v-for="(options, name) in { origin, culture, wildlife }"
+					:key="name"
+					class="picker">
+					<legend>{{ t(`explore.filters.${name}`) }}</legend>
+					<label v-for="item in options" :key="item">
+						<input v-model="picks[name]" :value="item" type="checkbox">
+						{{ t(`explore.${name}.${item}`, item) }}
+					</label>
+				</fieldset>
+			</div>
+		</section>
+	</div>
 </template>
 
 <script>

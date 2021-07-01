@@ -15,8 +15,9 @@
 		</div>
 	</section>
 	<section class="stack">
-		<div id="explore" v-animate:fade class="map" />
-		<trail-sheet v-if="activeTrail" :trail="activeTrail" />
+		<div id="explore" v-animate:fade class="map">
+			<trail-sheet v-if="activeTrail" :trail="activeTrail" />
+		</div>
 	</section>
 </template>
 
