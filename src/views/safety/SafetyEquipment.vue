@@ -1,46 +1,38 @@
 <template>
-	<figure class="ungutter" data-animate="fade-down">
+	<figure v-animate:fade-down class="ungutter">
 		<img src="/images/trekking_gear.png">
 	</figure>
 	<section>
-		<h1 data-animate="fade-up">{{ t('safety.equipment.equip_yourself') }}</h1>
-		<p data-animate="fade-up" data-animate-delay-in="0.25s">
+		<h1 v-animate:fade-up>{{ t('safety.equipment.equip_yourself') }}</h1>
+		<p v-animate:fade-up="'0.25s'">
 			{{ t('safety.equipment.proper_equipment') }}
 		</p>
 	</section>
 	<section class="columns">
 		<section
+			v-animate:fade
 			class="column column--2"
-			:data-tag-pre="t('safety.equipment.essentials')"
-			data-animate="fade">
+			:data-tag-pre="t('safety.equipment.essentials')">
 			<ul class="icon-list list-cols-2">
-				<li
-					v-for="(item, i) in equipment.essential"
-					:key="item"
-					data-animate="fade-left"
-					:data-animate-delay-in="`${0.5 + i * 0.15}s`">
+				<li v-for="(item, i) in equipment.essential" :key="item" v-animate="animation(i)">
 					<inline-svg :src="`/images/vectors/equipment/${item}.svg`" class="icon" />
 					{{ t(`safety.equipment.items.${item}`) }}
 				</li>
 			</ul>
 		</section>
 		<section
+			v-animate:fade
 			class="column"
-			:data-tag-pre="t('safety.equipment.recommended')"
-			data-animate="fade">
+			:data-tag-pre="t('safety.equipment.recommended')">
 			<ul class="icon-list">
-				<li
-					v-for="(item, i) in equipment.recommended"
-					:key="item"
-					data-animate="fade-left"
-					:data-animate-delay-in="`${0.5 + i * 0.15}s`">
+				<li v-for="(item, i) in equipment.recommended" :key="item" v-animate="animation(i)">
 					<inline-svg :src="`/images/vectors/equipment/${item}.svg`" class="icon" />
 					{{ t(`safety.equipment.items.${item}`) }}
 				</li>
 			</ul>
 		</section>
 	</section>
-	<section class="note" data-animate="fade-down">
+	<section v-animate:fade-down class="note">
 		{{ t('safety.equipment.disclaimer') }}
 	</section>
 </template>
@@ -56,7 +48,15 @@ export default {
 	setup() {
 		const { t } = useI18n();
 
-		return { t, equipment };
+		const animation = i => ({
+			enter: {
+				animation: 'fade-left',
+				delay: `${0.5 + i * 0.15}s`,
+			},
+			leave: 'fade-left',
+		});
+
+		return { t, equipment, animation };
 	},
 };
 </script>

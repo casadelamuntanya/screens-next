@@ -1,17 +1,17 @@
 <template>
 	<!-- Intro video -->
-	<section class="block-video" :data-tag="t('about.vision')" data-animate="fade">
-		<h1 data-animate="fade-up">CASA DE LA MUNTANYA</h1>
+	<section v-animate:fade class="block-video" :data-tag="t('about.vision')">
+		<h1 v-animate:fade-up>CASA DE LA MUNTANYA</h1>
 		<video-embed
+			v-animate:fade-down
 			:src="video"
 			:subs="locale"
-			data-animate="fade-down"
 			class="shadow-bl" />
-		<p data-animate="fade-up">{{ t('about.our_vision') }}</p>
+		<p v-animate:fade-up>{{ t('about.our_vision') }}</p>
 	</section>
 	<!-- Floorplan -->
-	<section class="stack" :data-tag="t('about.floorplan')" data-animate="fade">
-		<image-markers :markers="markers" data-animate="fade-up" class="center">
+	<section v-animate:fade class="stack" :data-tag="t('about.floorplan')">
+		<image-markers v-animate:fade-up :markers="markers" class="center">
 			<img src="/images/vectors/floorplan.svg" width="650">
 			<template #marker="{ marker }">
 				<span :data-tooltip="t(`about.zones.${marker.id}`)">

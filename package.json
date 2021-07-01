@@ -17,7 +17,8 @@
     "vue": "^3.0.5",
     "vue-i18n": "^9.1.6",
     "vue-inline-svg": "^3.0.0-beta.3",
-    "vue-router": "^4.0.6"
+    "vue-router": "^4.0.6",
+    "vue-router-animations": "gist:bd502b019ba91f8f70b3a8f5cbb6f4d8"
   },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^2.1.2",
