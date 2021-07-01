@@ -1,0 +1,13 @@
+airtable:
+  explore:
+    base: appMWr6cRQN40oIM2
+    trails: trails?filterByFormula=AND(ready)
+
+  games:
+    base: app71mFwZY0ygohqZ
+    drawings: fingerpaint?filterByFormula=AND(ready)
+    cards: memorama?filterByFormula=AND(ready)
+
+  guides:
+    base: appVcIFg2pVGQ7IKU
+    guides: guides?filterByFormula=AND(ready)&sort[0][field]=surname&sort[0][direction]=asc

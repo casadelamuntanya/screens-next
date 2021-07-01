@@ -26,7 +26,7 @@ export default {
 	setup(props) {
 		const { t, locale } = useI18n();
 		const classes = computed(() => {
-			const active = props.active?.id === props.trail.id;
+			const active = props.active && props.active.id === props.trail.id;
 			const inactive = props.active && !active;
 			return ['card', { active, inactive }];
 		});
@@ -51,3 +51,37 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss" scoped>
+.card {
+	transition: all 0.5s ease;
+	height: 12rem;
+	flex: 0 0 9rem;
+
+	& + .card { margin-left: 2rem; }
+
+	&.active {
+		background: #fff;
+		position: sticky;
+		left: 1em;
+		right: 1em;
+		z-index: 10;
+		box-shadow: 0 0 1.5em 2em #fff;
+	}
+
+	&.inactive {
+		opacity: 0.2;
+		filter: saturate(0.25);
+		transform: scale(0.9);
+	}
+
+	.stats {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		color: #fff;
+		background: linear-gradient(to bottom, #0000 0%, #0008 100%);
+		border-radius: var(--border-radius);
+	}
+}
+</style>

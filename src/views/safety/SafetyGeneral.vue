@@ -7,6 +7,7 @@
 		<section v-animate:fade-up>
 			<p>{{ t('safety.general.intro') }}</p>
 			<p>{{ t('safety.general.guide') }}</p>
+			<router-link class="btn" to="/guides">{{ t('guides.find_guide') }}</router-link>
 		</section>
 	</section>
 	<section v-animate:fade :data-tag="t('safety.general.basic_principles')">

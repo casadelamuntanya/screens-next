@@ -70,9 +70,9 @@ import { useI18n } from 'vue-i18n';
 import SvgInline from 'vue-inline-svg';
 import Selector from '/@/components/Selector.vue';
 import airtable from '/@/apis/airtable';
-import config from '/@/config/views/guides.yaml';
+import apis from '/@/config/apis.yaml';
 
-const api = airtable(config.api.base);
+const api = airtable(apis.airtable.guides.base);
 
 export default {
 	name: 'Guides',
@@ -95,7 +95,7 @@ export default {
 		};
 
 		onMounted(async () => {
-			guides.value = await api.get(config.api.tables.guides);
+			guides.value = await api.get(apis.airtable.guides.guides);
 			filters.languages = [...new Set(guides.value.flatMap(g => g.languages))];
 			filters.disciplines = [null, ...new Set(guides.value.flatMap(g => g.disciplines))];
 			[filters.language] = filters.languages;

@@ -23,6 +23,7 @@ export default {
 	display: inline-block;
 	position: relative;
 	overflow: visible;
+	text-align: center;
 
 	&__marker {
 		display: block;
@@ -30,6 +31,15 @@ export default {
 		transform: translate(-50%, -50%);
 		z-index: 0;
 		overflow: visible;
+		background: var(--color-dark);
+		color: var(--color-light);
+		border-radius: 50%;
+		font-size: 1.5em;
+		width: var(--size-touch);
+		height: var(--size-touch);
+		text-align: center;
+		line-height: var(--size-touch);
+		box-shadow: 0 0 0 0.5em #0003;
 
 		&:hover { z-index: 1; }
 	}

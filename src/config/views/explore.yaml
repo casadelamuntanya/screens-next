@@ -81,8 +81,3 @@ filters:
     - ROMANESQUE
     - DRY_STONE
     - ART
-
-api:
-  base: appMWr6cRQN40oIM2
-  tables:
-    trails: trails

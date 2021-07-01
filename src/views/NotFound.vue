@@ -1,5 +1,5 @@
 <template>
-	<div id="not-found" class="center">
+	<div class="center">
 		<figure v-animate:fade-up class="attribution cover">
 			<h1>404</h1>
 			<img src="https://source.unsplash.com/KkCig7EbfoA/1100x800">¡
@@ -31,3 +31,20 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss" scoped>
+figure {
+	h1 {
+		line-height: 0;
+		font-size: 17em;
+		color: rgba(#000, 0.05);
+		text-align: center;
+		padding: 0 2rem 25rem;
+	}
+
+	img {
+		filter: saturate(0.4);
+		mask-image: linear-gradient(to bottom, transparent 0%, #000 75%);
+	}
+}
+</style>

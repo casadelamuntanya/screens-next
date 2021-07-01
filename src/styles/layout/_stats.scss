@@ -1,0 +1,12 @@
+.stats {
+	box-sizing: border-box;
+	padding: var(--s);
+	font-size: var(--l);
+	display: flex;
+	justify-content: space-around;
+
+	em {
+		display: block;
+		font-size: var(--s);
+	}
+}

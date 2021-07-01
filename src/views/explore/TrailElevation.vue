@@ -97,3 +97,37 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss">
+.elevation {
+	margin: var(--xl) 0;
+
+	&__yaxis {
+		text {
+			fill: #0008;
+			transform: translate(35px, -7px);
+		}
+
+		line {
+			stroke: #0005;
+			stroke-dasharray: 2;
+		}
+
+		.domain { display: none; }
+	}
+
+	&__xaxis {
+		line { stroke: #0005; }
+		text { fill: #0008; }
+		.domain { stroke: #0008; }
+	}
+
+	&__line {
+		fill: none;
+		stroke: var(--color-primary);
+		stroke-width: 2;
+		stroke-linejoin: round;
+	}
+}
+
+</style>

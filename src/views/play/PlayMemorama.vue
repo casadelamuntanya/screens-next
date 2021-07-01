@@ -48,9 +48,9 @@ import { ref, reactive, watch, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import SvgInline from 'vue-inline-svg';
 import airtable from '/@/apis/airtable';
-import config from '/@/config/views/play.yaml';
+import apis from '/@/config/apis.yaml';
 
-const api = airtable(config.api.base);
+const api = airtable(apis.airtable.games.base);
 
 const findNextSquare = num => {
 	const next = Math.floor(Math.sqrt(num)) + 1;
@@ -149,7 +149,7 @@ export default {
 		watch(level, reset);
 
 		onMounted(async () => {
-			suits.value = await api.get(config.api.tables.cards);
+			suits.value = await api.get(apis.airtable.games.cards);
 			reset();
 		});
 

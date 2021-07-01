@@ -1,24 +1,11 @@
 @import
+	'reset',
 	'variables',
 	'layout',
 	'typography',
-	'buttons',
 	'forms',
 	'media';
 @import
-	'components/map',
-	'components/timeline',
-	'components/image-markers',
-	'components/elevation';
-@import
-	'views/safety',
-	'views/explore',
-	'views/not-found';
-
-* { box-sizing: border-box; }
-
-::-moz-focus-inner,
-::-moz-focus-outer { border: 0; }
-
-:focus,
-:active { outline: 0; }
+	'components/buttons',
+	'components/card',
+	'components/map';

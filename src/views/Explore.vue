@@ -15,8 +15,9 @@
 		</div>
 	</section>
 	<section class="stack">
-		<div id="explore" v-animate:fade class="map" />
-		<trail-sheet v-if="activeTrail" :trail="activeTrail" />
+		<div id="explore" v-animate:fade class="map">
+			<trail-sheet v-if="activeTrail" :trail="activeTrail" />
+		</div>
 	</section>
 </template>
 
@@ -29,8 +30,9 @@ import TrailCard from './explore/TrailCard.vue';
 import TrailSheet from './explore/TrailSheet.vue';
 import TrailsFilters from './explore/TrailsFilters.vue';
 import config from '/@/config/views/explore.yaml';
+import apis from '/@/config/apis.yaml';
 
-const api = airtable(config.api.base);
+const api = airtable(apis.airtable.explore.base);
 
 export default {
 	name: 'Explore',
@@ -54,7 +56,7 @@ export default {
 			const track = await (await fetch(trail.track[0].url)).json();
 			geojson.layers.addLayer(track, {
 				name: 'trail',
-				className: 'explore-route',
+				className: 'route',
 				onLoad: geojson.animations.tracePath,
 			});
 			activeTrail.value = { ...trail, track };
@@ -66,10 +68,27 @@ export default {
 			geojson.layers = useGeoJSON(map);
 			geojson.animations = useAnimations(map);
 
-			trails.value = await api.get(config.api.tables.trails);
+			trails.value = await api.get(apis.airtable.explore.trails);
 		});
 
 		return { t, locale, filteredTrails, activeTrail, toggleTrail, filter };
 	},
 };
 </script>
+
+<style scoped>
+.trails { min-height: 13rem; }
+
+.stats {
+	box-sizing: border-box;
+	padding: var(--s);
+	font-size: var(--l);
+	display: flex;
+	justify-content: space-around;
+
+	em {
+		display: block;
+		font-size: var(--s);
+	}
+}
+</style>
