@@ -22,17 +22,14 @@
 			class="column"
 			:data-tag-pre="t('safety.hypothermia.prevention_tips')">
 			<ul class="icon-list">
-				<li
-					v-for="(tip, i) in prevention.dos"
-					:key="tip"
-					v-animate:fade-left="`${0.5 + i * 0.15}s`">
+				<li v-for="(tip, i) in prevention.dos" :key="tip" v-animate="routeAnimation(i)">
 					<i class="ri-check-line icon icon--success" />
 					{{ t(`safety.hypothermia.tips.${tip}`) }}
 				</li>
 				<li
 					v-for="(tip, i) in prevention.donts"
 					:key="tip"
-					v-animate:fade-left="`${0.5 + prevention.dos.length * 0.15 + i * 0.15}s`">
+					v-animate="routeAnimation(i, prevention.dos.length * 0.15)">
 					<i class="ri-close-line icon icon--alert" />
 					{{ t(`safety.hypothermia.tips.${tip}`) }}
 				</li>
@@ -43,17 +40,14 @@
 			class="column"
 			:data-tag-pre="t('safety.hypothermia.in_case_of')">
 			<ul class="icon-list">
-				<li
-					v-for="(tip, i) in treatment.dos"
-					:key="tip"
-					v-animate:fade-left="`${0.5 + i * 0.15}s`">
+				<li v-for="(tip, i) in treatment.dos" :key="tip" v-animate="routeAnimation(i)">
 					<i class="ri-check-line icon icon--success" />
 					{{ t(`safety.hypothermia.tips.${tip}`) }}
 				</li>
 				<li
 					v-for="(tip, i) in treatment.donts"
 					:key="tip"
-					v-animate:fade-left="`${0.5 + treatment.dos.length * 0.15 + i * 0.15}s`">
+					v-animate="routeAnimation(i, treatment.dos.length * 0.15)">
 					<i class="ri-close-line icon icon--alert" />
 					{{ t(`safety.hypothermia.tips.${tip}`) }}
 				</li>
@@ -116,7 +110,15 @@ export default {
 			return temperature.value >= min && temperature.value <= max;
 		}));
 
-		return { t, gradient, temperature, currentSymptoms, prevention, treatment };
+		const routeAnimation = (i, initialDelay = 0) => ({
+			enter: {
+				animation: 'fade-left',
+				delay: `${initialDelay + i * 0.15}s`,
+			},
+			leave: 'fade-left',
+		});
+
+		return { t, gradient, temperature, currentSymptoms, prevention, treatment, routeAnimation };
 	},
 };
 </script>

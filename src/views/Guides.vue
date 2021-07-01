@@ -22,7 +22,6 @@
 			<li
 				v-for="(guide, i) in guides"
 				:key="guide.name"
-				v-animate:fade-up="`${i * 0.1}s`"
 				:class="guideStatus(guide)"
 				:style="`--stagger-delay:${i * 0.1}s`">
 				<div class="guide__preview" tabindex="1">

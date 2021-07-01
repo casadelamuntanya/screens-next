@@ -28,17 +28,14 @@
 			class="column"
 			:data-tag-pre="t('safety.thunderstorm.in_case_of')">
 			<ul class="icon-list">
-				<li
-					v-for="(tip, i) in dos"
-					:key="tip"
-					v-animate:fade-left="`${0.5 + i * 0.15}s`">
+				<li v-for="(tip, i) in dos" :key="tip" v-animate="animation(i)">
 					<i class="ri-check-line icon icon--success" />
 					{{ t(`safety.thunderstorm.safety_tips.${tip}`) }}
 				</li>
 				<li
 					v-for="(tip, i) in donts"
 					:key="tip"
-					v-animate:fade-left="`${0.5 + dos.length * 0.15 + i * 0.15}s`">
+					v-animate="animation(i, dos.length * 0.15)">
 					<i class="ri-close-line icon icon--alert" />
 					{{ t(`safety.thunderstorm.safety_tips.${tip}`) }}
 				</li>
@@ -72,7 +69,14 @@ export default {
 	setup() {
 		const { t } = useI18n();
 		const { video, dos, donts, markers } = thunderstorm;
-		return { t, video, dos, donts, markers };
+		const animation = (i, initialDelay = 0) => ({
+			enter: {
+				animation: 'fade-left',
+				delay: `${initialDelay + i * 0.15}s`,
+			},
+			leave: 'fade-left',
+		});
+		return { t, video, dos, donts, markers, animation };
 	},
 };
 </script>

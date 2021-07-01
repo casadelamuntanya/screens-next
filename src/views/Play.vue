@@ -1,10 +1,7 @@
 <template>
 	<section v-if="isMain" class="stack">
 		<ul class="nav-games">
-			<li
-				v-for="(route, i) in routes"
-				:key="route.name"
-				v-animate:fade-up="`${i * 0.15}s`">
+			<li v-for="(route, i) in routes" :key="route.name" v-animate="`${i * 0.15}s`">
 				<figure class="cover">
 					<img :src="`images/games/${route.name}/cover.jpg`">
 				</figure>

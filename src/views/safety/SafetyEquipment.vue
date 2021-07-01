@@ -14,10 +14,7 @@
 			class="column column--2"
 			:data-tag-pre="t('safety.equipment.essentials')">
 			<ul class="icon-list list-cols-2">
-				<li
-					v-for="(item, i) in equipment.essential"
-					:key="item"
-					v-animate:fade-left="`${0.5 + i * 0.15}s`">
+				<li v-for="(item, i) in equipment.essential" :key="item" v-animate="animation(i)">
 					<inline-svg :src="`/images/vectors/equipment/${item}.svg`" class="icon" />
 					{{ t(`safety.equipment.items.${item}`) }}
 				</li>
@@ -28,10 +25,7 @@
 			class="column"
 			:data-tag-pre="t('safety.equipment.recommended')">
 			<ul class="icon-list">
-				<li
-					v-for="(item, i) in equipment.recommended"
-					:key="item"
-					v-animate:fade-left="`${0.5 + i * 0.15}s`">
+				<li v-for="(item, i) in equipment.recommended" :key="item" v-animate="animation(i)">
 					<inline-svg :src="`/images/vectors/equipment/${item}.svg`" class="icon" />
 					{{ t(`safety.equipment.items.${item}`) }}
 				</li>
@@ -54,7 +48,15 @@ export default {
 	setup() {
 		const { t } = useI18n();
 
-		return { t, equipment };
+		const animation = i => ({
+			enter: {
+				animation: 'fade-left',
+				delay: `${0.5 + i * 0.15}s`,
+			},
+			leave: 'fade-left',
+		});
+
+		return { t, equipment, animation };
 	},
 };
 </script>

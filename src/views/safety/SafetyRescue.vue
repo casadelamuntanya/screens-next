@@ -16,10 +16,7 @@
 	<section>
 		<p v-animate:fade>{{ t('safety.rescue.phone_directives') }}</p>
 		<ul class="grid-list grid-list--bignum">
-			<li
-				v-for="(question, i) in phoneQuestions"
-				:key="question"
-				v-animate:fade-up="`${0.25 + i * 0.25}s`">
+			<li v-for="(question, i) in phoneQuestions" :key="question" v-animate="animation(i)">
 				<h4>{{ t(`safety.rescue.phone_questions.${question}`) }}</h4>
 				<p>{{ t(`safety.rescue.phone_questions.${question}_desc`) }}</p>
 			</li>
@@ -68,7 +65,15 @@ export default {
 
 		const phoneQuestions = ['what', 'when', 'where', 'who'];
 
-		return { t, phoneQuestions };
+		const animation = (i, initialDelay = 0) => ({
+			enter: {
+				animation: 'fade-up',
+				delay: `${initialDelay + i * 0.25}s`,
+			},
+			leave: 'fade-up',
+		});
+
+		return { t, phoneQuestions, animation };
 	},
 };
 </script>

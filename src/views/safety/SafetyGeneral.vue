@@ -11,13 +11,9 @@
 	</section>
 	<section v-animate:fade :data-tag="t('safety.general.basic_principles')">
 		<ul class="grid-list grid-list--2 grid-list--bignum">
-			<li
-				v-for="(principle, i) in principles"
-				:key="principle"
-				v-animate:fade-up="`${0.25 + i * 0.25}s`">
+			<li v-for="(principle, i) in principles" :key="principle" v-animate="animation(i)">
 				<h3>{{ t(`safety.general.principles.${principle}`) }}</h3>
-				<p
-					v-animate:fade-down="`${0.25 + i * 0.25}s`">
+				<p v-animate="animation(i, 0.5)">
 					{{ t(`safety.general.principles.${principle}_desc`) }}
 				</p>
 			</li>
@@ -33,7 +29,16 @@ export default {
 	name: 'SafetyGeneral',
 	setup() {
 		const { t } = useI18n();
-		return { t, principles };
+
+		const animation = (i, initialDelay = 0) => ({
+			enter: {
+				animation: 'fade-up',
+				delay: `${initialDelay + i * 0.25}s`,
+			},
+			leave: 'fade-up',
+		});
+
+		return { t, principles, animation };
 	},
 };
 </script>
