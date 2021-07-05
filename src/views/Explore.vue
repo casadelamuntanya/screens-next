@@ -30,9 +30,6 @@ import TrailCard from './explore/TrailCard.vue';
 import TrailSheet from './explore/TrailSheet.vue';
 import TrailsFilters from './explore/TrailsFilters.vue';
 import config from '/@/config/views/explore.yaml';
-import apis from '/@/config/apis.yaml';
-
-const api = airtable(apis.airtable.explore.base);
 
 export default {
 	name: 'Explore',
@@ -68,7 +65,7 @@ export default {
 			geojson.layers = useGeoJSON(map);
 			geojson.animations = useAnimations(map);
 
-			trails.value = await api.get(apis.airtable.explore.trails);
+			trails.value = await airtable.getExploreTrails();
 		});
 
 		return { t, locale, filteredTrails, activeTrail, toggleTrail, filter };

@@ -42,9 +42,6 @@ import { useI18n } from 'vue-i18n';
 import ColorPicker from '/@/components/ColorPicker.vue';
 import InlineSvg from 'vue-inline-svg';
 import airtable from '/@/apis/airtable';
-import apis from '/@/config/apis.yaml';
-
-const api = airtable(apis.airtable.games.base);
 
 export default {
 	name: 'PlayFingerpaint',
@@ -87,7 +84,7 @@ export default {
 		watch(selectedDrawing, () => drawer.clear());
 
 		onMounted(async () => {
-			drawings.value = await api.get(apis.airtable.games.drawings);
+			drawings.value = await airtable.getFingerpaintDrawings();
 			[selectedDrawing.value] = drawings.value;
 
 			const { clientHeight, clientWidth } = canvas.value.parentNode;
