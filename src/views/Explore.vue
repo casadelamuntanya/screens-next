@@ -73,7 +73,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .trails { min-height: 13rem; }
 
 .stats {

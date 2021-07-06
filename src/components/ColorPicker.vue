@@ -99,7 +99,7 @@ export default {
 				transform: rotate(-45deg);
 			}
 
-			&.selected { border-width: 5px }
+			&.selected { border-width: 5px; }
 		}
 	}
 

@@ -170,13 +170,12 @@ export default {
 
 	span {
 		position: relative;
-		margin-left: 0rem;
+		margin-left: 0;
 		// margin-left: calc(var(--size) / 2);
 
-		&:before {
+		&::before {
 			content: '';
 			position: absolute;
-			vertical-align: middle;
 			display: block;
 			height: var(--size);
 			width: var(--size);

@@ -172,7 +172,7 @@ export default {
 		transition: transform 1s ease;
 		text-align: center;
 
-		&.flipped { transform: rotateY(0);}
+		&.flipped { transform: rotateY(0); }
 
 		&__front,
 		&__back {
@@ -208,7 +208,6 @@ export default {
 
 		h6 {
 			margin-top: 1rem;
-			font-size: var(--l);
 			text-transform: uppercase;
 			font-size: 0.8em;
 		}

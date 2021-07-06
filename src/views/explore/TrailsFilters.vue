@@ -70,7 +70,7 @@ export default {
 		const { profiles, origin, wildlife, culture } = config.filters;
 		const profile = ref(undefined);
 		const picks = reactive({ wildlife: [], culture: [], origin: [] });
-		const { distance, duration, drop_positive } = config.filters;
+		const { distance, duration, drop_positive } = config.filters; // eslint-disable-line camelcase
 		const ranges = reactive({
 			distance: [distance.min, distance.max],
 			duration: [duration.min, duration.max],
