@@ -3,6 +3,7 @@ import Home from '/@/views/Home.vue';
 import About from '/@/views/About.vue';
 import Safety from '/@/views/Safety.vue';
 import SafetyRoutes from '/@/views/safety/routes';
+import Discover from '/@/views/Discover.vue';
 import Explore from '/@/views/Explore.vue';
 import Guides from '/@/views/Guides.vue';
 import Play from '/@/views/Play.vue';
@@ -15,6 +16,7 @@ export default createRouter({
 		{ path: '/', component: Home },
 		{ path: '/about', component: About },
 		{ path: '/safety', component: Safety, children: SafetyRoutes },
+		{ path: '/discover', component: Discover },
 		{ path: '/explore', component: Explore },
 		{ path: '/guides', component: Guides },
 		{ path: '/play', name: 'play', component: Play, children: PlayRoutes },

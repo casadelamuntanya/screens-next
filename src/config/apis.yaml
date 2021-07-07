@@ -1,4 +1,8 @@
 airtable:
+  discover:
+    base: app3qBEiTWF9mXkoa
+    concepts: concepts?filterByFormula=AND(ready)
+  
   explore:
     base: appMWr6cRQN40oIM2
     trails: trails?filterByFormula=AND(ready)
