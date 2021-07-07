@@ -1,6 +1,9 @@
 <template>
 	<div class="center">
-		<ul class="radial">
+		<transition-group
+			tag="ul"
+			name="radial"
+			class="radial">
 			<li
 				v-for="(child, i) in concept.children"
 				:key="child.id"
@@ -16,7 +19,7 @@
 					<!--p>{{ child.description }}</p-->
 				</div>
 			</li>
-			<li class="radial__root" @click="back">
+			<li key="root" class="radial__root" @click="back">
 				<div :class="['card', { empty: !concept.media }]">
 					<h4 class="title">{{ concept.name || 'root' }}</h4>
 					<figure v-if="concept.media" class="cover attribution faded">
@@ -25,7 +28,7 @@
 					</figure>
 				</div>
 			</li>
-		</ul>
+		</transition-group>
 	</div>
 </template>
 
@@ -81,6 +84,7 @@ export default {
 		height: 250px;
 		width: 200px;
 		box-sizing: border-box;
+		background: #e8e8e8;
 		transform:
 			translate(-50%, -50%)
 			rotate(calc(-1rad * var(--angle)));
@@ -106,6 +110,28 @@ export default {
 			width: calc(1.5px * var(--radius));
 			right: 100%;
 		}
+	}
+}
+
+.radial-enter-active,
+.radial-leave-active {
+	transition: all 0.5s ease-in;
+
+	&::before { transition: inherit; }
+}
+
+.radial-enter-from,
+.radial-leave-to {
+	transition-timing-function: ease-out;
+	opacity: 0;
+	transform:
+		rotate(calc(1rad * var(--angle)))
+		translateX(0)
+		scale(0.75);
+
+	&::before {
+		transition: inherit;
+		width: 0;
 	}
 }
 </style>
