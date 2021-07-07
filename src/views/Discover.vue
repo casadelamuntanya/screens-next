@@ -21,7 +21,7 @@
 			</li>
 			<li key="root" class="radial__root" @click="back">
 				<div :class="['card', { empty: !concept.media }]">
-					<h4 class="title">{{ concept.name || 'root' }}</h4>
+					<h4 class="title">{{ concept.name }}</h4>
 					<figure v-if="concept.media" class="cover attribution faded">
 						<img :src="concept.media[0].url" :alt="concept.name">
 						<figcaption>{{ concept.media[0].filename }}</figcaption>
@@ -38,7 +38,7 @@ import airtable from '/@/apis/airtable';
 
 export default {
 	setup() {
-		const ELLIPSE_HEIGHT = 600;
+		const ELLIPSE_HEIGHT = 500;
 		const ELLIPSE_WIDTH = 350;
 		const concepts = ref({});
 		const path = ref([]);
@@ -81,17 +81,16 @@ export default {
 
 	.card {
 		position: absolute;
-		height: 250px;
-		width: 200px;
+		height: 350px;
+		width: 300px;
 		box-sizing: border-box;
-		background: #e8e8e8;
+		background: #e0e0e0;
 		transform:
 			translate(-50%, -50%)
 			rotate(calc(-1rad * var(--angle)));
 
 		&.empty {
-			background: #fff;
-			border: 2px dashed #e8e8e8;
+			background: transparent;
 		}
 	}
 
@@ -100,14 +99,14 @@ export default {
 		transform:
 			rotate(calc(1rad * var(--angle)))
 			translateX(calc(1px * var(--radius)))
-			scale(0.75);
+			scale(0.6);
 
 		&::before {
 			content: '';
 			position: absolute;
 			display: block;
-			border-top: 2px dashed #e8e8e8;
-			width: calc(1.5px * var(--radius));
+			border-top: 2px dashed #e0e0e0;
+			width: calc(1.7px * var(--radius));
 			right: 100%;
 		}
 	}
