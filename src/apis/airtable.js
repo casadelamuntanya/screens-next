@@ -1,30 +1,29 @@
+import { useAirtable } from 'painless-airtable';
 import { airtable } from '/@/config/apis.yaml';
 
-const BASE_URL = 'https://api.airtable.com/v0';
-const TOKEN = import.meta.env.VITE_AIRTABLE_TOKEN;
+const { VITE_AIRTABLE_TOKEN: token } = import.meta.env;
 
-const CONFIG = { headers: { Authorization: `Bearer ${TOKEN}` } };
-
-const get = async resource => {
-	const response = await fetch(`${BASE_URL}/${resource}`, CONFIG);
-	const { records } = await response.json();
-	return records.map(({ id, fields }) => ({ _id: id, ...fields }));
-};
+const api = useAirtable({ token });
 
 export default {
-	getExploreTrails: () => get(`${airtable.explore.base}/${airtable.explore.trails}`),
-	getFingerpaintDrawings: () => get(`${airtable.games.base}/${airtable.games.drawings}`),
-	getMemoramaCards: () => get(`${airtable.games.base}/${airtable.games.cards}`),
-	getGuides: () => get(`${airtable.guides.base}/${airtable.guides.guides}`),
-
-	// Concepts are indexed by id
-	getConcepts: async () => {
-		const resource = `${airtable.discover.base}/${airtable.discover.concepts}`;
-		const response = await fetch(`${BASE_URL}/${resource}`, CONFIG);
-		const { records = [] } = await response.json();
-		return records.reduce((acc, { id, fields }) => {
-			acc[id] = { _id: id, ...fields };
-			return acc;
-		}, {});
+	getExploreTrails: () => {
+		const { table, options } = airtable.explore.trails;
+		return api.select(table, options);
+	},
+	getFingerpaintDrawings: () => {
+		const { table, options } = airtable.games.drawings;
+		return api.select(table, options);
+	},
+	getMemoramaCards: () => {
+		const { table, options } = airtable.games.cards;
+		return api.select(table, options);
+	},
+	getGuides: () => {
+		const { table, options } = airtable.guides.guides;
+		return api.select(table, options);
+	},
+	getConcepts: () => {
+		const { table, options } = airtable.discover.concepts;
+		return api.select(table, options);
 	},
 };
