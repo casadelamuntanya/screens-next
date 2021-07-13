@@ -11,7 +11,7 @@
 
 <script>
 import { useI18n } from 'vue-i18n';
-import pages from './safety/routes';
+import pages from './routes';
 
 export default {
 	name: 'Safety',

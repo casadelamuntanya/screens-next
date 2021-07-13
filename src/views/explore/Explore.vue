@@ -26,9 +26,9 @@ import { ref, reactive, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useMap, useGeoJSON, useAnimations } from '/@/components/map';
 import airtable from '/@/apis/airtable';
-import TrailCard from './explore/TrailCard.vue';
-import TrailSheet from './explore/TrailSheet.vue';
-import TrailsFilters from './explore/TrailsFilters.vue';
+import TrailCard from './TrailCard.vue';
+import TrailSheet from './TrailSheet.vue';
+import TrailsFilters from './TrailsFilters.vue';
 import config from '/@/config/views/explore.yaml';
 
 export default {
