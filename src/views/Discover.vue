@@ -56,7 +56,7 @@ export default {
 		const path = ref([]);
 		const contracted = ref(false);
 
-		const root = computed(() => Object.values(concepts.value).filter(c => !c._parent));
+		const root = computed(() => Object.values(concepts.value).filter(({ parent }) => !parent));
 
 		const concept = computed(() => {
 			const [current] = path.value.slice(-1);
