@@ -11,6 +11,7 @@
     "d3": "^6.7.0",
     "js-yaml": "^3.14.1",
     "leaflet": "^1.7.1",
+    "painless-airtable": "^0.2.1",
     "remixicon": "^2.5.0",
     "reset-css": "^5.0.1",
     "units-converter": "^1.0.3",
