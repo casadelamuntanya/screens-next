@@ -1,34 +1,43 @@
 <template>
 	<div class="center">
-		<transition-group
-			tag="ul"
-			name="radial"
-			class="radial">
+		<ul :class="['tree', { contracted }]">
+			<li
+				:key="concept.id"
+				:class="['tree__root', { single: !concept.children.length }]"
+				@click="back">
+				<div class="concept">
+					<div class="concept__card">
+						<figure v-if="concept.media" class="cover attribution faded">
+							<img :src="concept.media[0].url" :alt="concept.name">
+							<figcaption>{{ concept.media[0].filename }}</figcaption>
+						</figure>
+						<hgroup>
+							<h4 class="concept__subtitle">{{ concept.complement }}</h4>
+							<h3 class="concept__title">{{ concept.name }}</h3>
+						</hgroup>
+					</div>
+					<p>{{ concept.description }}</p>
+				</div>
+			</li>
 			<li
 				v-for="(child, i) in concept.children"
 				:key="child.id"
-				class="radial__child"
 				:style="position(i)"
-				@click="selectConcept(child)">
-				<div :class="['card', { empty: !child.media }]">
-					<h4 class="title">{{ child.name }}</h4>
-					<figure v-if="child.media" class="cover attribution faded">
-						<img :src="child.media[0].url" :alt="child.name">
-						<figcaption>{{ child.media[0].filename }}</figcaption>
-					</figure>
-					<!--p>{{ child.description }}</p-->
+				class="tree__leaf"
+				@click="selectConcept(child, $event)">
+				<div class="concept">
+					<div class="concept__card">
+						<figure v-if="child.media" class="cover attribution faded">
+							<img :src="child.media[0].url" :alt="child.name">
+							<figcaption>{{ child.media[0].filename }}</figcaption>
+						</figure>
+						<hgroup>
+							<h4 class="concept__title">{{ child.name }}</h4>
+						</hgroup>
+					</div>
 				</div>
 			</li>
-			<li key="root" class="radial__root" @click="back">
-				<div :class="['card', { empty: !concept.media }]">
-					<h4 class="title">{{ concept.name }}</h4>
-					<figure v-if="concept.media" class="cover attribution faded">
-						<img :src="concept.media[0].url" :alt="concept.name">
-						<figcaption>{{ concept.media[0].filename }}</figcaption>
-					</figure>
-				</div>
-			</li>
-		</transition-group>
+		</ul>
 	</div>
 </template>
 
@@ -38,99 +47,169 @@ import airtable from '/@/apis/airtable';
 
 export default {
 	setup() {
-		const ELLIPSE_HEIGHT = 500;
+		const ELLIPSE_HEIGHT = 600;
 		const ELLIPSE_WIDTH = 350;
 		const concepts = ref({});
 		const path = ref([]);
+		const contracted = ref(false);
+
+		const root = computed(() => Object.values(concepts.value).filter(c => !c._parent));
 
 		const concept = computed(() => {
 			const [current] = path.value.slice(-1);
 			const { _children = [], ...rest } = current || {};
 			const children = current
-				? _children.map(child => concepts.value[child]).filter(Boolean)
-				: Object.values(concepts.value).filter(({ _parent }) => !_parent);
+				? _children.map(child => concepts.value[child])
+				: root.value;
 			return { ...rest, children };
 		});
 
 		const position = i => {
-			const rad = i * ((2 * Math.PI) / concept.value.children.length) - 2;
+			const angle = i * ((2 * Math.PI) / concept.value.children.length);
 			const radius = (ELLIPSE_HEIGHT * ELLIPSE_WIDTH) / Math.sqrt(
-				((ELLIPSE_HEIGHT * Math.cos(rad)) ** 2) + ((ELLIPSE_WIDTH * Math.sin(rad)) ** 2),
+				((ELLIPSE_HEIGHT * Math.cos(angle)) ** 2)
+				+ ((ELLIPSE_WIDTH * Math.sin(angle)) ** 2),
 			);
-			return `--angle:${rad}; --radius:${radius};`;
+			const x = radius * Math.cos(angle);
+			const y = radius * Math.sin(angle);
+			return `--angle:${angle}; --radius:${radius};--left:${x};--top:${y}`;
 		};
 
-		const selectConcept = item => path.value.push(item);
-		const back = () => path.value.pop();
+		const selectConcept = (item, { currentTarget }) => {
+			contracted.value = true;
+			currentTarget.classList.add('active');
+			currentTarget.addEventListener('transitionend', () => {
+				path.value.push(item);
+				contracted.value = false;
+			}, { once: true });
+		};
+
+		const back = ({ currentTarget }) => {
+			contracted.value = true;
+			const trigger = currentTarget.nextElementSibling || currentTarget;
+			trigger.addEventListener('transitionend', () => {
+				path.value.pop();
+				contracted.value = false;
+			}, { once: true });
+		};
 
 		onMounted(async () => {
 			concepts.value = await airtable.getConcepts();
 		});
 
-		return { concept, position, selectConcept, back };
+		return { concept, contracted, position, selectConcept, back };
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-.radial {
-	--angle: 0;
-	--radius: 0;
+.tree {
+	--duration: 0.75s;
+	--scale-s: 0.25;
+	--scale-m: 0.5;
 
 	position: relative;
 
-	.card {
+	.concept {
 		position: absolute;
-		height: 350px;
-		width: 300px;
-		box-sizing: border-box;
-		background: #e0e0e0;
-		transform:
-			translate(-50%, -50%)
-			rotate(calc(-1rad * var(--angle)));
+		transform: translate(-50%, -50%);
 
-		&.empty {
-			background: transparent;
+		&__card {
+			position: relative;
+			transition: all var(--duration) ease;
+			width: 35rem;
+			height: 40rem;
+
+			figure {
+				height: 100%;
+				width: 100%;
+				border-radius: 0.5rem;
+				overflow: hidden;
+				margin: 0;
+			}
+		}
+
+		hgroup {
+			position: absolute;
+			bottom: 100%;
+			margin: -2rem;
+		}
+
+		&__title {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: 4rem;
+			margin: 0;
+		}
+
+		&__subtitle {
+			opacity: 0.4;
 		}
 	}
 
-	&__child {
+	&__leaf {
 		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 0;
+		transition: all var(--duration) ease;
 		transform:
-			rotate(calc(1rad * var(--angle)))
-			translateX(calc(1px * var(--radius)))
-			scale(0.6);
+			translate(calc(1px * var(--left)), calc(1px * var(--top)))
+			scale(var(--scale-s));
+		animation: expand var(--duration) ease;
 
 		&::before {
 			content: '';
-			position: absolute;
 			display: block;
-			border-top: 2px dashed #e0e0e0;
-			width: calc(1.7px * var(--radius));
-			right: 100%;
+			position: absolute;
+			right: 0;
+			width: calc(1px * var(--radius));
+			border-top: 1px dashed #d0d0d0;
+			transform-origin: right center;
+			transform:
+				rotate(calc(1rad * var(--angle)))
+				scale(calc(1 / var(--scale-s)));
+			transition: inherit;
+			animation: growline var(--duration) ease;
+		}
+
+		.contracted & {
+			transform:
+				translate(0, 0)
+				scale(var(--scale-m)) !important;
+			&::before { width: 0; }
 		}
 	}
-}
 
-.radial-enter-active,
-.radial-leave-active {
-	transition: all 0.5s ease-in;
+	&__root {
+		position: relative;
+		z-index: 1;
+		transform: scale(var(--scale-m));
+		transition: all var(--duration) ease;
 
-	&::before { transition: inherit; }
-}
+		&.single {
+			transform: scale(1);
+			animation: expand var(--duration) ease;
+		}
+	}
 
-.radial-enter-from,
-.radial-leave-to {
-	transition-timing-function: ease-out;
-	opacity: 0;
-	transform:
-		rotate(calc(1rad * var(--angle)))
-		translateX(0)
-		scale(0.75);
-
-	&::before {
-		transition: inherit;
-		width: 0;
+	&.contracted .single,
+	&__leaf.active {
+		transform: scale(var(--scale-m));
+		z-index: 2;
 	}
 }
+
+@keyframes expand {
+	from {
+		transform:
+			translate(0, 0)
+			scale(var(--scale-m));
+	}
+}
+
+@keyframes growline {
+	from { width: 0; }
+}
+
 </style>
