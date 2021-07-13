@@ -13,10 +13,10 @@
 						</figure>
 						<hgroup>
 							<h4 class="concept__subtitle">{{ concept.complement }}</h4>
-							<h3 class="concept__title">{{ concept.name }}</h3>
+							<h3 class="concept__title">{{ concept[`name_${locale}`] }}</h3>
 						</hgroup>
 					</div>
-					<p>{{ concept.description }}</p>
+					<p>{{ concept[`description_${locale}`] }}</p>
 				</div>
 			</li>
 			<li
@@ -32,7 +32,7 @@
 							<figcaption>{{ child.media[0].filename }}</figcaption>
 						</figure>
 						<hgroup>
-							<h4 class="concept__title">{{ child.name }}</h4>
+							<h4 class="concept__title">{{ child[`name_${locale}`] }}</h4>
 						</hgroup>
 					</div>
 				</div>
@@ -43,10 +43,13 @@
 
 <script>
 import { ref, computed, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import airtable from '/@/apis/airtable';
 
 export default {
 	setup() {
+		const { locale } = useI18n();
+
 		const ELLIPSE_HEIGHT = 600;
 		const ELLIPSE_WIDTH = 350;
 		const concepts = ref({});
@@ -97,7 +100,7 @@ export default {
 			concepts.value = await airtable.getConcepts();
 		});
 
-		return { concept, contracted, position, selectConcept, back };
+		return { locale, concept, contracted, position, selectConcept, back };
 	},
 };
 </script>
