@@ -62,7 +62,7 @@ export default {
 			const [current] = path.value.slice(-1);
 			const { _children = [], ...rest } = current || {};
 			const children = current
-				? _children.map(child => concepts.value[child])
+				? _children.map(child => concepts.value[child]).filter(Boolean)
 				: root.value;
 			return { ...rest, children };
 		});
