@@ -50,8 +50,8 @@ export default {
 	setup() {
 		const { locale } = useI18n();
 
-		const ELLIPSE_HEIGHT = 600;
-		const ELLIPSE_WIDTH = 350;
+		const ELLIPSE_HEIGHT = window.innerHeight / 4;
+		const ELLIPSE_WIDTH = window.innerWidth / 3;
 		const concepts = ref({});
 		const path = ref([]);
 		const contracted = ref(false);
