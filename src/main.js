@@ -23,3 +23,9 @@ app.use(RouterAnimations, {
 app.directive('dragscroll', DragScroll);
 
 app.mount('#app');
+
+if (import.meta.env.PROD) {
+	const element = document.getElementById('app');
+	element.classList.add('production-ready');
+	element.addEventListener('contextmenu', event => event.preventDefault());
+}
