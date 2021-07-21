@@ -26,7 +26,7 @@
 				:style="`--stagger-delay:${i * 0.1}s`">
 				<div class="guide__preview" tabindex="1">
 					<figure class="cover">
-						<img :src="guide.photo[0].url" class="faded">
+						<img :src="guide.photo[0].url">
 					</figure>
 					<h2>{{ guide.name }}<small>{{ guide.surname }}</small></h2>
 				</div>
@@ -116,6 +116,7 @@ export default {
 		h2 {
 			font-size: var(--xl);
 			margin: -0.5em -0.5em 0;
+			text-shadow: #fff 0 0 1em;
 
 			small {
 				display: block;
@@ -128,6 +129,13 @@ export default {
 		figure {
 			margin: 0;
 			padding-top: 120%;
+			background: #fff;
+
+			img {
+				z-index: 1;
+				filter: grayscale(80%);
+				opacity: 0.8;
+			}
 		}
 	}
 
