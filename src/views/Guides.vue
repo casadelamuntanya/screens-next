@@ -183,6 +183,7 @@ export default {
 			margin: var(--xl);
 			height: 8rem;
 			width: 7rem;
+			z-index: 2;
 		}
 
 		.contact {
