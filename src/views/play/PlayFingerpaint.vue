@@ -56,21 +56,25 @@ export default {
 		const drawer = reactive({
 			isDrawing: false,
 			ctx: null,
+			canvas: null,
 			handlers: {
-				mousedown: () => {
+				touchstart: event => {
+					if (!drawer.canvas) drawer.canvas = event.target.getBoundingClientRect();
 					drawer.isDrawing = true;
 					drawer.ctx.beginPath();
 				},
-				mousemove: ({ offsetX, offsetY }) => {
+				touchmove: event => {
 					if (!drawer.isDrawing) return;
+					event.preventDefault();
+					const { touches: [{ clientX, clientY }] } = event;
 					drawer.ctx.strokeStyle = brush.color;
 					drawer.ctx.lineWidth = brush.width;
 					drawer.ctx.lineCap = 'round';
 					drawer.ctx.lineJoin = 'round';
-					drawer.ctx.lineTo(offsetX, offsetY);
+					drawer.ctx.lineTo(clientX - drawer.canvas.x, clientY - drawer.canvas.y);
 					drawer.ctx.stroke();
 				},
-				mouseup: () => {
+				touchend: () => {
 					drawer.isDrawing = false;
 					drawer.ctx.closePath();
 				},
