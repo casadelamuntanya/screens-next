@@ -15,6 +15,10 @@
 							<h4 class="concept__subtitle">{{ concept.complement }}</h4>
 							<h3 class="concept__title">{{ concept[`name_${locale}`] }}</h3>
 						</hgroup>
+						<img
+							v-if="concept[`outer_qr_${locale}`]"
+							:src="concept[`outer_qr_${locale}`][0].url"
+							class="concept__qr">
 					</div>
 					<p>{{ concept[`description_${locale}`] }}</p>
 				</div>
@@ -147,6 +151,15 @@ export default {
 
 		&__subtitle {
 			opacity: 0.4;
+		}
+
+		&__qr {
+			height: 6rem;
+			width: 5rem;
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: -2rem -1.5rem;
 		}
 	}
 
