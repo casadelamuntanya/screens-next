@@ -151,12 +151,11 @@ export default {
 
 	.guide__knowledge li {
 		display: inline-block;
-		border: 1px solid var(--color-primary);
-		color: var(--color-primary);
+		background: var(--color-primary);
+		color: #fff;
 		padding: var(--xs) var(--s);
 		margin: 2px;
 		border-radius: var(--border-radius);
-		opacity: 0.75;
 		font-size: var(--s);
 		text-transform: uppercase;
 	}
@@ -170,6 +169,8 @@ export default {
 		width: 60%;
 		max-height: 0;
 		padding: var(--l);
+		background: #fffc;
+		box-shadow: 0 0 0 100vh #fffc;
 		overflow: hidden;
 		visibility: hidden;
 		z-index: 2;
@@ -189,7 +190,7 @@ export default {
 		.contact {
 			display: flex;
 			align-items: center;
-			margin: var(--l);
+			margin: var(--xxl) 0;
 
 			li {
 				flex: 1;
