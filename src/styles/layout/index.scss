@@ -39,12 +39,20 @@
 		margin: var(--spacing);
 	}
 
-	&__logo {
+	&__menu-link {
 		color: inherit;
 		height: 52px;
+		text-align: center;
+		font-size: 0.5rem;
+		text-transform: uppercase;
 
 		img,
-		svg { height: 100%; }
+		svg {
+			display: block;
+			margin: 0 auto;
+			height: 100%;
+			margin-bottom: 0.5rem;
+		}
 	}
 }
 
