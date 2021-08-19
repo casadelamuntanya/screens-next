@@ -1,0 +1,39 @@
+video: https://www.youtube.com/embed/YAc0X-E4sXk
+
+markers:
+  - id: el_cim
+    icon: ri-team-line
+    left: 70
+    top: 16
+  - id: tourism_office
+    icon: ri-information-line
+    left: 28
+    top: 31.5
+  - id: touchscreens
+    icon: ri-fingerprint-2-line
+    left: 57
+    top: 38
+  - id: videowall
+    icon: ri-landscape-line
+    left: 67
+    top: 32
+  - id: model3d
+    icon: ri-codepen-line
+    left: 81
+    top: 41
+  - id: media
+    icon: ri-live-line
+    left: 66
+    top: 48
+  - id: vr
+    icon: ri-eye-2-line
+    left: 55
+    top: 46.3
+  - id: conference_room
+    icon: ri-slideshow-line
+    left: 27
+    top: 75.5
+  - id: comu_offices
+    icon: ri-briefcase-2-line
+    left: 72
+    top: 88

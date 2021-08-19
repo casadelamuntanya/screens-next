@@ -1,0 +1,93 @@
+// MAIN NAVIGATION GRID --------------------------------
+.nav-grid {
+	height: 100%;
+	display: grid;
+	position: relative;
+	grid-template-columns: repeat(24, 1fr);
+	grid-template-rows: repeat(36, 1fr);
+
+	a {
+		position: relative;
+
+		figure {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			filter: saturate(0.6) opacity(0.85);
+		}
+
+		h1 {
+			position: absolute;
+			margin: 0;
+			color: var(--text-color);
+			text-shadow: 0 0 70px #fff;
+
+			&.center {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			&.top { top: -0.5em; }
+			&.right { right: -0.5em; }
+			&.left { left: -0.5em; }
+			&.bottom { bottom: -0.5em; }
+			&.vertical { writing-mode: vertical-lr; }
+			&.left.vertical { transform: rotate(180deg); }
+
+			// Fix overlying figcaption position
+			&.right + figure figcaption {
+				left: 0;
+				right: auto;
+			}
+
+			&.bottom:not(.vertical) + figure figcaption {
+				top: 0;
+				bottom: auto;
+				left: 0;
+				right: auto;
+			}
+		}
+	}
+
+	.nav-about {
+		grid-area: 2 / 3 / span 3 / span 3;
+
+		figure img { object-fit: scale-down; }
+
+		h1 {
+			left: 100%;
+			padding-left: 0.5em;
+			margin-top: 0.25em;
+		}
+	}
+
+	.nav-discover { grid-area: 8 / 2 / span 7 / span 9; }
+	.nav-safety { grid-area: 2 / 15 / span 10 / span 9; }
+	.nav-commitment { grid-area: 15 / 16 / span 7 / span 9; }
+	.nav-snow_science { grid-area: 18 / 1 / span 8 / span 11; }
+	.nav-explore { grid-area: 29 / 1 / span 7 / span 9; }
+	.nav-guides { grid-area: 24 / 15 / span 5 / span 8; }
+	.nav-play { grid-area: 32 / 14 / span 5 / span 10; }
+}
+
+// LOCALES NAVIGATION --------------------------------
+.nav-locales {
+	display: flex;
+	position: absolute;
+	right: 0;
+
+	button {
+		appearance: none;
+		border: 0;
+		font: inherit;
+		background: transparent;
+		text-transform: uppercase;
+		height: var(--size-touch);
+		padding: 0 0.75rem;
+		opacity: 0.25;
+
+		&.is-active {
+			opacity: 1;
+			font-weight: bold;
+		}
+	}
+}

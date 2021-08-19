@@ -1,0 +1,82 @@
+<template>
+	<section class="block-video">
+		<h1 v-animate:fade-up>{{ t('safety.thunderstorm.thunderstorm') }}</h1>
+		<video-embed v-animate:fade-down :src="video" class="shadow-bl" />
+		<p v-animate:fade-up>{{ t('safety.thunderstorm.description') }}</p>
+	</section>
+
+	<section class="stack columns">
+		<div v-animate:fade-right class="column column--2 stack">
+			<p class="center">{{ t('safety.thunderstorm.know_distance') }}</p>
+		</div>
+		<div v-animate:fade-left class="column stacks">
+			<p class="text-xxxl">d<small>(km)</small> = s / 3</p>
+		</div>
+	</section>
+
+	<section>
+		<h2 v-animate:fade-up>
+			{{ t('safety.thunderstorm.avoid_lightning') }}
+		</h2>
+		<p v-animate:fade-up="'0.25s'">
+			{{ t('safety.thunderstorm.prevention') }}
+		</p>
+	</section>
+	<section class="columns">
+		<section
+			v-animate:fade
+			class="column"
+			:data-tag-pre="t('safety.thunderstorm.in_case_of')">
+			<ul class="icon-list">
+				<li v-for="(tip, i) in dos" :key="tip" v-animate="animation(i)">
+					<i class="ri-check-line icon icon--success" />
+					{{ t(`safety.thunderstorm.safety_tips.${tip}`) }}
+				</li>
+				<li
+					v-for="(tip, i) in donts"
+					:key="tip"
+					v-animate="animation(i, dos.length * 0.15)">
+					<i class="ri-close-line icon icon--alert" />
+					{{ t(`safety.thunderstorm.safety_tips.${tip}`) }}
+				</li>
+			</ul>
+		</section>
+		<section
+			v-animate:fade
+			class="column"
+			:data-tag-pre="t('safety.thunderstorm.safety_position')">
+			<image-markers v-animate:fade-up :markers="markers" class="center">
+				<img src="/images/vectors/silhouettes/crouching.svg" width="350">
+				<template #marker="{ marker }">
+					<span :data-tooltip="t(`safety.thunderstorm.safety_tips.${marker.id}`)">
+						<i class="marker ri-add-line" />
+					</span>
+				</template>
+			</image-markers>
+		</section>
+	</section>
+</template>
+
+<script>
+import { useI18n } from 'vue-i18n';
+import { thunderstorm } from '/@/config/views/safety.yaml';
+import VideoEmbed from '/@/components/VideoEmbed.vue';
+import ImageMarkers from '/@/components/ImageMarkers.vue';
+
+export default {
+	name: 'SafetyThunderstorm',
+	components: { VideoEmbed, ImageMarkers },
+	setup() {
+		const { t } = useI18n();
+		const { video, dos, donts, markers } = thunderstorm;
+		const animation = (i, initialDelay = 0) => ({
+			enter: {
+				animation: 'fade-left',
+				delay: `${initialDelay + i * 0.15}s`,
+			},
+			leave: 'fade-left',
+		});
+		return { t, video, dos, donts, markers, animation };
+	},
+};
+</script>

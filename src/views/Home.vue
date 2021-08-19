@@ -1,0 +1,38 @@
+<template>
+	<section v-animate:fade class="stack" :data-tag="t('navigation.menu')">
+		<div class="nav-grid">
+			<router-link
+				v-for="route in routes"
+				:key="route.name"
+				:class="`nav-${route.name}`"
+				:to="route.path">
+				<h1
+					v-animate:[route.transitions.title]
+					:class="route.title">
+					{{ t(`navigation.${route.name}`) }}
+				</h1>
+				<figure
+					v-animate:[route.transitions.image]
+					class="attribution cover">
+					<img :src="route.image.url">
+					<figcaption v-if="route.image.attribution">
+						{{ route.image.attribution }}
+					</figcaption>
+				</figure>
+			</router-link>
+		</div>
+	</section>
+</template>
+
+<script>
+import { useI18n } from 'vue-i18n';
+import { routes } from '/@/config/global.yaml';
+
+export default {
+	name: 'Home',
+	setup() {
+		const { t } = useI18n();
+		return { t, routes };
+	},
+};
+</script>

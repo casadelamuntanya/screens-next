@@ -1,0 +1,12 @@
+* { box-sizing: border-box; }
+
+::-moz-focus-inner,
+::-moz-focus-outer { border: 0; }
+
+:focus,
+:active { outline: 0; }
+
+.production-ready {
+	touch-action: none;
+	cursor: none !important;
+}

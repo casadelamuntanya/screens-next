@@ -1,0 +1,102 @@
+principles:
+  - plan
+  - equip
+  - adapt
+  - notify
+
+equipment:
+  essential:
+    - clothes
+    - shoes
+    - water
+    - food
+    - raincoat
+    - first_aid_kit
+    - mobile_phone
+    - map_compass
+    - sun_protection
+    - thermal_blanket
+  recommended:
+    - gps
+    - knife
+    - lighter
+    - flashlight
+    - sandals
+
+species:
+  - name: amanita_muscaria
+    image:
+      url: https://source.unsplash.com/u8ffJD8KRmo/600x500
+      attribution: © photo by Henryk Piela from Unsplash
+  - name: aconitum
+    image:
+      url: https://source.unsplash.com/-7iCmNgTvKo/500x700
+      attribution: © photo by Manuel Capellari on Unsplash
+      layout: thin
+  - name: vipera_aspis
+    image:
+      url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Vipera_aspis_aspis.jpg/640px-Vipera_aspis_aspis.jpg
+      attribution: CC BY-SA 3.0 photo by Felix Reimann from Wikimedia Commons
+
+thunderstorm:
+  # https://www.youtube.com/embed/zUNEFefftt8
+  # https://player.vimeo.com/video/134810545
+  video: https://player.vimeo.com/video/134810545
+  dos:
+    - metal_contact
+    - spread_group
+    - find_shelter
+  donts:
+    - no_run
+    - not_safe_places
+  markers:
+    - id: crouch_down
+      left: 80
+      top: 55
+    - id: protect_ears
+      left: 17
+      top: 23
+    - id: touch_heels
+      left: 62
+      top: 78
+    - id: feet_balls
+      left: 33
+      top: 87
+
+hypothermia:
+  animation:
+    min: 28
+    max: 37
+    colors: ['#c23b22', '#BA4635', '#B15148', '#A95C5A', '#A1676D', '#987280', '#907D93', '#8888A5', '#7F93B8', '#779ECB']
+    timeouts:
+      decrease: 500
+      increase: 10
+      wait: 5000
+  symptoms:
+    normal: [36.5, 37]
+    chill: [32.1, 36.5]
+    sensory_loss: [28.5, 36.5]
+    speech_impairment: [28.5, 35]
+    memory_loss: [28.5, 34]
+    motor_uncoordination: [28.5, 34]
+    arrhythmia: [28.1, 29]
+    cardiorespiratory_arrest: [28.1, 29]
+    death: [28, 28]
+  prevention:
+    dos:
+      - drink
+      - rest
+      - warm
+      - clothes
+    donts:
+      - avoid_cotton
+  treatment:
+    dos:
+      - call_er
+      - isolate
+      - dry
+      - cover
+      - warm_drink
+    donts:
+      - no_alcohol
+      - no_heat

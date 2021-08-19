@@ -1,0 +1,63 @@
+// LIST OF ELEMENTS IN GRID LAYOUT ----------------------------
+.grid-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: var(--spacing);
+
+	li {
+		flex: 1;
+		margin: var(--spacing);
+	}
+
+	&--2 li { flex-basis: calc(50% - 2 * var(--spacing)); }
+
+	&--bignum {
+		counter-reset: list-counter;
+
+		li {
+			box-sizing: border-box;
+			position: relative;
+			padding: 4rem var(--spacing) 0;
+
+			&::before {
+				counter-increment: list-counter;
+				content: counter(list-counter, decimal-leading-zero);
+				display: inline-block;
+				position: absolute;
+				font-size: 5rem;
+				font-family: var(--text-family--title);
+				left: 0;
+				font-weight: bold;
+				opacity: 0.1;
+				transform: translateY(-65%);
+			}
+		}
+	}
+}
+
+// LIST OF ELEMENTS WITH ICON ----------------------------
+.icon-list {
+	li {
+		display: inline-flex;
+		width: 100%;
+		align-items: center;
+		margin: calc(0.5 * var(--spacing)) 0;
+	}
+
+	.icon {
+		height: 1em;
+		width: 1em;
+		font-size: 2em;
+		margin-right: 0.75em;
+
+		&--success { color: var(--color-success); }
+		&--alert { color: var(--color-alert); }
+	}
+}
+
+// LIST IN COLUMNS ------------------------------------
+.list-cols-2 {
+	column-count: 2;
+	column-gap: var(--spacing);
+}

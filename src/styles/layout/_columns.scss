@@ -1,0 +1,19 @@
+// LAYOUT IN COLUMNS ----------------------------
+.columns {
+	display: flex;
+	flex-direction: row !important;
+
+	&:not(section) {
+		margin-left: calc(-1 * var(--spacing));
+		margin-right: calc(-1 * var(--spacing));
+	}
+
+	.column {
+		flex: 1;
+		margin: 0 var(--spacing);
+
+		&--2 { flex: 2; }
+		&--3 { flex: 3; }
+		&--4 { flex: 4; }
+	}
+}

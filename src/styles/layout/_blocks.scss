@@ -1,0 +1,37 @@
+// CUSTOM STYLED VIDEO BLOCK --------------------------------
+.block-video {
+	padding-left: 6rem !important;
+
+	h1 { margin: 0 0 -0.5em -0.5em; }
+}
+
+// CUSTOM STYLED IMAGE BLOCK --------------------------------
+.block-image {
+	display: flex;
+	padding: 2rem;
+	flex-direction: row !important;
+
+	img,
+	svg,
+	figure { flex: 0 0 50%; }
+
+	&.image-thin img,
+	&.image-thin svg,
+	&.image-thin figure { flex-basis: 40%; }
+
+	&.image-thick img,
+	&.image-thick svg,
+	&.image-thick figure { flex-basis: 60%; }
+
+	section {
+		margin-top: auto;
+		z-index: 1;
+	}
+
+	.box { margin: var(--spacing) 0 -5rem -7rem; }
+
+	&.reverse {
+		flex-direction: row-reverse !important;
+		text-align: right;
+	}
+}

@@ -1,0 +1,49 @@
+airtable:
+  discover:
+    concepts:
+      table: concepts
+      options:
+        base: app3qBEiTWF9mXkoa
+        index: true
+        persist: true
+        where:
+          ready:
+            checked: true
+  
+  explore:
+    trails:
+      table: trails
+      options:
+        base: appMWr6cRQN40oIM2
+        sort:
+          duration: asc
+        where:
+          ready:
+            checked: true
+
+  games:
+    drawings:
+      table: fingerpaint
+      options:
+        base: app71mFwZY0ygohqZ
+        where:
+          ready:
+            checked: true
+    cards:
+      table: memorama
+      options:
+        base: app71mFwZY0ygohqZ
+        where:
+          ready:
+            checked: true
+
+  guides:
+    guides:
+      table: guides
+      options:
+        base: appVcIFg2pVGQ7IKU
+        sort:
+          surname: asc
+        where:
+          ready:
+            checked: true
