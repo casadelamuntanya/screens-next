@@ -9,4 +9,6 @@
 .production-ready {
 	touch-action: none;
 	cursor: none !important;
+
+	* { cursor: none !important; }
 }
