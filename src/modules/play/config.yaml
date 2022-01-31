@@ -1,0 +1,18 @@
+games:
+  - fingerpaint
+  - memorama
+
+api:
+  base: app71mFwZY0ygohqZ
+  DRAWINGS:
+    table: fingerpaint
+    options:
+      where:
+        ready:
+          checked: true
+  CARDS:
+    table: memorama
+    options:
+      where:
+        ready:
+          checked: true

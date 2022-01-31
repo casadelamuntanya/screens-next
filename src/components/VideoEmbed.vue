@@ -6,7 +6,7 @@
 
 <script>
 import { computed } from 'vue';
-import { video } from '/@/config/media.yaml';
+import { video } from '/@/config.yaml';
 
 const useProvider = (provider, props, videoId) => {
   const providers = {

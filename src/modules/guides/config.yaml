@@ -1,0 +1,10 @@
+api:
+  base: appVcIFg2pVGQ7IKU
+  GUIDES:
+    table: guides
+    options:
+      sort:
+        surname: asc
+      where:
+        ready:
+          checked: true

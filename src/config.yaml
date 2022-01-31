@@ -1,0 +1,111 @@
+locales:
+  default: ca
+  supported:
+    - ca
+    - en
+
+modules:
+  - name: about
+    path: /about
+    image:
+      url: /images/vectors/logo.svg
+    transitions:
+      title: fade-down
+      image: fade-up
+  - name: safety
+    path: /safety
+    title: vertical right top
+    image:
+      url: https://source.unsplash.com/NQjvaCYp0h4/500x700
+      attribution: © photo by Tim Jones on Unsplash
+    transitions:
+      title: fade-left
+      image: fade-right
+  - name: discover
+    path: /discover
+    title: top left
+    image:
+      url: https://source.unsplash.com/Nk6FHK1eyHY/500x500
+      attribution: © photo by KOBU Agency on Unsplash
+    transitions:
+      title: fade-down
+      image: fade-up
+  - name: commitment
+    path: /commitment
+    title: top right
+    image:
+      url: https://source.unsplash.com/zbhk0949iBo/500x700
+      attribution: © photo by Ian Keefes on Unsplash
+    transitions:
+      title: fade-down
+      image: fade-up
+  - name: snow_science
+    path: snow_science
+    title: bottom left
+    image:
+      url: https://source.unsplash.com/5867BKGyCu4/500x500
+      attribution: © photo by freestocks on Unsplash
+      # url: https://source.unsplash.com/KPCXuBucEps/600x600
+      # attribution: photo by Will Turner on Unsplash
+    transitions:
+      title: fade-up
+      image: fade-down
+  - name: explore
+    path: /explore
+    title: vertical left bottom
+    image:
+      url: https://source.unsplash.com/Ow-joAY8NyY/800x600
+      attribution: © photo by Alfred Aloushy on Unsplash
+    transitions:
+      title: fade-right
+      image: fade-left
+  - name: guides
+    path: /guides
+    title: vertical bottom right
+    image:
+      url: https://source.unsplash.com/2mg-3crJFgk/400x500
+      attribution: © photo by Alyi Kazal on Unsplash
+    transitions:
+      title: fade-left
+      image: fade-right
+  - name: play
+    path: /play
+    title: top left
+    image:
+      url: https://source.unsplash.com/W4zYlDBAy4w/400x300
+      attribution: © photo by Chase B. on Unsplash
+    transitions:
+      title: fade-down
+      image: fade-up
+
+video:
+  # https://developers.google.com/youtube/player_parameters?hl=es-419
+  youtube:
+    rel: 0 # Hide related videos
+    fs: 0 # Disable fullscreen
+    controls: 0 # Hide controls
+    showinfo: 0 # Hide video info
+    iv_load_policy: 3 # Disable video annotations
+    modestbranding: 1 # Hide YouTube logo
+    autoplay: 1 # Autoplay video on load
+    mute: 1 # Mute video, needed for autoplay to work
+    loop: 1 # Loop video (prevents displaying related videos)
+    cc_load_policy: 1 # Force subtitles
+
+  # https://vimeo.zendesk.com/hc/en-us/articles/360001494447-Using-Player-Parameters
+  vimeo:
+    autoplay: 1
+    loop: 1
+    autopause: 1
+    title: 0
+    portrait: 0
+    byline: 0
+    muted: 1
+
+  # https://developer.dailymotion.com/player/#player-parameters
+  dailymotion:
+    autoplay:	true
+    controls: false
+    mute: true
+    ui-logo: false
+    ui-start-screen-info: false

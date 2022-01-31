@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css';
 import useControls from './controls';
 import CompareControl from './CompareControl';
 
-const injectToken = ({ options, ...rest }) => {
+const injectTileToken = ({ options, ...rest }) => {
   const { token, ...other } = options;
   const accessToken = import.meta.env[token];
   return { ...rest, options: { ...other, accessToken } };
@@ -14,7 +14,7 @@ export default function useMap(container, options = {}) {
 
   // Create tileLayers
   const tileLayers = tiles.reduce((acc, tile) => {
-    const { name, url, options: tileOptions } = injectToken(tile);
+    const { name, url, options: tileOptions } = injectTileToken(tile);
     acc[name] = L.tileLayer(url, tileOptions);
     return acc;
   }, {});
@@ -34,7 +34,7 @@ export default function useMap(container, options = {}) {
   if (controls.attribution) addAttribution(controls.attribution);
   if (controls.layers) addLayers(tileLayers, null, controls.layers);
   if (controls.compare) {
-    const { url, options: compareOptions, ...rest } = injectToken(controls.compare);
+    const { url, options: compareOptions, ...rest } = injectTileToken(controls.compare);
     const baseTiles = Object.values(tileLayers);
     const compareTile = L.tileLayer(url, compareOptions).addTo(map);
     const control = new CompareControl(baseTiles, compareTile, rest);

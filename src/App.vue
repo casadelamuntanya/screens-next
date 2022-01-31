@@ -18,7 +18,7 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 import InlineSvg from 'vue-inline-svg';
-import NavLocale from '/@/layouts/NavLocale.vue';
+import NavLocale from '/@/components/NavLocale.vue';
 
 export default {
   name: 'App',
