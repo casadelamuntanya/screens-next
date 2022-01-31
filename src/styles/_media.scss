@@ -1,42 +1,42 @@
 img {
-	max-width: 100%;
-	pointer-events: none;
+  max-width: 100%;
+  pointer-events: none;
 }
 
 iframe { border-radius: var(--border-radius); }
 
 figure {
-	position: relative;
-	margin: var(--spacing);
+  position: relative;
+  margin: var(--spacing);
 
-	img {
-		display: block;
-		border-radius: var(--border-radius);
-	}
+  img {
+    display: block;
+    border-radius: var(--border-radius);
+  }
 
-	figcaption { opacity: 0.5; }
+  figcaption { opacity: 0.5; }
 }
 
 figure.attribution figcaption {
-	font-size: 0.5rem;
-	display: inline-block;
-	color: #fff;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	padding: 0.5em 1em;
-	font-weight: lighter;
-	opacity: 0.75;
+  font-size: 0.5rem;
+  display: inline-block;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5em 1em;
+  font-weight: lighter;
+  opacity: 0.75;
 }
 
 figure.cover img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-	z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 img.cover { object-fit: cover; }

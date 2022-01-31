@@ -1,12 +1,12 @@
 .stats {
-	box-sizing: border-box;
-	padding: var(--s);
-	font-size: var(--l);
-	display: flex;
-	justify-content: space-around;
+  box-sizing: border-box;
+  padding: var(--s);
+  font-size: var(--l);
+  display: flex;
+  justify-content: space-around;
 
-	em {
-		display: block;
-		font-size: var(--s);
-	}
+  em {
+    display: block;
+    font-size: var(--s);
+  }
 }

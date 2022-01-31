@@ -1,18 +1,18 @@
 .map {
-	height: 100%;
-	position: relative;
-	border-radius: var(--border-radius);
+  height: 100%;
+  position: relative;
+  border-radius: var(--border-radius);
 
-	&-compare-thumb {
-		background-color: var(--color-dark);
+  &-compare-thumb {
+    background-color: var(--color-dark);
 
-		.map-compare-end & { box-shadow: 0 0 0 1rem #0004; }
-	}
+    .map-compare-end & { box-shadow: 0 0 0 1rem #0004; }
+  }
 
-	.route {
-		stroke: var(--color-primary);
-		stroke-width: 5;
-	}
+  .route {
+    stroke: var(--color-primary);
+    stroke-width: 5;
+  }
 }
 
 @keyframes trace-path { to { stroke-dashoffset: 0; } }

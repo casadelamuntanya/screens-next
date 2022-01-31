@@ -11,15 +11,15 @@ import PlayRoutes from '/@/views/play/routes';
 import NotFound from '/@/views/NotFound.vue';
 
 export default createRouter({
-	history: createWebHistory(),
-	routes: [
-		{ path: '/', component: Home },
-		{ path: '/about', component: About },
-		{ path: '/safety', component: Safety, children: SafetyRoutes },
-		{ path: '/discover', component: Discover },
-		{ path: '/explore', component: Explore },
-		{ path: '/guides', component: Guides },
-		{ path: '/play', name: 'play', component: Play, children: PlayRoutes },
-		{ path: '/:pathMatch(.*)', component: NotFound },
-	],
+  history: createWebHistory(),
+  routes: [
+    { path: '/', component: Home },
+    { path: '/about', component: About },
+    { path: '/safety', component: Safety, children: SafetyRoutes },
+    { path: '/discover', component: Discover },
+    { path: '/explore', component: Explore },
+    { path: '/guides', component: Guides },
+    { path: '/play', name: 'play', component: Play, children: PlayRoutes },
+    { path: '/:pathMatch(.*)', component: NotFound },
+  ],
 });

@@ -14,8 +14,6 @@
   ],
   "plugins": ["vue"],
   "rules": {
-    "no-tabs": "off",
-    "indent": ["error", "tab", { "SwitchCase": 1 }],
     "max-len": ["error", {
       "code": 100,
       "ignoreTrailingComments": true,
@@ -29,7 +27,6 @@
     "no-nested-ternary": "off",
     "no-underscore-dangle": ["error", { "allowAfterThis": true }],
     "vue/component-tags-order": ["error", { "order": ["template", "script", "style"] }],
-    "vue/html-indent": ["error", "tab"],
     "vue/html-closing-bracket-newline": ["error", {
       "singleline": "never",
       "multiline": "never"

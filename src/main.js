@@ -16,8 +16,8 @@ app.use(i18n);
 app.use(router);
 
 app.use(RouterAnimations, {
-	router,
-	namespace: 'animate',
+  router,
+  namespace: 'animate',
 });
 
 app.directive('dragscroll', DragScroll);
@@ -25,7 +25,7 @@ app.directive('dragscroll', DragScroll);
 app.mount('#app');
 
 if (import.meta.env.PROD) {
-	const element = document.getElementById('app');
-	element.classList.add('production-ready');
-	element.addEventListener('contextmenu', event => event.preventDefault());
+  const element = document.getElementById('app');
+  element.classList.add('production-ready');
+  element.addEventListener('contextmenu', event => event.preventDefault());
 }

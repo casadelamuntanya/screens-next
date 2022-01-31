@@ -1,41 +1,41 @@
 // BAR WITH NAVIGATION LINKS OR RADIO SELECTOR -------
 .nav-bar {
-	display: flex;
-	justify-content: center;
-	white-space: nowrap;
-	margin: var(--spacing);
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  margin: var(--spacing);
 
-	label + label,
-	li + li { margin-left: 2em; }
+  label + label,
+  li + li { margin-left: 2em; }
 
-	input { display: none; }
+  input { display: none; }
 
-	a,
-	span {
-		line-height: var(--size-touch);
-		text-transform: uppercase;
-		opacity: 0.4;
-		text-align: center;
-		color: inherit;
-		transition: all 0.5s ease;
-		font-weight: bold;
-		display: block;
+  a,
+  span {
+    line-height: var(--size-touch);
+    text-transform: uppercase;
+    opacity: 0.4;
+    text-align: center;
+    color: inherit;
+    transition: all 0.5s ease;
+    font-weight: bold;
+    display: block;
 
-		&::after {
-			content: '';
-			display: block;
-			height: 2px;
-			width: 0;
-			background: currentColor;
-			transition: inherit;
-			margin: 0 auto;
-		}
-	}
+    &::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: currentColor;
+      transition: inherit;
+      margin: 0 auto;
+    }
+  }
 
-	input:checked + span,
-	a.router-link-exact-active {
-		opacity: 1;
+  input:checked + span,
+  a.router-link-exact-active {
+    opacity: 1;
 
-		&::after { width: 100%; }
-	}
+    &::after { width: 100%; }
+  }
 }
