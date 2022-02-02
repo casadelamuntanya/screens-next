@@ -9,6 +9,7 @@ figure {
   position: relative;
   margin: var(--spacing);
 
+  video,
   img {
     display: block;
     border-radius: var(--border-radius);
@@ -29,7 +30,8 @@ figure.attribution figcaption {
   opacity: 0.75;
 }
 
-figure.cover img {
+figure.cover img,
+figure.cover video {
   position: absolute;
   top: 0;
   left: 0;
