@@ -20,7 +20,7 @@
               :src="concept[`outer_qr_${locale}`][0].url"
               class="concept__qr">
           </div>
-          <p>{{ concept[`description_${locale}`] }}</p>
+          <markdown>{{ concept[`description_${locale}`] }}</markdown>
         </div>
       </li>
       <li
@@ -49,9 +49,11 @@
 import { ref, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import repository from './repository';
+import Markdown from '/@/components/Markdown.vue';
 
 export default {
   name: 'Discover',
+  components: { Markdown },
   setup() {
     const { locale } = useI18n();
 

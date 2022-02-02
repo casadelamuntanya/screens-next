@@ -1,7 +1,7 @@
 <template>
   <div class="trail-sheet">
     <h3>{{ trail[`name__${locale}`] }}</h3>
-    <p>{{ trail[`description__${locale}`] }}</p>
+    <markdown>{{ trail[`description__${locale}`] }}</markdown>
     <ul class="stats">
       <li v-for="(stat, name) in stats" :key="name">
         {{ format(stat.value) }}<small>{{ stat.unit }}</small>
@@ -16,12 +16,13 @@
 <script>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import Markdown from '/@/components/Markdown.vue';
 import Timeline from './Timeline.vue';
 import TrailElevation from './TrailElevation.vue';
 
 export default {
   name: 'TrailSheet',
-  components: { Timeline, TrailElevation },
+  components: { Markdown, Timeline, TrailElevation },
   props: { trail: { type: Object, required: true } },
   setup(props) {
     const { t, locale } = useI18n();
