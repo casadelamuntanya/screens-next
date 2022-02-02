@@ -43,7 +43,7 @@ import ColorPicker from '/@/components/ColorPicker.vue';
 import repository from '../repository';
 
 export default {
-  name: 'PlayFingerpaint',
+  name: 'Fingerpaint',
   components: { ColorPicker },
   setup() {
     const { t } = useI18n();

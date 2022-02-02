@@ -51,6 +51,7 @@ import { useI18n } from 'vue-i18n';
 import repository from './repository';
 
 export default {
+  name: 'Discover',
   setup() {
     const { locale } = useI18n();
 

@@ -55,11 +55,9 @@
 
 <script>
 import { useI18n } from 'vue-i18n';
-import InlineSvg from 'vue-inline-svg';
 
 export default {
   name: 'SafetyRescue',
-  components: { InlineSvg },
   setup() {
     const { t } = useI18n();
 

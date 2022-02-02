@@ -55,7 +55,7 @@ const findNextSquare = num => {
 };
 
 export default {
-  name: 'PlayMemorama',
+  name: 'Memorama',
   components: { SvgInline },
   setup() {
     const { t, locale } = useI18n();
