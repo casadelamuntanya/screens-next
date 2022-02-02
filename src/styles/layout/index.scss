@@ -25,7 +25,8 @@
   @extend .stack;
 
   height: 100vh;
-  font: 1rem / 1.2 'Roboto', 'Arial', sans-serif;
+  font: 1rem / 1.2 var(--text-family), sans-serif;
+  font-weight: lighter;
   color: var(--text-color);
   padding: var(--spacing);
   user-select: none;

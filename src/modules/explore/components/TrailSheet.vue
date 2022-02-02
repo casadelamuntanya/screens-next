@@ -62,6 +62,7 @@ export default {
   background: #fffa;
   padding: var(--l) var(--xxl);
   border-radius: var(--border-radius);
+  font-size: var(--m);
 
   .stats {
     box-sizing: border-box;
