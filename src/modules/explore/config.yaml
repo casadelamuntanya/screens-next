@@ -49,46 +49,48 @@ filters:
     - CLIMBER
     - BIKER
     - FISHER
-  distance:
-    min: 1000
-    max: 30000
-    step: 1000
-    unit:
-      type: length
-      from: m
-      to: km
-  duration:
-    min: 3600
-    max: 36000
-    step: 3600
-    unit:
-      type: time
-      from: s
-      to: h
-  drop_positive:
-    min: 0
-    max: 2000
-    step: 100
-    unit:
-      type: length
-      from: m
-      to: m
-  origin:
-    - Canillo
-    - Encamp
-    - Ordino
-    - La Massana
-    - Andorra la Vella
-    - Sant Julià de Lòria
-    - Escaldes Engordany
-  wildlife:
-    - RUPICABRA
-    - MARMOTA
-    - SALMO_TRUTTA
-    - TRITURUS
-    - TETRAO
-    - LAGOPUS
-  culture:
-    - ROMANESQUE
-    - DRY_STONE
-    - ART
+  ranges:
+    distance:
+      min: 1000
+      max: 30000
+      step: 1000
+      unit:
+        type: length
+        from: m
+        to: km
+    duration:
+      min: 3600
+      max: 36000
+      step: 3600
+      unit:
+        type: time
+        from: s
+        to: h
+    drop_positive:
+      min: 0
+      max: 2000
+      step: 100
+      unit:
+        type: length
+        from: m
+        to: m
+  picks:
+    origin:
+      - Canillo
+      - Encamp
+      - Ordino
+      - La Massana
+      - Andorra la Vella
+      - Sant Julià de Lòria
+      - Escaldes Engordany
+    wildlife:
+      - RUPICABRA
+      - MARMOTA
+      - SALMO_TRUTTA
+      - TRITURUS
+      - TETRAO
+      - LAGOPUS
+    culture:
+      - ROMANESQUE
+      - DRY_STONE
+      - ART

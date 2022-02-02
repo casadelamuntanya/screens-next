@@ -1,5 +1,5 @@
 <template>
-  <trails-filters v-model="filter" v-animate:fade />
+  <trail-filters v-model="filter" v-animate:fade />
   <section v-animate:fade :data-tag-pre="t('explore.trails')">
     <div
       v-dragscroll
@@ -27,13 +27,13 @@ import { useI18n } from 'vue-i18n';
 import { useMap, useGeoJSON, useAnimations } from '/@/components/map';
 import TrailCard from './components/TrailCard.vue';
 import TrailSheet from './components/TrailSheet.vue';
-import TrailsFilters from './components/TrailsFilters.vue';
+import TrailFilters from './components/TrailFilters.vue';
 import repository from './repository';
 import config from './config.yaml';
 
 export default {
   name: 'Explore',
-  components: { TrailCard, TrailSheet, TrailsFilters },
+  components: { TrailCard, TrailSheet, TrailFilters },
   setup() {
     const { t, locale } = useI18n();
 
