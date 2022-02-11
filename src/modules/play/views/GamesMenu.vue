@@ -6,7 +6,7 @@
           <img :src="covers[`../assets/cover.${game}.jpg`].default">
         </figure>
         <h1>{{ t(`play.${game}.name`) }}</h1>
-        <em>{{ t(`play.${game.name}.description`) }}</em>
+        <em>{{ t(`play.${game}.description`) }}</em>
         <p>
           <router-link :to="{ name: game }" class="btn">
             {{ t('play.start') }}
