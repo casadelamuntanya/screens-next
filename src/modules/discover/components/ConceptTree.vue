@@ -2,7 +2,15 @@
   <ul class="tree" :class="{ collapsed: isCollapsed }" :style="`--duration:${DURATION}`">
     <li :key="concept.id">
       <div class="wrapper">
-        <concept-card :concept="concept" expanded @close="unselect" />
+        <concept-card
+          v-if="concept.media"
+          :concept="concept"
+          expanded
+          @close="unselect" />
+        <div v-else class="root">
+          <h2>{{ t('discover.title') }}</h2>
+          <p>{{ t('discover.instructions') }}</p>
+        </div>
       </div>
     </li>
     <li
@@ -18,6 +26,7 @@
 
 <script>
 import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import ConceptCard from './ConceptCard.vue';
 
 export default {
@@ -29,6 +38,7 @@ export default {
     const WIDTH = window.innerWidth / 3;
     const DURATION = 1000;
 
+    const { t } = useI18n();
     const path = ref([]);
     const isCollapsed = ref(false);
     const root = computed(() => Object.values(props.concepts).filter(c => !c.parent));
@@ -68,7 +78,7 @@ export default {
       return `--angle:${angle}; --radius:${radius};--left:${x};--top:${y};`;
     };
 
-    return { DURATION, concept, isCollapsed, select, unselect, leafPosition };
+    return { t, DURATION, concept, isCollapsed, select, unselect, leafPosition };
   },
 };
 </script>
@@ -79,6 +89,11 @@ export default {
   --scale-m: 0.5;
 
   position: relative;
+
+  .root {
+    width: 300px;
+    transform: translate(-100%, -100%) scale(2);
+  }
 
   li {
     position: absolute;
