@@ -3,6 +3,8 @@ locales:
   supported:
     - ca
     - en
+    - es
+    - fr
 
 modules:
   - name: about
