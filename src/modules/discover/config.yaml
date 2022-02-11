@@ -1,0 +1,10 @@
+api:
+  base: app3qBEiTWF9mXkoa
+  CONCEPTS:
+    table: concepts
+    options:
+      index: true
+      persist: true
+      where:
+        ready:
+          checked: true

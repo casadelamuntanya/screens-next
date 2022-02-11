@@ -1,38 +1,38 @@
 [data-tooltip] {
-	position: relative;
+  position: relative;
 
-	&::before,
-	&::after {
-		position: absolute;
-		bottom: 100%;
-		left: 50%;
-		z-index: 1;
-		display: none;
-		margin-bottom: 20px;
-	}
+  &::before,
+  &::after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    z-index: 1;
+    display: none;
+    margin-bottom: 20px;
+  }
 
-	&::before {
-		box-sizing: border-box;
-		text-align: center;
-		padding: 0.75em 1em;
-		color: var(--color-light);
-		background: var(--color-dark);
-		transform: translate(-50%, -20px);
-		content: attr(data-tooltip);
-		font-size: 1rem;
-		line-height: 1.2;
-		white-space: pre-wrap;
-		width: 225px;
-		border-radius: var(--border-radius);
-	}
+  &::before {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0.75em 1em;
+    color: var(--color-light);
+    background: var(--color-dark);
+    transform: translate(-50%, -20px);
+    content: attr(data-tooltip);
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: pre-wrap;
+    width: 225px;
+    border-radius: var(--border-radius);
+  }
 
-	&::after {
-		border: 10px solid transparent;
-		border-top: 10px solid var(--color-dark);
-		transform: translateX(-50%);
-		content: '';
-	}
+  &::after {
+    border: 10px solid transparent;
+    border-top: 10px solid var(--color-dark);
+    transform: translateX(-50%);
+    content: '';
+  }
 
-	&:hover::before,
-	&:hover::after { display: block; }
+  &:hover::before,
+  &:hover::after { display: block; }
 }

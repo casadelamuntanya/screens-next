@@ -1,20 +1,20 @@
 @import
-	'nav-bar',
-	'section',
-	'box',
-	'columns',
-	'blocks',
-	'list',
-	'scroller',
-	'tooltip',
-	'shadow',
-	'navigation',
-	'stats';
+  'nav-bar',
+  'section',
+  'box',
+  'columns',
+  'blocks',
+  'list',
+  'scroller',
+  'tooltip',
+  'shadow',
+  'navigation',
+  'stats';
 
 .stack {
-	display: flex;
-	flex-direction: column;
-	flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .center { margin: auto; }
@@ -22,42 +22,43 @@
 .ungutter { margin: 0 calc(-1 * var(--spacing)); }
 
 .app {
-	@extend .stack;
+  @extend .stack;
 
-	height: 100vh;
-	font: 1rem / 1.2 'Roboto', 'Arial', sans-serif;
-	color: var(--text-color);
-	padding: var(--spacing);
-	user-select: none;
-	counter-reset: counter__section;
+  height: 100vh;
+  font: 1rem / 1.2 var(--text-family), sans-serif;
+  font-weight: lighter;
+  color: var(--text-color);
+  padding: var(--spacing);
+  user-select: none;
+  counter-reset: counter__section;
 
-	&__header {
-		display: flex;
-		align-items: center;
-		position: relative;
-		justify-content: center;
-		margin: var(--spacing);
-	}
+  &__header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    margin: var(--spacing);
+  }
 
-	&__menu-link {
-		color: inherit;
-		height: 52px;
-		text-align: center;
-		font-size: 0.5rem;
-		text-transform: uppercase;
+  &__menu-link {
+    color: inherit;
+    height: 52px;
+    text-align: center;
+    font-size: 0.5rem;
+    text-transform: uppercase;
 
-		img,
-		svg {
-			display: block;
-			margin: 0 auto;
-			height: 100%;
-			margin-bottom: 0.5rem;
-		}
-	}
+    img,
+    svg {
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 
 .loading {
-	margin: auto;
-	color: #0005;
-	font-size: 1.3em;
+  margin: auto;
+  color: #0005;
+  font-size: 1.3em;
 }

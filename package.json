@@ -7,11 +7,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@vueform/slider": "^1.0.5",
-    "d3": "^6.7.0",
-    "js-yaml": "^3.14.1",
+    "@vueform/slider": "^2.0.8",
+    "d3": "^7.3.0",
+    "js-yaml": "^4.1.0",
     "leaflet": "^1.7.1",
     "painless-airtable": "^0.2.1",
+    "remarkable": "^2.0.1",
     "remixicon": "^2.5.0",
     "reset-css": "^5.0.1",
     "units-converter": "^1.0.3",
@@ -22,19 +23,19 @@
     "vue-router-animations": "gist:bd502b019ba91f8f70b3a8f5cbb6f4d8"
   },
   "devDependencies": {
-    "@intlify/vite-plugin-vue-i18n": "^2.1.2",
+    "@intlify/vite-plugin-vue-i18n": "^3.2.1",
     "@rollup/plugin-yaml": "^3.0.0",
-    "@vitejs/plugin-vue": "^1.2.2",
+    "@vitejs/plugin-vue": "^2.1.0",
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.4.0",
-    "eslint": "^7.25.0",
-    "eslint-config-airbnb": "^18.2.1",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-vue": "^7.9.0",
+    "eslint-plugin-vue": "^8.4.0",
     "sass": "^1.32.11",
-    "stylelint": "^13.13.0",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-scss": "^3.19.0",
+    "stylelint": "^14.3.0",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-scss": "^4.1.0",
     "vite": "^2.2.3"
   }
 }

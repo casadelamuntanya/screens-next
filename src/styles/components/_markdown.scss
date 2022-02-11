@@ -1,0 +1,59 @@
+.markdown {
+  // Style
+  em { font-style: italic; }
+  del { text-decoration: line-through; }
+
+  // Lists
+  ul, ol {
+    margin: 1.5rem 2.5rem;
+    display: block;
+    list-style-type: disc;
+
+    li { margin: 0.25rem 0; }
+
+    ul, ol {
+      margin: 0.25rem 1.5rem;
+      list-style-type: circle;
+    }
+  }
+
+  ol { list-style-type: decimal !important; }
+
+  // Code
+  pre code {
+    display: block;
+    margin: 1em 0;
+    padding: 1rem;
+    border-radius: 3px;
+  }
+
+  code {
+    background: #f8f8f8;
+    padding: 0.2em 0.4em;
+    font-family: 'Courier New', monospace;
+  }
+
+  // Images
+  img {
+    max-width: 100%;
+    margin: auto;
+  }
+
+  // Quotes
+  blockquote {
+    margin: 1em 0;
+    padding: 1px 1rem;
+    background: #f9f9f9;
+    color: #888;
+    font-style: italic;
+    border-left: 3px solid var(--color-primary);
+  }
+
+  .footnotes {
+    margin: 0;
+
+    &-list {
+      list-style: none !important;
+    }
+  }
+}

@@ -1,30 +1,32 @@
 .btn,
 input[type=submit],
 input[type=button] {
-	display: inline-flex;
-	align-items: center;
-	appearance: none;
-	border: 0;
-	line-height: var(--size-touch);
-	padding: 0 var(--button-padding);
-	font-size: inherit;
-	background: var(--button-bg-color);
-	color: var(--button-text-color);
-	font-weight: normal;
-	vertical-align: middle;
-	border-radius: var(--border-radius);
+  display: inline-flex;
+  align-items: center;
+  appearance: none;
+  border: 0;
+  line-height: var(--size-touch);
+  padding: 0 var(--button-padding);
+  font-size: inherit;
+  background: var(--button-bg-color);
+  color: var(--button-text-color);
+  font-weight: normal;
+  vertical-align: middle;
+  border-radius: var(--border-radius);
 
-	&:active { transform: scale(0.9); }
+  &:active { transform: scale(0.9); }
 
-	svg {
-		fill: currentColor;
-		margin-right: calc(0.5 * var(--button-padding));
-	}
+  svg {
+    fill: currentColor;
+    margin-right: calc(0.5 * var(--button-padding));
+  }
 }
 
 .btn--alert { background: var(--color-alert); }
 
 .btn--plain {
-	background: transparent;
-	color: var(--button-bg-color);
+  background: transparent;
+  color: var(--button-bg-color);
 }
+
+.buttons { text-align: center; }

@@ -3,13 +3,13 @@ h2,
 h3,
 h4,
 h5 {
-	position: relative;
-	text-transform: uppercase;
-	font-weight: bold;
-	z-index: 1;
-	line-height: 1;
-	margin: 0.25em 0;
-	font-family: var(--text-family--title), 'Arial', sans-serif;
+  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 1;
+  line-height: 1;
+  margin: 0.25em 0;
+  font-family: var(--text-family--title), 'Arial', sans-serif;
 }
 
 h1,
@@ -43,20 +43,20 @@ big { font-size: 1.5em; }
 small { font-size: 0.75em; }
 
 sup {
-	font-size: 0.75em;
-	vertical-align: super;
+  font-size: 0.75em;
+  vertical-align: super;
 }
 
 sub {
-	font-size: 0.75em;
-	vertical-align: sub;
+  font-size: 0.75em;
+  vertical-align: sub;
 }
 
 a {
-	color: var(--color-primary);
-	text-decoration: none;
-	display: inline-block;
-	position: relative;
-	font-weight: bold;
-	outline: 0;
+  color: var(--color-primary);
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  outline: 0;
 }

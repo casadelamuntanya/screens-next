@@ -7,8 +7,8 @@
 :active { outline: 0; }
 
 .production-ready {
-	touch-action: none;
-	cursor: none !important;
+  touch-action: none;
+  cursor: none !important;
 
-	* { cursor: none !important; }
+  * { cursor: none !important; }
 }

@@ -1,39 +1,39 @@
 .shadow {
-	&-tl,
-	&-tr,
-	&-br,
-	&-bl {
-		position: relative;
+  &-tl,
+  &-tr,
+  &-br,
+  &-bl {
+    position: relative;
 
-		&::before {
-			content: '';
-			display: block;
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			background: var(--color-dark);
-			opacity: 0.04;
-			border-radius: var(--border-radius);
-		}
-	}
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: var(--color-dark);
+      opacity: 0.04;
+      border-radius: var(--border-radius);
+    }
+  }
 
-	&-tl::before {
-		margin-left: -3em;
-		margin-top: -3em;
-	}
+  &-tl::before {
+    margin-left: -3em;
+    margin-top: -3em;
+  }
 
-	&-tr::before {
-		margin-left: 3em;
-		margin-top: -3em;
-	}
+  &-tr::before {
+    margin-left: 3em;
+    margin-top: -3em;
+  }
 
-	&-br::before {
-		margin-left: 3em;
-		margin-top: 3em;
-	}
+  &-br::before {
+    margin-left: 3em;
+    margin-top: 3em;
+  }
 
-	&-bl::before {
-		margin-left: -3em;
-		margin-top: 3em;
-	}
+  &-bl::before {
+    margin-left: -3em;
+    margin-top: 3em;
+  }
 }
