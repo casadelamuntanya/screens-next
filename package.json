@@ -12,6 +12,7 @@
     "js-yaml": "^4.1.0",
     "leaflet": "^1.7.1",
     "painless-airtable": "^0.2.1",
+    "qrcode.vue": "^3.3.3",
     "remarkable": "^2.0.1",
     "remixicon": "^2.5.0",
     "reset-css": "^5.0.1",
