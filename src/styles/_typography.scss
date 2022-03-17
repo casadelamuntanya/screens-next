@@ -1,31 +1,52 @@
-h1,
-h2,
-h3,
-h4,
-h5 {
+%title {
   position: relative;
   text-transform: uppercase;
   font-weight: bold;
   z-index: 1;
   line-height: 1;
   margin: 0.25em 0;
-  font-family: var(--text-family--title), 'Arial', sans-serif;
+  font-family: var(--text-family--title), Arial, sans-serif;
 }
 
 h1,
-.text-xxxl { font-size: var(--xxxl); }
+%h1,
+.text-xxxl {
+  @extend %title;
+
+  font-size: var(--xxxl);
+}
 
 h2,
-.text-xxl { font-size: var(--xxl); }
+%h2,
+.text-xxl {
+  @extend %title;
+
+  font-size: var(--xxl);
+}
 
 h3,
-.text-xl { font-size: var(--xl); }
+%h3,
+.text-xl {
+  @extend %title;
+
+  font-size: var(--xl);
+}
 
 h4,
-.text-l { font-size: var(--l); }
+%h4,
+.text-l {
+  @extend %title;
+
+  font-size: var(--l);
+}
 
 h5,
-.text-m { font-size: var(--m); }
+%h5,
+.text-m {
+  @extend %title;
+
+  font-size: var(--m);
+}
 
 .text-xxxl,
 .text-xxl,
@@ -59,4 +80,8 @@ a {
   position: relative;
   font-weight: bold;
   outline: 0;
+}
+
+.formula {
+  white-space: nowrap;
 }
