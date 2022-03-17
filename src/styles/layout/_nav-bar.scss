@@ -33,6 +33,7 @@
   }
 
   input:checked + span,
+  a.active,
   a.router-link-exact-active {
     opacity: 1;
 
