@@ -1,0 +1,78 @@
+tipsPerPage: 2
+
+tips:
+  free_camping:
+    image:
+      url: https://source.unsplash.com/yBgC-qVCxMg/600x500
+      attribution: Photo by Rahul Bhosale on Unsplash
+    text:
+      - description
+      - keep_clean
+      - authorisation
+
+  shelters:
+    image:
+      url: https://source.unsplash.com/j2X6eIActf4/600x500
+      attribution: Photo by Fabrizio Conti on Unsplash
+    text:
+      - description
+      - check_capacity
+    qr: https://www.patrimoninatural.ad/refugis-i-grs
+
+  fire:
+    image:
+      url: https://source.unsplash.com/_P-O42qV68I/600x500
+      attribution: Photo by Cailin Grant-Jansen on Unsplash
+    text:
+      - description
+    list:
+      - text: no_natural_parks
+        icon: close
+        type: alert
+      - text: extinguish_fire
+        icon: close
+        type: alert
+      - text: surround_rocks
+        icon: check
+        type: success
+      - text: far_trees
+        icon: check
+        type: success
+    qr: https://www.protecciocivil.ad/altres-riscos-i-mes-consells/enceses-de-foc
+
+  dogs:
+    image:
+      url: https://source.unsplash.com/OHV_IT371vI/600x500
+      attribution: Photo by Chewy on Unsplash
+    text:
+      - description
+      - excrements
+    qr: https://www.agricultura.ad/images/stories/animalscompanyia/Triptic_GossosPerillosos.pdf
+
+  vehicles:
+    image:
+      url: https://source.unsplash.com/xb1rt2y-3l8/600x500
+      attribution: Photo by Egor Myznik on Unsplash
+    text:
+      - description
+
+  drones:
+    image:
+      url: https://source.unsplash.com/0VfnZbQd98c/600x500
+      attribution: Photo by Clay Banks on Unsplash
+    text:
+      - description
+    list:
+      - text: max_weight
+        icon: check
+        type: success
+      - text: vlos
+        icon: check
+        type: success
+      - text: max_height
+        icon: check
+        type: success
+      - text: no_people
+        icon: close
+        type: alert
+    qr: https://www.transports.ad/ca/transport-aeri
