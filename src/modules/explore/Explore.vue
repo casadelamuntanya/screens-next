@@ -9,6 +9,7 @@
       <trail-card
         v-for="trail in filteredTrails"
         :key="trail.id"
+        v-grow
         :trail="trail"
         :active="activeTrail"
         @click="toggleTrail(trail)" />
@@ -29,10 +30,12 @@ import TrailCard from './components/TrailCard.vue';
 import TrailSheet from './components/TrailSheet.vue';
 import TrailFilters from './components/TrailFilters.vue';
 import repository from './repository';
+import Grow from '/@/utils/directive.grow';
 import config from './config.yaml';
 
 export default {
   name: 'Explore',
+  directives: { Grow },
   components: { TrailCard, TrailSheet, TrailFilters },
   setup() {
     const { t, locale } = useI18n();
