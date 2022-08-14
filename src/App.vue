@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="app" @click="resetTimeout">
     <header class="app__header">
       <router-link to="/" class="app__menu-link">
         <inline-svg src="/images/vectors/logo.svg" />
@@ -16,18 +16,29 @@
 <script>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import InlineSvg from 'vue-inline-svg';
 import NavLocale from '/@/components/NavLocale.vue';
+import config from '/@/config.yaml';
 
 export default {
   name: 'App',
   components: { InlineSvg, NavLocale },
   setup() {
     const { t } = useI18n();
+    const router = useRouter();
     const route = useRoute();
     const isMenu = computed(() => route.path === '/');
-    return { t, isMenu };
+
+    let timeout;
+    const resetTimeout = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        router.push('/');
+      }, config.timeout);
+    };
+
+    return { t, isMenu, resetTimeout };
   },
 };
 </script>
