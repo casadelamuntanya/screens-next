@@ -42,7 +42,7 @@ import { useI18n } from 'vue-i18n';
 import InlineSvg from 'vue-inline-svg';
 import { equipment } from '../config.yaml';
 
-const icons = import.meta.globEagers('../assets/equipment/*.svg');
+const icons = import.meta.globEager('../assets/equipment/*.svg');
 
 export default {
   name: 'SafetyEquipment',

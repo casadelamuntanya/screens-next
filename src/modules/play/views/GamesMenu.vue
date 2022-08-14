@@ -21,7 +21,7 @@
 import { useI18n } from 'vue-i18n';
 import { games } from '../config.yaml';
 
-const covers = import.meta.globEagers('../assets/cover.*.jpg');
+const covers = import.meta.globEager('../assets/cover.*.jpg');
 
 export default {
   name: 'GamesMenu',

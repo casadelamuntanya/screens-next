@@ -1,3 +1,5 @@
+timeout: 120000
+
 locales:
   default: ca
   supported:

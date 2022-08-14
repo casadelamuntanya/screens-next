@@ -10,7 +10,7 @@
       <p class="center">{{ t('safety.thunderstorm.know_distance') }}</p>
     </div>
     <div v-animate:fade-left class="column stacks">
-      <p class="text-xxxl">d<small>(km)</small> = s / 3</p>
+      <p class="text-xxxl formula">d<small>(km)</small> = s / 3</p>
     </div>
   </section>
 
