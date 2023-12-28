@@ -33,7 +33,7 @@ map:
 
   tiles:
     - name: monochrome
-      url: https://api.mapbox.com/styles/v1/markusand/ck4g89u466i301cqgk2cv5fnh/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}
+      url: https://api.mapbox.com/styles/v1/ari-infraestructura/clqp6gomm00uz01nwbjtl6nny/tiles/256/{z}/{x}/{y}@2x?access_token={accessToken}
       options:
         attribution: &copy; mapbox
         token: VITE_MAPBOX_TOKEN
