@@ -20,7 +20,7 @@ modules:
     path: /safety
     title: vertical right top
     image:
-      url: https://source.unsplash.com/NQjvaCYp0h4/500x700
+      url: /images/jpeg/NQjvaCYp0h_700_500.jpeg
       attribution: © photo by Tim Jones on Unsplash
     transitions:
       title: fade-left
