@@ -1,5 +1,5 @@
 <template>
-  <ul v-animate:fade-down class="nav-bar">
+  <ul v-entreacte:fade-down class="nav-bar">
     <li v-for="(_, name) in LEVELS" :key="name">
       <label>
         <input v-model="level" type="radio" :value="name">
@@ -10,7 +10,7 @@
   <section class="stack">
     <transition-group
       v-if="suits.length"
-      v-animate:fade-up
+      v-entreacte:fade-up
       tag="ul"
       name="deal-cards"
       class="stack board"
@@ -38,7 +38,7 @@
     <p>{{ t('play.memorama.score', gameplay) }}</p>
     <p>
       <button class="btn" @click="reset">{{ t('play.again') }}</button>
-      <router-link to="/play" class="btn btn--plain">{{ t('play.exit') }}</router-link>
+      <router-link to="/play" class="btn btn-plain">{{ t('play.exit') }}</router-link>
     </p>
   </div>
 </template>
